@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="小厂面试记录-003~"><meta name="keywords" content="面试"><meta name="author" content="ZTY"><meta name="copyright" content="ZTY"><title>小厂面试记录-003~ | zty-f</title><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><header id="page-header"><nav id="navbar"><span class="nav-left"><div class="tou-img"><img src="/img/avatar.jpg"></div><a id="site-name" href="/">zty-f</a></span><i class="fa fa-bars toggle-menu nav-right" aria-hidden="true"></i><span class="title">小厂面试记录-003~</span><span class="nav-right menus"><a class="site-page" href="/about">关于我</a></span></nav></header><article id="content-outer"><section id="content-inner"><article id="post"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="sidebar-toc"><div class="sidebar-toc__title">大纲</div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-text">1.单例模式创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9B%86%E5%90%88%E6%A6%82%E8%BF%B0"><span class="toc-text">2.集合概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-text">3.线程创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BC%82%E5%B8%B8%E6%A6%82%E8%BF%B0"><span class="toc-text">4.异常概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Exception%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">常见的Exception有哪些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Error%E5%92%8CException%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">Error和Exception的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E5%92%8C%E9%9D%9E%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%EF%BC%88checked%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">运行时异常和非运行时异常（checked）的区别？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-SpringMVC%E7%9A%84RequestMapping%E5%8F%82%E6%95%B0"><span class="toc-text">5.SpringMVC的RequestMapping参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#value-%E4%BB%A3%E8%A1%A8%E5%AE%9E%E9%99%85%E7%9A%84url"><span class="toc-text">value   代表实际的url</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#param-%E6%8C%87%E5%AE%9A%E6%9F%90%E4%B8%80%E7%A7%8D%E5%8F%82%E6%95%B0%E5%90%8D%E7%B1%BB%E5%9E%8B%EF%BC%8C%E5%BD%93%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8C%85%E5%90%AB%E8%AF%A5%E5%90%8D%E7%A7%B0%E7%9A%84%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%97%B6%EF%BC%8C%E6%89%8D%E8%83%BD%E8%BF%9B%E8%A1%8C%E7%9B%B8%E5%BA%94%EF%BC%8C%E5%90%A6%E5%88%99%E6%8B%92%E7%BB%9D%E6%AD%A4%E6%AC%A1%E8%AF%B7%E6%B1%82%E3%80%82"><span class="toc-text">param  指定某一种参数名类型，当请求数据中包含该名称的请求参数时，才能进行相应，否则拒绝此次请求。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#method-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%EF%BC%8C%E6%94%AF%E6%8C%81GET%EF%BC%8CPOST%EF%BC%8CPUT%EF%BC%8CDELETE"><span class="toc-text">method   请求方法，支持GET，POST，PUT，DELETE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#consumes-%E6%8E%A5%E5%8F%97%E7%9A%84Content-Type%E7%B1%BB%E5%9E%8B"><span class="toc-text">consumes    接受的Content-Type类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#produces-%E8%BF%94%E5%9B%9E%E7%9A%84Content-Type"><span class="toc-text">produces    返回的Content-Type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#headers-%E7%94%A8%E4%BA%8E%E6%8C%87%E5%AE%9A%E6%9F%90%E4%B8%80%E7%A7%8D%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%B1%BB%E5%9E%8B%E3%80%82"><span class="toc-text">headers   用于指定某一种请求头类型。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Spring%E4%BA%8B%E5%8A%A1%E5%92%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-text">6.Spring事务和隔离级别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-%E4%BA%8B%E5%8A%A1%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">Spring 事务实现方式有哪些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E8%A1%8C%E4%B8%BA%EF%BC%9F"><span class="toc-text">有哪些事务传播行为？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-text">事务隔离级别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-text">Spring隔离级别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></div></div></div><div class="article-container" id="post-content"><h3 id="1-单例模式创建方式"><a href="#1-单例模式创建方式" class="headerlink" title="1.单例模式创建方式"></a>1.单例模式创建方式</h3><p>1.饿汉式（静态常量）【可用】</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Singleton INSTANCE=<span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line"> <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">     <span class="keyword">return</span> INSTANCE;</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">优点：这种写法比较简单，就是在类装载的时候就完成实例化。避免了线程同步问题。</span><br><span class="line">缺点：在类装载的时候就完成实例化，没有达到Lazy Loading的效果。如果从始至终从未使用过这个实例，则会造成内存的浪费。</span><br></pre></td></tr></table></figure>
+<p>2.饿汉式（静态代码块）【可用】</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">   <span class="keyword">static</span>&#123;</span><br><span class="line">         instance=<span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">这种方式和上面的方式其实类似，只不过将类实例化的过程放在了静态代码块中，也是在类装载的时候，就执行静态代码块中的代码，初始化类的实例。优缺点和上面是一样的。</span><br></pre></td></tr></table></figure>
+<p>3.懒汉式（线程不安全）【不可用】</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Singleton&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> Singletons singleton;</span><br><span class="line"> <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;</span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">     <span class="keyword">if</span>(singleton==<span class="literal">null</span>)&#123;</span><br><span class="line">         singleton=<span class="keyword">new</span> <span class="title class_">Singleton</span>();  </span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> singleton;</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> 这种写法起到了LazyLoading的效果，但是只能在单线程下使用。如果在多线程下，一个线程进入了<span class="keyword">if</span> (singleton ==<span class="literal">null</span>)判断语句块，还未来得及往下执行，另一个线程也通过了这个判断语句，这时便会产生多个实例。所以在多线程环境下不可使用这种方式。</span><br></pre></td></tr></table></figure>
+<p>4.懒汉式（线程安全，同步方法）【不推荐用】</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line">     <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">          <span class="keyword">if</span>(singleton==<span class="literal">null</span>)&#123;</span><br><span class="line">             singleton=<span class="keyword">new</span> <span class="title class_">Singleton</span>();  </span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> singleton;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">解决上面第三种实现方式的线程不安全问题，做个线程同步就可以了，于是就对getInstance()方法进行了线程同步。</span><br><span class="line"></span><br><span class="line">缺点：效率太低了，每个线程在想获得类的实例时候，执行getInstance()方法都要进行同步。而其实这个方法只执行一次实例化代码就够了，后面的想获得该类实例，直接<span class="keyword">return</span>就行了。方法进行同步效率太低要改进。</span><br></pre></td></tr></table></figure>
+
+<p>5.懒汉式（线程安全，同步代码块）【不可用】</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line">     <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">static</span>  Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">          <span class="keyword">if</span>(singleton==<span class="literal">null</span>)&#123;</span><br><span class="line">              <span class="keyword">synchronized</span> (Singleton.class)&#123;</span><br><span class="line">                  singleton=<span class="keyword">new</span> <span class="title class_">Singleton</span>();  </span><br><span class="line">              &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> singleton;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">由于第四种实现方式同步效率太低，所以摒弃同步方法，改为同步产生实例化的的代码块。但是这种同步并不能起到线程同步的作用。跟第<span class="number">3</span>种实现方式遇到的情形一致，假如一个线程进入了<span class="keyword">if</span> (singleton ==<span class="literal">null</span>)判断语句块，还未来得及往下执行，另一个线程也通过了这个判断语句，这时便会产生多个实例。</span><br></pre></td></tr></table></figure>
+
+<p>6.双重检查【推荐使用】</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton singleton;</span><br><span class="line">     <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">static</span>  Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">          <span class="keyword">if</span>(singleton==<span class="literal">null</span>)&#123;</span><br><span class="line">              <span class="keyword">synchronized</span> (Singleton.class)&#123;</span><br><span class="line">                     <span class="keyword">if</span>(singleton==<span class="literal">null</span>)&#123;</span><br><span class="line">                          singleton=<span class="keyword">new</span> <span class="title class_">Singleton</span>();  </span><br><span class="line">                      &#125;</span><br><span class="line">              &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> singleton;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">Double-Check概念对于多线程开发者来说不会陌生，如代码中所示，我们进行了两次<span class="keyword">if</span> (singleton ==<span class="literal">null</span>)检查，这样就可以保证线程安全了。这样，实例化代码只用执行一次，后面再次访问时，判断<span class="keyword">if</span>(singleton == <span class="literal">null</span>)，直接<span class="keyword">return</span>实例化对象。</span><br><span class="line"></span><br><span class="line">优点：线程安全；延迟加载；效率较高。</span><br></pre></td></tr></table></figure>
+
+<p>7.静态内部类【推荐使用】</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="title function_">Singlrton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">SingletonInstance</span>&#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">static</span>  <span class="keyword">final</span> Singleton INSTANCE=<span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">         <span class="keyword">return</span> SingletonInstance.INSTANCE;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">这种方式跟饿汉式方式采用的机制类似，但又有不同。两者都是采用了类装载的机制来保证初始化实例时只有一个线程。不同的地方在饿汉式方式是只要Singleton类被装载就会实例化，没有Lazy-Loading的作用，而静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</span><br><span class="line"></span><br><span class="line">类的静态属性只会在第一次加载类的时候初始化，所以在这里，JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</span><br><span class="line"></span><br><span class="line">优点：避免了线程不安全，延迟加载，效率高。</span><br></pre></td></tr></table></figure>
+
+<p>8.枚举【推荐使用】</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">       INSTANCE;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">whateverMethod</span><span class="params">()</span>&#123;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">借助JDK1<span class="number">.5</span>中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-集合概述"><a href="#2-集合概述" class="headerlink" title="2.集合概述"></a>2.集合概述</h3><p>Java集合类主要由两个接口<strong>Collection</strong>和<strong>Map</strong>派生出来的，Collection有三个子接口：List、Set、Queue。</p>
+<p>Java集合框架图如下：</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/12/7826b38c0b95257a.png" alt="image-20220512185126661"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/12/510b34f190bdeeb6.png" alt="image-20220512185209056"></p>
+<p>List代表了有序可重复集合，可直接根据元素的索引来访问；</p>
+<p>Set代表无序不可重复集合，只能根据元素本身来访问；</p>
+<p>Queue是队列集合；</p>
+<p>Map代表的是存储key-value对的集合，可根据元素的key来访问value。</p>
+<p>集合体系中常用的实现类有<code>ArrayList、LinkedList、HashSet、TreeSet、HashMap、TreeMap</code>等实现类。</p>
+<h3 id="3-线程创建方式"><a href="#3-线程创建方式" class="headerlink" title="3.线程创建方式"></a>3.线程创建方式</h3><ul>
+<li>通过扩展<code>Thread</code>类来创建多线程</li>
+<li>通过实现<code>Runnable</code>接口来创建多线程</li>
+<li>实现<code>Callable</code>接口，通过<code>FutureTask</code>接口创建线程。</li>
+<li>使用<code>Executor</code>框架来创建线程池。</li>
+</ul>
+<h3 id="4-异常概述"><a href="#4-异常概述" class="headerlink" title="4.异常概述"></a>4.异常概述</h3><h4 id="常见的Exception有哪些？"><a href="#常见的Exception有哪些？" class="headerlink" title="常见的Exception有哪些？"></a>常见的Exception有哪些？</h4><hr>
+<p>常见的RuntimeException：</p>
+<ol>
+<li><code>ClassCastException</code> &#x2F;&#x2F;类型转换异常</li>
+<li><code>IndexOutOfBoundsException</code> &#x2F;&#x2F;数组越界异常</li>
+<li><code>NullPointerException</code> &#x2F;&#x2F;空指针</li>
+<li><code>ArrayStoreException</code> &#x2F;&#x2F;数组存储异常</li>
+<li><code>NumberFormatException</code> &#x2F;&#x2F;数字格式化异常</li>
+<li><code>ArithmeticException</code> &#x2F;&#x2F;数学运算异常</li>
+</ol>
+<p>unchecked Exception：</p>
+<ol>
+<li><code>NoSuchFieldException</code> &#x2F;&#x2F;反射异常，没有对应的字段</li>
+<li><code>ClassNotFoundException</code> &#x2F;&#x2F;类没有找到异常</li>
+<li><code>IllegalAccessException</code> &#x2F;&#x2F;安全权限异常，可能是反射时调用了private方法</li>
+</ol>
+<h4 id="Error和Exception的区别？"><a href="#Error和Exception的区别？" class="headerlink" title="Error和Exception的区别？"></a>Error和Exception的区别？</h4><hr>
+<p><strong>Error</strong>：JVM 无法解决的严重问题，如栈溢出<code>StackOverflowError</code>、内存溢出<code>OOM</code>等。程序无法处理的错误。</p>
+<p><strong>Exception</strong>：其它因编程错误或偶然的外在因素导致的一般性问题。可以在代码中进行处理。如：空指针异常、数组下标越界等。</p>
+<h4 id="运行时异常和非运行时异常（checked）的区别？"><a href="#运行时异常和非运行时异常（checked）的区别？" class="headerlink" title="运行时异常和非运行时异常（checked）的区别？"></a>运行时异常和非运行时异常（checked）的区别？</h4><hr>
+<p><code>unchecked exception</code>包括<code>RuntimeException</code>和<code>Error</code>类，其他所有异常称为检查（checked）异常。</p>
+<ol>
+<li><code>RuntimeException</code>由程序错误导致，应该修正程序避免这类异常发生。</li>
+<li><code>checked Exception</code>由具体的环境（读取的文件不存在或文件为空或sql异常）导致的异常。必须进行处理，不然编译不通过，可以catch或者throws。</li>
+</ol>
+<h3 id="5-SpringMVC的RequestMapping参数"><a href="#5-SpringMVC的RequestMapping参数" class="headerlink" title="5.SpringMVC的RequestMapping参数"></a>5.SpringMVC的RequestMapping参数</h3><ul>
+<li><h4 id="value-代表实际的url"><a href="#value-代表实际的url" class="headerlink" title="value   代表实际的url"></a>value   代表实际的url</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloController</span>&#123;</span><br><span class="line">        <span class="meta">@RequestMapping</span> (value = <span class="string">&quot;/hello&quot;</span>)</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hello</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> 				<span class="keyword">throws</span> IOException &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="param-指定某一种参数名类型，当请求数据中包含该名称的请求参数时，才能进行相应，否则拒绝此次请求。"><a href="#param-指定某一种参数名类型，当请求数据中包含该名称的请求参数时，才能进行相应，否则拒绝此次请求。" class="headerlink" title="param  指定某一种参数名类型，当请求数据中包含该名称的请求参数时，才能进行相应，否则拒绝此次请求。"></a>param  指定某一种参数名类型，当请求数据中包含该名称的请求参数时，才能进行相应，否则拒绝此次请求。</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &quot;/findUser&quot;, param = &quot;username&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="method-请求方法，支持GET，POST，PUT，DELETE"><a href="#method-请求方法，支持GET，POST，PUT，DELETE" class="headerlink" title="method   请求方法，支持GET，POST，PUT，DELETE"></a>method   请求方法，支持GET，POST，PUT，DELETE</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span> (value = <span class="string">&quot;/hello&quot;</span>, method = RequestMethod.GET)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hello</span> <span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> 	IOException &#123;</span><br><span class="line">         </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="consumes-接受的Content-Type类型"><a href="#consumes-接受的Content-Type类型" class="headerlink" title="consumes    接受的Content-Type类型"></a>consumes    接受的Content-Type类型</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span> (value = <span class="string">&quot;/hello&quot;</span>, consumes = <span class="string">&quot;application/json&quot;</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hello</span> <span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="produces-返回的Content-Type"><a href="#produces-返回的Content-Type" class="headerlink" title="produces    返回的Content-Type"></a>produces    返回的Content-Type</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span> (value = <span class="string">&quot;/hello&quot;</span>, produces = <span class="string">&quot;application/json&quot;</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hello</span> <span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="headers-用于指定某一种请求头类型。"><a href="#headers-用于指定某一种请求头类型。" class="headerlink" title="headers   用于指定某一种请求头类型。"></a>headers   用于指定某一种请求头类型。</h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span> (value = <span class="string">&quot;/hello&quot;</span>, headers = <span class="string">&quot;Content-Type:text/html;charset=UTF-8&quot;</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hello</span> <span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-Spring事务和隔离级别"><a href="#6-Spring事务和隔离级别" class="headerlink" title="6.Spring事务和隔离级别"></a>6.Spring事务和隔离级别</h3><h4 id="Spring-事务实现方式有哪些？"><a href="#Spring-事务实现方式有哪些？" class="headerlink" title="Spring 事务实现方式有哪些？"></a>Spring 事务实现方式有哪些？</h4><hr>
+<p>事务就是一系列的操作原子执行。Spring事务机制主要包括声明式事务和编程式事务。</p>
+<ul>
+<li><strong>编程式事务</strong>：通过编程的方式管理事务，这种方式带来了很大的灵活性，但很难维护。</li>
+<li><strong>声明式事务</strong>：将事务管理代码从业务方法中分离出来，通过aop进行封装。Spring声明式事务使得我们无需要去处理获得连接、关闭连接、事务提交和回滚等这些操作。使用 <code>@Transactional</code> 注解开启声明式事务。</li>
+</ul>
+<p><code>@Transactional</code>相关属性如下：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>String</td>
+<td>可选的限定描述符，指定使用的事务管理器</td>
+</tr>
+<tr>
+<td>propagation</td>
+<td>enum: Propagation</td>
+<td>可选的事务传播行为设置</td>
+</tr>
+<tr>
+<td>isolation</td>
+<td>enum: Isolation</td>
+<td>可选的事务隔离级别设置</td>
+</tr>
+<tr>
+<td>readOnly</td>
+<td>boolean</td>
+<td>读写或只读事务，默认读写</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>int (in seconds granularity)</td>
+<td>事务超时时间设置</td>
+</tr>
+<tr>
+<td>rollbackFor</td>
+<td>Class对象数组，必须继承自Throwable</td>
+<td>导致事务回滚的异常类数组</td>
+</tr>
+<tr>
+<td>rollbackForClassName</td>
+<td>类名数组，必须继承自Throwable</td>
+<td>导致事务回滚的异常类名字数组</td>
+</tr>
+<tr>
+<td>noRollbackFor</td>
+<td>Class对象数组，必须继承自Throwable</td>
+<td>不会导致事务回滚的异常类数组</td>
+</tr>
+<tr>
+<td>noRollbackForClassName</td>
+<td>类名数组，必须继承自Throwable</td>
+<td>不会导致事务回滚的异常类名字数组</td>
+</tr>
+</tbody></table>
+<h4 id="有哪些事务传播行为？"><a href="#有哪些事务传播行为？" class="headerlink" title="有哪些事务传播行为？"></a>有哪些事务传播行为？</h4><hr>
+<p>在TransactionDefinition接口中定义了七个事务传播行为：</p>
+<ol>
+<li><code>PROPAGATION_REQUIRED</code>如果存在一个事务，则支持当前事务。如果没有事务则开启一个新的事务。如果嵌套调用的两个方法都加了事务注解，并且运行在相同线程中，则这两个方法使用相同的事务中。如果运行在不同线程中，则会开启新的事务。</li>
+<li><code>PROPAGATION_SUPPORTS</code> 如果存在一个事务，支持当前事务。如果没有事务，则非事务的执行。</li>
+<li><code>PROPAGATION_MANDATORY</code> 如果已经存在一个事务，支持当前事务。如果不存在事务，则抛出异常<code>IllegalTransactionStateException</code>。</li>
+<li><code>PROPAGATION_REQUIRES_NEW</code> 总是开启一个新的事务。需要使用JtaTransactionManager作为事务管理器。</li>
+<li><code>PROPAGATION_NOT_SUPPORTED</code> 总是非事务地执行，并挂起任何存在的事务。需要使用JtaTransactionManager作为事务管理器。</li>
+<li><code>PROPAGATION_NEVER</code> 总是非事务地执行，如果存在一个活动事务，则抛出异常。</li>
+<li><code>PROPAGATION_NESTED</code> 如果一个活动的事务存在，则运行在一个嵌套的事务中。如果没有活动事务, 则按PROPAGATION_REQUIRED 属性执行。</li>
+</ol>
+<p><strong>PROPAGATION_NESTED 与PROPAGATION_REQUIRES_NEW的区别:</strong></p>
+<p>使用<code>PROPAGATION_REQUIRES_NEW</code>时，内层事务与外层事务是两个独立的事务。一旦内层事务进行了提交后，外层事务不能对其进行回滚。两个事务互不影响。</p>
+<p>使用<code>PROPAGATION_NESTED</code>时，外层事务的回滚可以引起内层事务的回滚。而内层事务的异常并不会导致外层事务的回滚，它是一个真正的嵌套事务。</p>
+<h4 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h4><hr>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>名称</strong></th>
+<th><strong>结果</strong></th>
+<th align="center">脏读</th>
+<th align="center"><strong>不可重复读</strong></th>
+<th align="center"><strong>幻读</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Read UnCommitted(读未提交)</td>
+<td>什么都不解决</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="left">Read Committed(读已提交)</td>
+<td>解决了脏读的问题</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="left">Repeatable Read(可重复读)</td>
+<td>(mysql的默认级别)解决了不可重复读</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="left">Serializable(序列化)</td>
+<td>解决所有问题</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>READ UNCOMMITTED（读未提交数据）：允许事务读取未被其他事务提交的变更数据，会出现脏读、不可重复读和幻读问题。</p>
+</li>
+<li><p>READ COMMITTED（读已提交数据）：只允许事务读取已经被其他事务提交的变更数据，可避免脏读，仍会出现不可重复读和幻读问题。</p>
+</li>
+<li><p>REPEATABLE READ（可重复读）：确保事务可以多次从一个字段中读取相同的值，在此事务持续期间，禁止其他事务对此字段的更新，可以避免脏读和不可重复读，仍会出现幻读问题。</p>
+</li>
+<li><p>SERIALIZABLE（序列化）：确保事务可以从一个表中读取相同的行，在这个事务持续期间，禁止其他事务对该表执行插入、更新和删除操作，可避免所有并发问题，但性能非常低。</p>
+<h4 id="Spring隔离级别"><a href="#Spring隔离级别" class="headerlink" title="Spring隔离级别"></a>Spring隔离级别</h4><hr>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">ISOLATION_DEFAULT</span> <span class="operator">=</span> -<span class="number">1</span>;  <span class="comment">// 默认采用数据库的隔离级</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ISOLATION_READ_UNCOMMITTED</span> <span class="operator">=</span> Connection.TRANSACTION_READ_UNCOMMITTED;<span class="comment">//读未提交</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ISOLATION_READ_COMMITTED</span> <span class="operator">=</span> Connection.TRANSACTION_READ_COMMITTED; <span class="comment">//读已提交</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ISOLATION_REPEATABLE_READ</span> <span class="operator">=</span> Connection.TRANSACTION_REPEATABLE_READ; <span class="comment">//可重复度</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ISOLATION_SERIALIZABLE</span> <span class="operator">=</span> Connection.TRANSACTION_SERIALIZABLE;   <span class="comment">//序列化</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>突然打来的电话面试，都不知道什么公司，虽然模模糊糊，也努力回答了，不知结果！</li>
+<li>但是学习还是得继续！</li>
+<li>加油！</li>
+</ul>
+</div><div class="qr-code"></div><img class="qrcode-img" src="/img/weixin.jpg"><div class="qrcode-desc">微信打赏</div><nav id="pagination"><div class="prev-post pull-left"><a href="/9999/09/09/%E5%A4%A7%E5%AD%A6%E8%BD%BB%E8%AE%B0%E5%BD%95/"><i class="fa fa-chevron-left"></i><span>大学轻记录~~~</span></a></div><div class="next-post pull-right"><a href="/2022/05/08/Go%E8%AF%AD%E8%A8%80%E5%88%9D%E5%AD%A6%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E5%92%8C%E6%80%BB%E7%BB%93-%EF%BD%9C-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B001/"><span>Go语言初学学习记录和总结 ｜ 青训营笔记01</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: 'e8425150ab27825e14f4',
+  clientSecret: 'daddce21d281f0cf0b51fe176976ec5362c4daf5',
+  repo: 'blog-comment',
+  owner: 'zty-f',
+  admin: 'zty-f',
+  id: md5(window.location.pathname)
+})
+gitalk.render('gitalk-container')</script></article></section></article><footer id="footer-outer"><div id="footer-inner"><p class="footer-text">Copyright &copy; 2022-2022 zty-f</p></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i></body><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/utils.js" defer></script><script src="/js/transition.js" defer></script><script src="/js/fancybox.js" defer></script><script src="/js/menu.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/scroll.js" defer></script></html>
