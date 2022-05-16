@@ -1,189 +1,264 @@
-#post h1 {
-  font-size: 2em;
-  padding-bottom: 16px;
-  border-bottom: 1px solid $color-border;
-}
-#post h2 {
-  font-size: 1.5em;
-}
-#post h3 {
-  font-size: 1.3em;
-}
-#post h4 {
-  font-size: 1.2em;
-}
-#post h5 {
-  font-size: 1em;
-}
-#post h6 {
-  font-size: 1em;
-  color: $color-grey-dark !important;
-}
-#post hr {
-  border: 1px solid $color-border;
-}
-#post strong {
-  font-weight: bold;
-}
-#post em,
-#post cite {
-  font-style: italic;
-}
-#post sup,
-#post sub {
-  font-size: 0.75em;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-#post sup {
-  top: -0.5em;
-}
-#post sub {
-  bottom: -0.2em;
-}
-#post small {
-  font-size: 0.85em;
-}
-#post acronym,
-#post abbr {
-  border-bottom: 1px dotted;
-}
-#post ul,
-#post ol,
-#post dl {
-  margin-top: 0.4rem;
-  padding: 0 0 0 0.8rem;
-  list-style: none;
-}
-#post ul ul,
-#post ol ul,
-#post ul ol,
-#post ol ol {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-#post ul {
-  list-style: disc;
-}
-#post ol {
-  list-style: decimal;
-}
-#post dt {
-  font-weight: bold;
-}
-#post {
-  margin: auto;
-}
-#post h1,
-#post h2,
-#post h3,
-#post h4,
-#post h5,
-#post h6 {
-  font-weight: bold;
-  color: $color-black-dark;
-  line-height: $line-height-title;
-  margin: $line-height-title 0;
-  cursor: pointer;
-}
-#post a {
-  color: $color-blue;
-}
-#post a:hover {
-  color: $color-blue-dark;
-}
-#post table {
-  width: 100%;
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 10px 0;
-}
-#post table th {
-  font-weight: bold;
-  border: 2px solid $color-border;
-  text-align: left;
-  padding: 0 10px;
-}
-#post table td {
-  border: 2px solid $color-border;
-  padding: 0 10px;
-}
-#post img,
-#post video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 5px auto;
-  border-radius: 5px;
-}
-#post iframe {
-  border: none;
-}
-#post blockquote {
-  margin: 5px 0;
-  border-left: 0.25em solid $color-grey;
-  color: #6a737d;
-  padding: 0 1em;
-}
-#post .pullquote {
-  text-align: left;
-  width: 45%;
-  margin: 0;
-}
-#post .pullquote.left {
-  margin-left: 0.5em;
-  margin-right: 1em;
-}
-#post .pullquote.right {
-  margin-right: 0.5em;
-  margin-left: 1em;
-}
-#post .caption {
-  color: $color-grey;
-  display: block;
-  font-size: 0.9em;
-  margin-top: 0.5em;
-  position: relative;
-  text-align: center;
-}
-#post .video-container {
-  position: relative;
-  padding-top: 56.25%;
-  height: 0;
-  overflow: hidden;
-}
-#post .video-container iframe,
-#post .video-container object,
-#post .video-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin-top: 0;
-}
-.qrcode-img {
-  width: 10rem;
-}
-.qrcode-desc {
-  text-align: center;
-  font-weight: bold;
-}
-.post-tags {
-  display: inline-block;
-  margin: 0.4rem;
-  padding: 0 0.5rem;
-  border: 1px solid $color-black-light;
-  border-radius: 0.3rem;
-  background-color: $color-white;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  color: $color-black !important;
-}
-.post-tags:hover {
-  background: $color-black-dark;
-  color: $color-white !important;
-}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Golang学习&amp;高性能Go语言发行版优化 ｜ 青训营笔记03"><meta name="keywords" content="Go"><meta name="author" content="ZTY"><meta name="copyright" content="ZTY"><title>Golang学习&amp;高性能Go语言发行版优化 ｜ 青训营笔记03 | zty-f</title><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><header id="page-header"><nav id="navbar"><span class="nav-left"><div class="tou-img"><img src="/img/avatar.jpg"></div><a id="site-name" href="/">zty-f</a></span><i class="fa fa-bars toggle-menu nav-right" aria-hidden="true"></i><span class="title">Golang学习&amp;高性能Go语言发行版优化 ｜ 青训营笔记03</span><span class="nav-right menus"><a class="site-page" href="/about">关于我</a></span></nav></header><article id="content-outer"><section id="content-inner"><article id="post"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="sidebar-toc"><div class="sidebar-toc__title">大纲</div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BDGo%E8%AF%AD%E8%A8%80%E5%8F%91%E8%A1%8C%E7%89%88%E4%BC%98%E5%8C%96"><span class="toc-text">高性能Go语言发行版优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">性能优化是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-text">为什么要做性能优化?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%87%AA%E5%8A%A8%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86-%E7%B1%BB%E4%BC%BC%E4%BA%8EJVM%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-text">1.自动内存管理(类似于JVM内存管理和垃圾回收)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98"><span class="toc-text">动态内存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6-%E7%94%B1%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E7%9A%84%E8%BF%90%E8%A1%8C%E6%97%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98"><span class="toc-text">自动内存管理(垃圾回收):由程序语言的运行时系统管理动态内存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E4%BB%BB%E5%8A%A1"><span class="toc-text">三个任务</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E3%80%81%E8%87%AA%E5%8A%A8%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86-%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-text">1.1、自动内存管理-相关概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%E3%80%81%E8%BF%BD%E8%B8%AA%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-text">1.2、追踪垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-Copying-GC-%E5%B0%86%E5%AF%B9%E8%B1%A1%E5%A4%8D%E5%88%B6%E5%88%B0%E5%8F%A6%E5%A4%96%E7%9A%84%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4"><span class="toc-text">1. Copying GC:将对象复制到另外的内存空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Mark-sweep-GC-%E4%BD%BF%E7%94%A8free-list%E7%AE%A1%E7%90%86%E7%A9%BA%E9%97%B2%E5%86%85%E5%AD%98"><span class="toc-text">2. Mark-sweep GC:使用free list管理空闲内存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-Compact-GC-%E5%8E%9F%E5%9C%B0%E6%95%B4%E7%90%86%E5%AF%B9%E8%B1%A1"><span class="toc-text">3. Compact GC:原地整理对象</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3%E3%80%81%E5%88%86%E4%BB%A3GC%EF%BC%88Generational-GC%EF%BC%89"><span class="toc-text">1.3、分代GC（Generational GC）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B9%B4%E8%BD%BB%E4%BB%A3-Young-generation"><span class="toc-text">年轻代(Young generation)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%80%81%E5%B9%B4%E4%BB%A3-Old-generation"><span class="toc-text">老年代(Old generation)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4%E3%80%81%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0"><span class="toc-text">1.4、引用计数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Go%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E8%AE%B0%E4%BC%98%E5%8C%96"><span class="toc-text">2.Go内存管理记优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-Go%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E5%88%86%E5%9D%97"><span class="toc-text">2.1. Go内存分配——分块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-Go%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E2%80%94%E2%80%94%E7%BC%93%E5%AD%98"><span class="toc-text">2.1. Go内存分配——缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88%EF%BC%9ABalanced-GC"><span class="toc-text">2.2.优化方案：Balanced GC</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90"><span class="toc-text">3.编译器和静态分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BC%96%E8%AF%91%E5%99%A8%E4%BC%98%E5%8C%96"><span class="toc-text">4.编译器优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E5%87%BD%E6%95%B0%E5%86%85%E8%81%94-Inlining"><span class="toc-text">4.1函数内联(Inlining)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90"><span class="toc-text">4.2逃逸分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93"><span class="toc-text">课程总结</span></a></li></ol></li></ol></div></div></div><div class="article-container" id="post-content"><p><img src="https://s3.bmp.ovh/imgs/2022/05/08/f23f4d4f7aa46d74.png"></p>
+<p>这是我参与「第三届青训营 -后端场」笔记创作活动的第3篇笔记。</p>
+<h2 id="高性能Go语言发行版优化"><a href="#高性能Go语言发行版优化" class="headerlink" title="高性能Go语言发行版优化"></a>高性能Go语言发行版优化</h2><ul>
+<li><h3 id="性能优化是什么"><a href="#性能优化是什么" class="headerlink" title="性能优化是什么?"></a>性能优化是什么?</h3><ul>
+<li>提升软件系统处理能力，减少不必要的消耗，充分发掘计算机算力。</li>
+</ul>
+</li>
+<li><h3 id="为什么要做性能优化"><a href="#为什么要做性能优化" class="headerlink" title="为什么要做性能优化?"></a>为什么要做性能优化?</h3><ul>
+<li>用户体验:带来用户体验的提升——让刷抖音更丝滑，让双十一购物等大流量场景不再卡顿。</li>
+<li>资源高效利用:降低成本，提高效率——很小的优化乘以海量机器会是显著的性能提升和成本。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-自动内存管理-类似于JVM内存管理和垃圾回收"><a href="#1-自动内存管理-类似于JVM内存管理和垃圾回收" class="headerlink" title="1.自动内存管理(类似于JVM内存管理和垃圾回收)"></a>1.自动内存管理(类似于JVM内存管理和垃圾回收)</h3><ul>
+<li><h5 id="动态内存"><a href="#动态内存" class="headerlink" title="动态内存"></a>动态内存</h5><ul>
+<li>程序在运行时根据需求动态分配的内存: malloc()</li>
+</ul>
+</li>
+<li><h5 id="自动内存管理-垃圾回收-由程序语言的运行时系统管理动态内存"><a href="#自动内存管理-垃圾回收-由程序语言的运行时系统管理动态内存" class="headerlink" title="自动内存管理(垃圾回收):由程序语言的运行时系统管理动态内存"></a>自动内存管理(垃圾回收):由程序语言的运行时系统管理动态内存</h5><ul>
+<li>避免手动内存管理,专注于实现业务逻辑</li>
+<li>保证内存使用的<strong>正确性</strong>和<strong>安全性</strong>: double-free problem, use-after-free problem</li>
+</ul>
+</li>
+<li><h5 id="三个任务"><a href="#三个任务" class="headerlink" title="三个任务"></a>三个任务</h5><ul>
+<li>为新对象分配空间</li>
+<li>找到存活对象</li>
+<li>回收死亡对象的内存空间</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-1、自动内存管理-相关概念"><a href="#1-1、自动内存管理-相关概念" class="headerlink" title="1.1、自动内存管理-相关概念"></a>1.1、自动内存管理-相关概念</h4><ul>
+<li><p>Mutator:业务线程，分配新对象，修改对象指向关系</p>
+</li>
+<li><p>Collector: GC线程，找到存活对象，回收死亡对象的内存空间.</p>
+</li>
+<li><p>Serial GC:只有一个collector</p>
+</li>
+<li><p>Parallel GC:支持多个collectors同时回收的GC算法</p>
+</li>
+<li><p>Concurrent GC: mutator(s)和collector(s)可以同时执行</p>
+</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/16/0788997982d1cabd.png" alt="image-20220516153139086"></p>
+<h4 id="1-2、追踪垃圾回收"><a href="#1-2、追踪垃圾回收" class="headerlink" title="1.2、追踪垃圾回收"></a>1.2、追踪垃圾回收</h4><ul>
+<li><p>对象被回收的条件:指针指向关系不可达的对象</p>
+</li>
+<li><p>标记根对象</p>
+<ul>
+<li>静态变量、全局变量、常量、线程栈等</li>
+</ul>
+</li>
+<li><p>标记:找到可达对象</p>
+<ul>
+<li>求指针指向关系的传递闭包:从根对象出发，找到所有可达对象</li>
+</ul>
+</li>
+<li><p>清理:所有不可达对象</p>
+<ul>
+<li>将存活对象复制到另外的内存空间(Copying Gc)</li>
+<li>将死亡对象的内存标记为阿分配“(Mark-sweep GC)</li>
+<li>移动并整理存活对象(Mark-compact GC)</li>
+</ul>
+</li>
+<li><p>根据对象的生命周期，使用不同的标记和清理策略（分代回收算法！）</p>
+</li>
+</ul>
+<h5 id="1-Copying-GC-将对象复制到另外的内存空间"><a href="#1-Copying-GC-将对象复制到另外的内存空间" class="headerlink" title="1. Copying GC:将对象复制到另外的内存空间"></a>1. Copying GC:将对象复制到另外的内存空间</h5><h5 id="2-Mark-sweep-GC-使用free-list管理空闲内存"><a href="#2-Mark-sweep-GC-使用free-list管理空闲内存" class="headerlink" title="2. Mark-sweep GC:使用free list管理空闲内存"></a>2. Mark-sweep GC:使用free list管理空闲内存</h5><h5 id="3-Compact-GC-原地整理对象"><a href="#3-Compact-GC-原地整理对象" class="headerlink" title="3. Compact GC:原地整理对象"></a>3. Compact GC:原地整理对象</h5><h4 id="1-3、分代GC（Generational-GC）"><a href="#1-3、分代GC（Generational-GC）" class="headerlink" title="1.3、分代GC（Generational GC）"></a>1.3、分代GC（Generational GC）</h4><ul>
+<li><h6 id="年轻代-Young-generation"><a href="#年轻代-Young-generation" class="headerlink" title="年轻代(Young generation)"></a>年轻代(Young generation)</h6><ul>
+<li>常规的对象分配</li>
+<li>由于存活对象很少，可以采用copying collection.</li>
+<li>GC吞吐率很高</li>
+</ul>
+</li>
+<li><h6 id="老年代-Old-generation"><a href="#老年代-Old-generation" class="headerlink" title="老年代(Old generation)"></a>老年代(Old generation)</h6><ul>
+<li>对象趋向于一直活着，反复复制开销较大</li>
+<li>可以采用mark-sweep collection</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-4、引用计数"><a href="#1-4、引用计数" class="headerlink" title="1.4、引用计数"></a>1.4、引用计数</h4><ul>
+<li><p>每个对象都有一个与之关联的引用数目</p>
+</li>
+<li><p>对象存活的条件: 当且仅当引用数大于0</p>
+</li>
+<li><p>优点</p>
+<ul>
+<li>内存管理的操作被平摊到程序执行过程中</li>
+<li>内存管理不需要了解 runtime 的实现细节:C+智能指针(smart pointer)</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>维护引用计数的开销较大:通过原子操作保证对引用计数操作的原子性和可见性</li>
+<li>无法回收环形数据结构—— weak reference</li>
+<li>内存开销:每个对象都引入的额外内存空间存储引用数目</li>
+<li>回收内存时依然可能引发暂停</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Go内存管理记优化"><a href="#2-Go内存管理记优化" class="headerlink" title="2.Go内存管理记优化"></a>2.Go内存管理记优化</h3><h4 id="2-1-Go内存分配——分块"><a href="#2-1-Go内存分配——分块" class="headerlink" title="2.1. Go内存分配——分块"></a>2.1. Go内存分配——分块</h4><ul>
+<li>目标:为对象在heap 上分配内存</li>
+<li>提前将内存分块<ul>
+<li>调用系统调用mma向OS申请一大块内存，例如4 MB；</li>
+<li>先将内存划分成大块，例如8KB，称作mspan；</li>
+<li>再将大块继续划分成特定大小的小块，用于对象分配；</li>
+<li>noscan mspan:分配不包含指针的对象——GC不需要扫描；</li>
+<li>scan mspan:分配包含指针的对象——GC需要扫描。</li>
+</ul>
+</li>
+<li>对象分配:根据对象的大小，选择最合适的块返回</li>
+</ul>
+<h4 id="2-1-Go内存分配——缓存"><a href="#2-1-Go内存分配——缓存" class="headerlink" title="2.1. Go内存分配——缓存"></a>2.1. Go内存分配——缓存</h4><p>g——&gt;m——&gt;p——&gt;内存（Go gmp内存模型）</p>
+<ul>
+<li>TCMalloc: thread caching</li>
+<li>每个p包含一个mcache用于快速分配，用于为绑定于p上的g分配对象</li>
+<li>mcache管理一组mspan</li>
+<li>当mcache中的ms pan分配完毕，向neentral申请带有未分配块的mspan</li>
+<li>当mspan中没有分配的对象，mspan会被缓存在neentral中，而不是立刻释放并归还给Os</li>
+</ul>
+<h4 id="2-2-优化方案：Balanced-GC"><a href="#2-2-优化方案：Balanced-GC" class="headerlink" title="2.2.优化方案：Balanced GC"></a>2.2.优化方案：Balanced GC</h4><ul>
+<li><p>每个g都绑定一大块内存（1 KB)，称作 goroutine allocation buffer (GAB)</p>
+</li>
+<li><p>GAB用于noscan类型的小对象分配:&lt;128 B</p>
+</li>
+<li><p>使用三个指针维护GAB: base, end, top</p>
+</li>
+<li><p>Bump pointer(指针碰撞)风格对象分配</p>
+<ul>
+<li>无须和其他分配请求互斥</li>
+<li>分配动作简单高效</li>
+</ul>
+</li>
+<li><p>GAB对于Go内存管理来说是一个对象</p>
+</li>
+<li><p>本质:将多个小对象的分配合并成一次达对象的分配</p>
+</li>
+<li><p>问题:GAB的对象分配方式会导致内存被延迟释放</p>
+</li>
+<li><p>方案:移动GAB中存活的对象</p>
+<ul>
+<li>当GAB总大小超过一定阈值时，将GAB中存活的对象复制到另外分配的GAB中</li>
+<li>原先的GAB可以释放，避免内存泄漏</li>
+<li>本质:用copying GC的算法管理小对象————<strong>根据对象的生命周期，使用不同的标记和清理策略</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-编译器和静态分析"><a href="#3-编译器和静态分析" class="headerlink" title="3.编译器和静态分析"></a>3.编译器和静态分析</h3><ul>
+<li><p>静态分析:<strong>不执行程序代码</strong>，推导程序的行为，分析程序的性质。</p>
+</li>
+<li><p>控制流(Control flow):程序执行的流程</p>
+</li>
+<li><p>数据流(Data flow):数据在控制流上的传递</p>
+</li>
+<li><p>通过分析控制流和数据流,我们可以知道更多<strong>关于程序的性质</strong>(properties)</p>
+</li>
+<li><p>根据这些性质优化代码</p>
+</li>
+<li><p>过程内分析(Intra-procedural analysis)</p>
+<ul>
+<li><strong>仅在函数内部进行分析</strong></li>
+</ul>
+</li>
+<li><p>过程间分析(Inter-procedural analysis)</p>
+<ul>
+<li><strong>考虑过程调用时参数传递和返回值的数据流和控制流</strong></li>
+</ul>
+</li>
+<li><p>为什么过程间分析是个问题?</p>
+<ul>
+<li>需要通过<strong>数据流分析</strong>得知i的具体类型，才能知道i.foo()调用的是哪个foo（）</li>
+<li>根据i的具体类型，<strong>产生了新的控制流</strong>，A.foo()，分析继续</li>
+<li>过程间分析需要<strong>同时</strong>分析控制流和数据流——<strong>联合求解，比较复杂</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-编译器优化"><a href="#4-编译器优化" class="headerlink" title="4.编译器优化"></a>4.编译器优化</h3><ul>
+<li><p>为什么做编译器优化</p>
+<ul>
+<li>用户无感知，重新编译即可获得性能收益</li>
+<li>通用性优化</li>
+</ul>
+</li>
+<li><p>现状</p>
+<ul>
+<li>采用的优化少</li>
+<li>编译时间较短，没有进行较复杂的代码分析和优化</li>
+</ul>
+</li>
+<li><p>编译优化的思路</p>
+<ul>
+<li>场景:面向后端长期执行任务</li>
+<li>Tradeoff:用编译时间换取更高效的机器码</li>
+</ul>
+</li>
+<li><p>优化方案</p>
+<ul>
+<li>函数内联</li>
+<li>逃逸分析</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-1函数内联-Inlining"><a href="#4-1函数内联-Inlining" class="headerlink" title="4.1函数内联(Inlining)"></a>4.1函数内联(Inlining)</h4><ul>
+<li>内联:将被调用函数的函数体(callee)的副本替换到调用位置(caller)上，同时重写代码以反映参数的绑定</li>
+<li>优点<ul>
+<li>消除函数调用开销，例如传递参数、保存寄存器等</li>
+<li>将过程间分析转化为过程内分析，帮助其他优化，例如逃逸分析</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>函数体变大，instruction cache (icache)不友好</li>
+<li>编译生成的Go镜像变大</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2逃逸分析"><a href="#4-2逃逸分析" class="headerlink" title="4.2逃逸分析"></a>4.2逃逸分析</h4><ul>
+<li><p>逃逸分析:分析代码中指针的动态作用域:指针在何处可以被访问</p>
+</li>
+<li><p>大致思路</p>
+<ul>
+<li>从对象分配处出发,沿着控制流,观察对象的数据流</li>
+<li>若发现指针p在当前作用域s:<ul>
+<li>作为参数传递给其他函数</li>
+<li>传递给全局变量</li>
+<li>传递给其他的goroutine</li>
+<li>传递给已逃逸的指针指向的对象</li>
+</ul>
+</li>
+<li>则指针p指向的对象逃逸出s，反之则没有逃逸出s</li>
+</ul>
+</li>
+<li><p>Beast mode:函数内联拓展了函数边界，更多对象不逃逸</p>
+</li>
+<li><p>优化:未逃逸的对象可以在栈上分配</p>
+<ul>
+<li>对象在栈上分配和回收很快:移动sp</li>
+<li>减少在heap 上的分配，降低GC负担</li>
+</ul>
+</li>
+</ul>
+<h3 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h3><ul>
+<li>本节课程:高性能Go语言发行版优化与落地实践</li>
+<li>性能优化<ul>
+<li>自动内存管理</li>
+<li>Go内存管理</li>
+<li>编译器与静态分析</li>
+<li>编译器优化</li>
+</ul>
+</li>
+<li>实践<ul>
+<li>Balanced GC优化对象分配</li>
+<li>Beast mode提升代码性能</li>
+</ul>
+</li>
+<li>分析问题的方法与解决问题的思路，不仅适用于Go 语言，其他语言的优化也同样适用</li>
+</ul>
+</div><div class="qr-code"></div><img class="qrcode-img" src="/img/weixin.jpg"><div class="qrcode-desc">微信打赏</div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/05/18/Golang%E5%AD%A6%E4%B9%A0-DATABASE-SQL%E4%B8%8EGORM%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E8%B7%B5-%EF%BD%9C-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B004/"><i class="fa fa-chevron-left"></i><span>Golang学习&amp;DATABASE/SQL与GORM设计与实践 ｜ 青训营笔记04</span></a></div><div class="next-post pull-right"><a href="/2022/05/16/Golang%E5%AD%A6%E4%B9%A0-%E9%AB%98%E8%B4%A8%E9%87%8F%E7%BC%96%E7%A8%8B%E5%92%8C%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98-%EF%BD%9C-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B002/"><i class="fa fa-chevron-right"></i><span>Golang学习&amp;高质量编程和性能调优 ｜ 青训营笔记02</span></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: 'e8425150ab27825e14f4',
+  clientSecret: 'daddce21d281f0cf0b51fe176976ec5362c4daf5',
+  repo: 'blog-comment',
+  owner: 'zty-f',
+  admin: 'zty-f',
+  id: md5(window.location.pathname)
+})
+gitalk.render('gitalk-container')</script></article></section></article><footer id="footer-outer"><div id="footer-inner"><p class="footer-text">Copyright &copy; 2022-2022 zty-f</p></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i></body><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/utils.js" defer></script><script src="/js/transition.js" defer></script><script src="/js/fancybox.js" defer></script><script src="/js/menu.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/scroll.js" defer></script></html>
