@@ -1,17 +1,189 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="My-First-Blog"><meta name="keywords" content="Study"><meta name="author" content="ZTY"><meta name="copyright" content="ZTY"><title>My-First-Blog | zty-f</title><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><header id="page-header"><nav id="navbar"><span class="nav-left"><div class="tou-img"><img src="/img/avatar.jpg"></div><a id="site-name" href="/">zty-f</a></span><i class="fa fa-bars toggle-menu nav-right" aria-hidden="true"></i><span class="title">My-First-Blog</span><span class="nav-right menus"><a class="site-page" href="/about">关于我</a></span></nav></header><article id="content-outer"><section id="content-inner"><article id="post"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="sidebar-toc"><div class="sidebar-toc__title">大纲</div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80%EF%BC%9A"><span class="toc-text">其他项目地址：</span></a></li></ol></div></div></div><div class="article-container" id="post-content"><p>个人博客创建！！！！</p>
-<p>2022.5.2 </p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/04/b5e23919b5bdb1d0.png" alt="beautiful"></p>
-<h3 id="其他项目地址："><a href="#其他项目地址：" class="headerlink" title="其他项目地址："></a>其他项目地址：</h3><ul>
-<li>[知识库系统] <a target="_blank" rel="noopener" href="http://wiki.zty-f.fun/">http://wiki.zty-f.fun/</a></li>
-<li>[商品秒杀系统] <a target="_blank" rel="noopener" href="http://seckill.zty-f.fun/">http://seckill.zty-f.fun/</a></li>
-<li>[超市订单管理系统] <a target="_blank" rel="noopener" href="http://smbms.zty-f.fun/">http://smbms.zty-f.fun/</a></li>
-</ul>
-</div><div class="qr-code"></div><img class="qrcode-img" src="/img/weixin.jpg"><div class="qrcode-desc">微信打赏</div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/05/03/%E5%AD%97%E8%8A%82%E6%9A%91%E5%81%87%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/"><i class="fa fa-chevron-left"></i><span>字节暑假实习面试记录~</span></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
-  clientID: 'e8425150ab27825e14f4',
-  clientSecret: 'daddce21d281f0cf0b51fe176976ec5362c4daf5',
-  repo: 'blog-comment',
-  owner: 'zty-f',
-  admin: 'zty-f',
-  id: md5(window.location.pathname)
-})
-gitalk.render('gitalk-container')</script></article></section></article><footer id="footer-outer"><div id="footer-inner"><p class="footer-text">Copyright &copy; 2022-2022 zty-f</p></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i></body><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/utils.js" defer></script><script src="/js/transition.js" defer></script><script src="/js/fancybox.js" defer></script><script src="/js/menu.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/scroll.js" defer></script></html>
+#post h1 {
+  font-size: 2em;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-border;
+}
+#post h2 {
+  font-size: 1.5em;
+}
+#post h3 {
+  font-size: 1.3em;
+}
+#post h4 {
+  font-size: 1.2em;
+}
+#post h5 {
+  font-size: 1em;
+}
+#post h6 {
+  font-size: 1em;
+  color: $color-grey-dark !important;
+}
+#post hr {
+  border: 1px solid $color-border;
+}
+#post strong {
+  font-weight: bold;
+}
+#post em,
+#post cite {
+  font-style: italic;
+}
+#post sup,
+#post sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+#post sup {
+  top: -0.5em;
+}
+#post sub {
+  bottom: -0.2em;
+}
+#post small {
+  font-size: 0.85em;
+}
+#post acronym,
+#post abbr {
+  border-bottom: 1px dotted;
+}
+#post ul,
+#post ol,
+#post dl {
+  margin-top: 0.4rem;
+  padding: 0 0 0 0.8rem;
+  list-style: none;
+}
+#post ul ul,
+#post ol ul,
+#post ul ol,
+#post ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#post ul {
+  list-style: disc;
+}
+#post ol {
+  list-style: decimal;
+}
+#post dt {
+  font-weight: bold;
+}
+#post {
+  margin: auto;
+}
+#post h1,
+#post h2,
+#post h3,
+#post h4,
+#post h5,
+#post h6 {
+  font-weight: bold;
+  color: $color-black-dark;
+  line-height: $line-height-title;
+  margin: $line-height-title 0;
+  cursor: pointer;
+}
+#post a {
+  color: $color-blue;
+}
+#post a:hover {
+  color: $color-blue-dark;
+}
+#post table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 10px 0;
+}
+#post table th {
+  font-weight: bold;
+  border: 2px solid $color-border;
+  text-align: left;
+  padding: 0 10px;
+}
+#post table td {
+  border: 2px solid $color-border;
+  padding: 0 10px;
+}
+#post img,
+#post video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 5px auto;
+  border-radius: 5px;
+}
+#post iframe {
+  border: none;
+}
+#post blockquote {
+  margin: 5px 0;
+  border-left: 0.25em solid $color-grey;
+  color: #6a737d;
+  padding: 0 1em;
+}
+#post .pullquote {
+  text-align: left;
+  width: 45%;
+  margin: 0;
+}
+#post .pullquote.left {
+  margin-left: 0.5em;
+  margin-right: 1em;
+}
+#post .pullquote.right {
+  margin-right: 0.5em;
+  margin-left: 1em;
+}
+#post .caption {
+  color: $color-grey;
+  display: block;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  position: relative;
+  text-align: center;
+}
+#post .video-container {
+  position: relative;
+  padding-top: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+#post .video-container iframe,
+#post .video-container object,
+#post .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+}
+.qrcode-img {
+  width: 10rem;
+}
+.qrcode-desc {
+  text-align: center;
+  font-weight: bold;
+}
+.post-tags {
+  display: inline-block;
+  margin: 0.4rem;
+  padding: 0 0.5rem;
+  border: 1px solid $color-black-light;
+  border-radius: 0.3rem;
+  background-color: $color-white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: $color-black !important;
+}
+.post-tags:hover {
+  background: $color-black-dark;
+  color: $color-white !important;
+}
