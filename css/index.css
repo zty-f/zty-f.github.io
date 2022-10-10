@@ -488,7 +488,6 @@ table {
 }
 #footer-outer .footer-text {
   text-align: center;
-  display: table;
 }
 #navbar {
   display: flex;
