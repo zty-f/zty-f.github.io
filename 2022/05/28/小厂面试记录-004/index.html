@@ -1,125 +1,189 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="小厂面试记录-004"><meta name="keywords" content="面试"><meta name="author" content="ZTY"><meta name="copyright" content="ZTY"><title>小厂面试记录-004 | zty-f</title><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><header id="page-header"><nav id="navbar"><span class="nav-left"><div class="tou-img"><img src="/img/avatar.jpg"></div><a id="site-name" href="/">zty-f</a></span><i class="fa fa-bars toggle-menu nav-right" aria-hidden="true"></i><span class="title">小厂面试记录-004</span><span class="nav-right menus"><a class="site-page" href="/about">关于我</a></span></nav></header><article id="content-outer"><section id="content-inner"><article id="post"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="sidebar-toc"><div class="sidebar-toc__title">大纲</div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%8A%A0%E8%BD%BD%EF%BC%9F%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-text">1.什么是类加载？类加载的过程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">2.什么是双亲委派模型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">3.为什么需要双亲委派模型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8C%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-text">4.什么是类加载器，类加载器有哪些?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Java%E4%B8%AD%E5%8F%98%E9%87%8F%EF%BC%8C%E4%BB%A3%E7%A0%81%E5%9D%97%EF%BC%8C%E6%9E%84%E9%80%A0%E5%99%A8%E4%B9%8B%E9%97%B4%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-text">5.Java中变量，代码块，构造器之间执行顺序是怎么样的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%80%8E%E4%B9%88%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%9F"><span class="toc-text">6.怎么自定义一个类加载器？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Java%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3"><span class="toc-text">7.Java线程模型详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%B8%8D%E5%90%8C"><span class="toc-text">与进程的不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="toc-text">线程分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B"><span class="toc-text">内核线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">优缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B"><span class="toc-text">用户线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9-1"><span class="toc-text">优缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">线程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%AF%B9%E4%B8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">一对一模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%AF%B9%E4%B8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">多对一模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A%E6%A8%A1%E5%9E%8B"><span class="toc-text">多对多模型</span></a></li></ol></div></div></div><div class="article-container" id="post-content"><h3 id="1-什么是类加载？类加载的过程？"><a href="#1-什么是类加载？类加载的过程？" class="headerlink" title="1.什么是类加载？类加载的过程？"></a>1.什么是类加载？类加载的过程？</h3><p>类的加载指的是将类的<code>class</code>文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个此类的对象，通过这个对象可以访问到方法区对应的类信息。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/40c277e2f4e8bdfb.png"></p>
-<p><strong>加载</strong></p>
-<ol>
-<li>通过类的全限定名获取定义此类的二进制字节流</li>
-<li>将字节流所代表的静态存储结构转换为方法区的运行时数据结构</li>
-<li>在内存中生成一个代表该类的<code>Class</code>对象，作为方法区类信息的访问入口</li>
-</ol>
-<p><strong>验证</strong></p>
-<p>确保Class文件的字节流中包含的信息符合虚拟机规范，保证在运行后不会危害虚拟机自身的安全。主要包括四种验证：<strong>文件格式验证，元数据验证，字节码验证，符号引用验证</strong>。</p>
-<p><strong>准备</strong></p>
-<p>为类变量分配内存并设置类变量初始值的阶段。</p>
-<p><strong>解析</strong></p>
-<p>虚拟机将常量池内的符号引用替换为直接引用的过程。符号引用用于描述目标，直接引用直接指向目标的地址。</p>
-<p><strong>初始化</strong></p>
-<p>开始执行类中定义的<code>Java</code>代码，初始化阶段是调用类构造器的过程。</p>
-<h3 id="2-什么是双亲委派模型？"><a href="#2-什么是双亲委派模型？" class="headerlink" title="2.什么是双亲委派模型？"></a>2.什么是双亲委派模型？</h3><p>一个类加载器收到一个类的加载请求时，它首先不会自己尝试去加载它，而是把这个请求<strong>委派</strong>给父类加载器去完成，这样层层委派，因此所有的加载请求最终都会传送到顶层的启动类加载器中，只有当父类加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去加载。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/49da36b2f9691b57.png"></p>
-<p>双亲委派模型的具体实现代码在 <code>java.lang.ClassLoader</code>中，此类的 <code>loadClass()</code> 方法运行过程如下：先检查类是否已经加载过，如果没有则让父类加载器去加载。当父类加载器加载失败时抛出 <code>ClassNotFoundException</code>，此时尝试自己去加载。源码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">ClassLoader</span> &#123;</span><br><span class="line">    <span class="comment">// The parent class loader for delegation</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ClassLoader parent;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Class&lt;?&gt; loadClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">return</span> loadClass(name, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; loadClass(String name, <span class="type">boolean</span> resolve) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (getClassLoadingLock(name)) &#123;</span><br><span class="line">            <span class="comment">// First, check if the class has already been loaded</span></span><br><span class="line">            Class&lt;?&gt; c = findLoadedClass(name);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (parent != <span class="literal">null</span>) &#123;</span><br><span class="line">                        c = parent.loadClass(name, <span class="literal">false</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        c = findBootstrapClassOrNull(name);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">                    <span class="comment">// ClassNotFoundException thrown if class not found</span></span><br><span class="line">                    <span class="comment">// from the non-null parent class loader</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (c == <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="comment">// If still not found, then invoke findClass in order</span></span><br><span class="line">                    <span class="comment">// to find the class.</span></span><br><span class="line">                    c = findClass(name);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (resolve) &#123;</span><br><span class="line">                resolveClass(c);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ClassNotFoundException</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-为什么需要双亲委派模型？"><a href="#3-为什么需要双亲委派模型？" class="headerlink" title="3.为什么需要双亲委派模型？"></a>3.为什么需要双亲委派模型？</h3><p>双亲委派模型的好处：可以防止内存中出现多份同样的字节码。如果没有双亲委派模型而是由各个类加载器自行加载的话，如果用户编写了一个<code>java.lang.Object</code>的同名类并放在<code>ClassPath</code>中，多个类加载器都去加载这个类到内存中，系统中将会出现多个不同的<code>Object</code>类，那么类之间的比较结果及类的唯一性将无法保证。</p>
-<h3 id="4-什么是类加载器，类加载器有哪些"><a href="#4-什么是类加载器，类加载器有哪些" class="headerlink" title="4.什么是类加载器，类加载器有哪些?"></a>4.什么是类加载器，类加载器有哪些?</h3><ul>
-<li><p>实现通过类的全限定名获取该类的二进制字节流的代码块叫做类加载器。</p>
-<p>主要有一下四种类加载器:</p>
-<ul>
-<li><strong>启动类加载器</strong>：用来加载 Java 核心类库，无法被 Java 程序直接引用。</li>
-<li><strong>扩展类加载器</strong>：它用来加载 Java 的扩展库。Java 虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 Java 类。</li>
-<li><strong>系统类加载器</strong>：它根据应用的类路径来加载 Java 类。可通过<code>ClassLoader.getSystemClassLoader()</code>获取它。</li>
-<li><strong>自定义类加载器</strong>：通过继承<code>java.lang.ClassLoader</code>类的方式实现。</li>
-</ul>
-</li>
-</ul>
-<h3 id="5-Java中变量，代码块，构造器之间执行顺序是怎么样的？"><a href="#5-Java中变量，代码块，构造器之间执行顺序是怎么样的？" class="headerlink" title="5.Java中变量，代码块，构造器之间执行顺序是怎么样的？"></a>5.Java中变量，代码块，构造器之间执行顺序是怎么样的？</h3><p>Java程序中类中个元素的初始化顺序 初始化的原则是：</p>
-<ul>
-<li>先初始化<strong>静态</strong>部分，再初始化<strong>动态</strong>部分，</li>
-<li>先初始化<strong>父类</strong>部分，后初始化<strong>子类</strong>部分，</li>
-<li>先初始化<strong>变量</strong>，再初始化<strong>代码块</strong>和<strong>构造器</strong>。</li>
-</ul>
-<h3 id="6-怎么自定义一个类加载器？"><a href="#6-怎么自定义一个类加载器？" class="headerlink" title="6.怎么自定义一个类加载器？"></a>6.怎么自定义一个类加载器？</h3><p>加载一个类时，一般是调用类加载器的loadClass()方法来加载一个类，loadClass()方法的工作流程如下：</p>
-<p>1.先调用findLoadedClass(className)来获取这个类，判断类是否已加载。</p>
-<p>2.如果未加载，如果父类加载器不为空，调用父类加载器的loadClass()来加载这个类，父类加载器为空，就调用父类加载器加载这个类。</p>
-<p>3.父类加载器加载失败，那么调用该类加载器findClass(className)方法来加载这个类。</p>
-<ul>
-<li><p>所以我们一般自定义类加载器都是<strong>继承ClassLoader，重写findClass()方法</strong>，来实现类加载，这样不会违背双亲委派类加载机制。</p>
-</li>
-<li><p>也可以通过<strong>重写loadClass()方法</strong>进行类加载，但是这样会违背双亲委派类加载机制。</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DelegationClassLoader</span> <span class="keyword">extends</span> <span class="title class_">ClassLoader</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> String classpath;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">DelegationClassLoader</span><span class="params">(String classpath, ClassLoader parent)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(parent);</span><br><span class="line">    <span class="built_in">this</span>.classpath = classpath;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">protected</span> Class&lt;？&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">    <span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="type">String</span> <span class="variable">classFilePath</span> <span class="operator">=</span> <span class="built_in">this</span>.classpath + name.replace(<span class="string">&quot;.&quot;</span>, <span class="string">&quot;/&quot;</span>) + <span class="string">&quot;.class&quot;</span>;</span><br><span class="line">      is = <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(classFilePath);</span><br><span class="line">      <span class="type">byte</span>[] buf = <span class="keyword">new</span> <span class="title class_">byte</span>[is.available()];</span><br><span class="line">      is.read(buf);</span><br><span class="line">      <span class="keyword">return</span> defineClass(name, buf, <span class="number">0</span>, buf.length);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ClassNotFoundException</span>(name);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (is != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          is.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IOError</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span></span><br><span class="line">      <span class="keyword">throws</span> ClassNotFoundException, IllegalAccessException, InstantiationException,</span><br><span class="line">      MalformedURLException &#123;</span><br><span class="line">    sun.applet.<span class="type">Main</span> <span class="variable">main1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">sun</span>.applet.Main();</span><br><span class="line"></span><br><span class="line">    <span class="type">DelegationClassLoader</span> <span class="variable">cl</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DelegationClassLoader</span>(<span class="string">&quot;java-study/target/classes/&quot;</span>,</span><br><span class="line">        getSystemClassLoader());</span><br><span class="line">    <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;sun.applet.Main&quot;</span>;</span><br><span class="line">    Class&lt;？&gt; clz = cl.loadClass(name);</span><br><span class="line">    <span class="type">Object</span> <span class="variable">main2</span> <span class="operator">=</span> clz.newInstance();</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;main1 class: &quot;</span> + main1.getClass());</span><br><span class="line">    System.out.println(<span class="string">&quot;main2 class: &quot;</span> + main2.getClass());</span><br><span class="line">    System.out.println(<span class="string">&quot;main1 classloader: &quot;</span> + main1.getClass().getClassLoader());</span><br><span class="line">    System.out.println(<span class="string">&quot;main2 classloader: &quot;</span> + main2.getClass().getClassLoader());</span><br><span class="line">    <span class="type">ClassLoader</span> <span class="variable">itrCl</span> <span class="operator">=</span> cl;</span><br><span class="line">    <span class="keyword">while</span> (itrCl != <span class="literal">null</span>) &#123;</span><br><span class="line">      System.out.println(itrCl);</span><br><span class="line">      itrCl = itrCl.getParent();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="7-Java线程模型详解"><a href="#7-Java线程模型详解" class="headerlink" title="7.Java线程模型详解"></a>7.Java线程模型详解</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>线程是操作系统的最小调度单位，包含于进程。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%B9%B6%E5%8F%91&spm=1001.2101.3001.7020">并发</a>多个线程，每条线程可以并行执行不同的任务。</p>
-<h3 id="与进程的不同"><a href="#与进程的不同" class="headerlink" title="与进程的不同"></a>与进程的不同</h3><ol>
-<li>进程是操作系统资源分配的最小单位，线程是操作系统执行的最小单位；</li>
-<li>进程包含线程，一个进程可以包含多个线程，同一个进程中的不同线程共享同一资源（此处会引发另一个问题，线程不可见问题）；</li>
-<li>进程是指一段程序的执行过程，线程指的是进程中一个单一顺序的控制流（任务）；</li>
-</ol>
-<h3 id="线程分类"><a href="#线程分类" class="headerlink" title="线程分类"></a>线程分类</h3><p>线程主要分为两种</p>
-<ul>
-<li>内核线程，简称 KLT(Kernel Level Thread)</li>
-<li>用户线程，简称 ULT(User Level Thread)</li>
-</ul>
-<h3 id="内核线程"><a href="#内核线程" class="headerlink" title="内核线程"></a>内核线程</h3><p>系统内核管理线程，内核保存线程的状态和上下文，线程阻塞不会引起进程阻塞。在多处理器上，多线程在多处理器上并行运行。线程的创建、调度和管理等生命周期是由内核直接管理完成，效率比 ULT 要低，比进程要高。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/032ebf303995872f.png"></p>
-<p>内核空间会维护 [<strong>进程表</strong>] 和[<strong>线程表</strong>]。进程表中维护并管理进程 [运行的程序代码] 集合。线程维护并管理各个进程中的线程集合。线程阻塞，其所在的进程不会阻塞。内核线程和轻量级进程 (Light Weight Process,LWP, 是使用内核线程的一种高级接口) 是一对一模型，这个文章后面会有介绍。</p>
-<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
-<li>优点：可以将复杂的线程生命周期的管理任务交给操作系统，编程和实现简单；线程维护在操作系统内核，线程阻塞不会阻塞进程；如果机器是多核处理器，内核线程可以充分利用多核处理器进行并行运行线程。</li>
-<li>缺点：当线程进行调度、创建等，会涉及到用户态和内核态之间的转化以及线程上下文的切换，资源消耗大、效率较低。</li>
-</ul>
-<h3 id="用户线程"><a href="#用户线程" class="headerlink" title="用户线程"></a>用户线程</h3><p>用户程序实现，不依赖操作系统内核，应用提供创建、调度和管理线程的函数来控制用户线程。不需要用户态 &#x2F; 核心态切换，速度高、效率高。内核对 ULT 无感知，线程阻塞则进程（包含它的所有线程）阻塞。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/f9ac535894bc7731.png"></p>
-<p>内核空间会维护 [进程表]进程表中记录进程 [运行的程序代码] 集合。线程阻塞，其所在的进程也会阻塞。操作系统内核无法感知用户线程，对于线程的创建、调度、撤销等无感知。</p>
-<h4 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
-<li>优点：由于操作系统内核无法感知用户线程，对于线程的创建、调度、撤销等无感知。所以当线程进行调度、创建等，不会涉及到用户态和内核态之间的转化以及线程上下文的切换，资源消耗小、效率较高。</li>
-<li>缺点：需要维护复杂的线程生命周期，编程和实现复杂；线程维护在进程中，内核无感知，线程阻塞会阻塞整个进程（包含整个进程的其他线程）；用户线程不能充分利用多核处理器进行并行运行线程，只能在单个核中运行。</li>
-</ul>
-<h2 id="线程模型"><a href="#线程模型" class="headerlink" title="线程模型"></a>线程模型</h2><p>线程模型主要分为三种</p>
-<ul>
-<li>一对一模型</li>
-<li>多对一模型</li>
-<li>多对多模型</li>
-</ul>
-<h3 id="一对一模型"><a href="#一对一模型" class="headerlink" title="一对一模型"></a>一对一模型</h3><p>一对一模型 简易</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/0a1d8476adc02847.png"></p>
-<p>用户空间的一个线程 (应用程序的线程概念) 对应内核的一个线程，1:1。用户空间的线程通过 LWP(属于用户空间) 对内核线程进行创建、销毁等操作。由于每个线程的创建、调度、销毁都需要内核的支持，每次线程的创建、切换都会设计用户状态 &#x2F; 内核状态的切换，性能开销比较大，并且单个进程能够创建的 LWP 的数量是有限。能够充分里用多核的优势。</p>
-<p>一对一模型</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/1ca92c5d58e79b76.png"></p>
-<p>用户进程可以创建多个 (有限个)LWP 对内核线程进行管理 (包含创建、销毁等生命周期的方法)，本质上还是操作系统进行的管理。KLT 是实际的计算运行的线程，在内核空间，由操作系统内核进行管理维护 (创建、调度、销毁等)。<strong>严格意义上，LWP 是属于操作系统层面的</strong></p>
-<p>一对一模型 详细</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/152ba0318ecbbadb.png"></p>
-<p>JVM 进程中通过 new Thread(Runnable&#x2F;Callable) 创建 Java 层面的线程。Java 线程通过库调度器调用 LWP 的接口创建、销毁内核线程等。内核线程是由操作系统内核进行管理维护。</p>
-<p><strong>注：About LWP</strong></p>
-<ol>
-<li><strong>其实 LWP(轻量级进程) 是操作系统提供的操作内核线程的入口 (接口)，属于中间层。</strong></li>
-<li><strong>在 Linux 操作系统中，往往都是通过 fork 函数创建一个子进程来代表内核中的线程，在 fork 完一个子进程后，还需要将父进程中大部分的上下文信息复制到子进程中，消耗大量 cpu 时间用来初始化内存空间，产生大量冗余数据。为了避免上述情况，轻量级进程 (Light Weight Process, LWP) 便出现了，其使用 clone 系统调用创建子进程，过程中只将部分父进程数据进行复制，没有被复制的资源可以通过指针进行数据共享，这样一来 LWP 的运行单元更小、运行速度更快。</strong></li>
-<li><strong>LWP 与内核线程一一映射，每个 LWP 都由一个内核线程支持</strong></li>
-<li><strong>LWP 可以被普通进程创建，有父子进程的关系。</strong></li>
-</ol>
-<h3 id="多对一模型"><a href="#多对一模型" class="headerlink" title="多对一模型"></a>多对一模型</h3><p>多对一模型 简易</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/20de4dcda95197d1.png"></p>
-<p>一个内核线程可以对应多个用户线程，即跟用户线程相匹配。用户线程的创建、调度、销毁不需要内核的支持，所以也就不涉及上下文切换的资源损耗，效率通常较高。但是内核无法感知到用户线程（只能感知到用户空间的进程），所以当一个进程中的一个线程阻塞，将会导致整个进程都阻塞。由于内核感知的是应用进程，所以进程中的多线程只能是运行在单个运算核上，无法充分利用计算性能并行计算，当然如果机器是单核就另当别论了；</p>
-<p>多对一模型</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/e9f62403ab6f0a6e.png"></p>
-<p>此时内核直接管理进程，所有的资源类操作都是通过进程进行代为转发与内核进行通信，所谓的一直对外？</p>
-<h3 id="多对多模型"><a href="#多对多模型" class="headerlink" title="多对多模型"></a>多对多模型</h3><p>多对多模型 简易</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/cb1e3ac3746a4110.png"></p>
-<p>这个模型其实就是一个混合的线程模型。LWP 和内核是 1:1 对应关系 (LWP 需要内核的支持才能工作，fork 等函数)。用户线程和 LWP 是 n:1(n&gt;0) 对应关系。由于用户进程和 LWP(可以理解为内核线程) 是 n:m 的关系，所以即解决了 1:1 模型中性能开销及线程数量的问题，也解决了 N:1 模型中阻塞问题，同时也能充分利用 CPU 的多核优势。</p>
-<p>多对多模型</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/db331dba990f6e10.png"></p>
-<blockquote>
-<p>此模型是大部分协程实现的基础。(Go语言)</p>
-</blockquote>
-</div><div class="qr-code"></div><img class="qrcode-img" src="/img/weixin.jpg"><div class="qrcode-desc">微信打赏</div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/06/20/%E5%AE%9E%E4%B9%A0%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95%E6%80%BB%E7%BB%93/"><i class="fa fa-chevron-left"></i><span>实习过程记录总结 ｜ 实习笔记</span></a></div><div class="next-post pull-right"><a href="/2022/05/25/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9A%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E5%BC%80%E5%8F%91%E5%90%97%EF%BC%9F%20%EF%BD%9C%20%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B006/"><i class="fa fa-chevron-right"></i><span>你真的会团队合作开发吗？ ｜ 青训营笔记06</span></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
-  clientID: 'e8425150ab27825e14f4',
-  clientSecret: 'daddce21d281f0cf0b51fe176976ec5362c4daf5',
-  repo: 'blog-comment',
-  owner: 'zty-f',
-  admin: 'zty-f',
-  id: md5(window.location.pathname)
-})
-gitalk.render('gitalk-container')</script></article></section></article><footer id="footer-outer"><div id="footer-inner"><p class="footer-text">Copyright &copy; 2022-2022 zty-f</p></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i></body><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/utils.js" defer></script><script src="/js/transition.js" defer></script><script src="/js/fancybox.js" defer></script><script src="/js/menu.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/scroll.js" defer></script></html>
+#post h1 {
+  font-size: 2em;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-border;
+}
+#post h2 {
+  font-size: 1.5em;
+}
+#post h3 {
+  font-size: 1.3em;
+}
+#post h4 {
+  font-size: 1.2em;
+}
+#post h5 {
+  font-size: 1em;
+}
+#post h6 {
+  font-size: 1em;
+  color: $color-grey-dark !important;
+}
+#post hr {
+  border: 1px solid $color-border;
+}
+#post strong {
+  font-weight: bold;
+}
+#post em,
+#post cite {
+  font-style: italic;
+}
+#post sup,
+#post sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+#post sup {
+  top: -0.5em;
+}
+#post sub {
+  bottom: -0.2em;
+}
+#post small {
+  font-size: 0.85em;
+}
+#post acronym,
+#post abbr {
+  border-bottom: 1px dotted;
+}
+#post ul,
+#post ol,
+#post dl {
+  margin-top: 0.4rem;
+  padding: 0 0 0 0.8rem;
+  list-style: none;
+}
+#post ul ul,
+#post ol ul,
+#post ul ol,
+#post ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#post ul {
+  list-style: disc;
+}
+#post ol {
+  list-style: decimal;
+}
+#post dt {
+  font-weight: bold;
+}
+#post {
+  margin: auto;
+}
+#post h1,
+#post h2,
+#post h3,
+#post h4,
+#post h5,
+#post h6 {
+  font-weight: bold;
+  color: $color-black-dark;
+  line-height: $line-height-title;
+  margin: $line-height-title 0;
+  cursor: pointer;
+}
+#post a {
+  color: $color-blue;
+}
+#post a:hover {
+  color: $color-blue-dark;
+}
+#post table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 10px 0;
+}
+#post table th {
+  font-weight: bold;
+  border: 2px solid $color-border;
+  text-align: left;
+  padding: 0 10px;
+}
+#post table td {
+  border: 2px solid $color-border;
+  padding: 0 10px;
+}
+#post img,
+#post video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 5px auto;
+  border-radius: 5px;
+}
+#post iframe {
+  border: none;
+}
+#post blockquote {
+  margin: 5px 0;
+  border-left: 0.25em solid $color-grey;
+  color: #6a737d;
+  padding: 0 1em;
+}
+#post .pullquote {
+  text-align: left;
+  width: 45%;
+  margin: 0;
+}
+#post .pullquote.left {
+  margin-left: 0.5em;
+  margin-right: 1em;
+}
+#post .pullquote.right {
+  margin-right: 0.5em;
+  margin-left: 1em;
+}
+#post .caption {
+  color: $color-grey;
+  display: block;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  position: relative;
+  text-align: center;
+}
+#post .video-container {
+  position: relative;
+  padding-top: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+#post .video-container iframe,
+#post .video-container object,
+#post .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+}
+.qrcode-img {
+  width: 10rem;
+}
+.qrcode-desc {
+  text-align: center;
+  font-weight: bold;
+}
+.post-tags {
+  display: inline-block;
+  margin: 0.4rem;
+  padding: 0 0.5rem;
+  border: 1px solid $color-black-light;
+  border-radius: 0.3rem;
+  background-color: $color-white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: $color-black !important;
+}
+.post-tags:hover {
+  background: $color-black-dark;
+  color: $color-white !important;
+}

@@ -1,88 +1,189 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Java基础随记"><meta name="keywords" content="基础"><meta name="author" content="ZTY"><meta name="copyright" content="ZTY"><title>Java基础随记 | zty-f</title><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><header id="page-header"><nav id="navbar"><span class="nav-left"><div class="tou-img"><img src="/img/avatar.jpg"></div><a id="site-name" href="/">zty-f</a></span><i class="fa fa-bars toggle-menu nav-right" aria-hidden="true"></i><span class="title">Java基础随记</span><span class="nav-right menus"><a class="site-page" href="/about">关于我</a></span></nav></header><article id="content-outer"><section id="content-inner"><article id="post"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="sidebar-toc"><div class="sidebar-toc__title">大纲</div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%9F%BA%E7%A1%80%E9%9A%8F%E8%AE%B0"><span class="toc-text">Java基础随记</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">一.基本数据类型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E9%81%B5%E5%AE%88-BCDE-%E5%8E%9F%E5%88%99%EF%BC%8C%E4%BB%A5%E4%BF%9D%E8%AF%81%E8%A2%AB%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BA%A4%E4%BB%98%E8%B4%A8%E9%87%8F%E3%80%82"><span class="toc-text">编写单元测试代码遵守 BCDE 原则，以保证被测试模块的交付质量。</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div class="article-container" id="post-content"><h1 id="Java基础随记"><a href="#Java基础随记" class="headerlink" title="Java基础随记"></a>Java基础随记</h1><ol>
-<li>抽象类不能被实例化。</li>
-<li>抽象类可以有构造函数，抽象方法不能被声明为静态。</li>
-<li>抽象方法只需申明，而无需实现，抽象类中可以允许普通方法有主体</li>
-<li>含有抽象方法的类必须申明为抽象类</li>
-<li>抽象的子类必须实现抽象类中所有抽象方法，否则这个子类也是抽象类。</li>
-</ol>
-<h5 id="一-基本数据类型"><a href="#一-基本数据类型" class="headerlink" title="一.基本数据类型"></a>一.基本数据类型</h5><p><img src="https://s3.bmp.ovh/imgs/2022/05/25/8a717bc8b0c62f41.png"></p>
-<p><strong>二、包装类</strong></p>
-<p>2.1 Java为每种基本数据类型分别设计了对应的类，称之为包装类。</p>
-<table>
-<thead>
-<tr>
-<th>基本数据类型</th>
-<th>对应的包装类</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>byte</td>
-<td>Byte</td>
-</tr>
-<tr>
-<td>short</td>
-<td>Short</td>
-</tr>
-<tr>
-<td>int</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>long</td>
-<td>Long</td>
-</tr>
-<tr>
-<td>char</td>
-<td>Character</td>
-</tr>
-<tr>
-<td>float</td>
-<td>Float</td>
-</tr>
-<tr>
-<td>double</td>
-<td>Double</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>Boolean</td>
-</tr>
-</tbody></table>
-<p>每个包装类的对象可以封装一个相应的基本数据类型的数据，并提供了其他一些有用的方法。包装类对象一经创建，其内容不可改变。</p>
-<p>基本数据类型与包装类的相互交换：</p>
-<ul>
-<li><p>由基本数据类型向对应的包装类转换称为<strong>装箱</strong>，例如把int包装成integer类的对象。</p>
-</li>
-<li><p>由包装类相对应的基本数据类型转换称为<strong>拆箱</strong>，例如把integer类的对象重新简化为int。</p>
-</li>
-<li><p>数据对象：xxxDO，xxx 即为数据表名。</p>
-</li>
-<li><p>数据传输对象：xxxDTO，xxx 为业务领域相关的名称。</p>
-</li>
-<li><p>展示对象：xxxVO，xxx 一般为网页名称。</p>
-</li>
-</ul>
-<p><strong>1） 待办事宜（TODO）</strong>:（标记人，标记时间，[预计处理时间]）</p>
-<p>表示需要实现，但目前还未实现的功能。这实际上是一个 Javadoc 的标签，目前的 Javadoc 还没</p>
-<p>有实现，但已经被广泛使用。只能应用于类，接口和方法（因为它是一个 Javadoc 标签）。</p>
-<p><strong>2） 错误，不能工作（FIXME）</strong>:（标记人，标记时间，[预计处理时间]）</p>
-<p>在注释中用 FIXME 标记某代码是错误的，而且不能工作，需要及时纠正的情况。</p>
-<h4 id="编写单元测试代码遵守-BCDE-原则，以保证被测试模块的交付质量。"><a href="#编写单元测试代码遵守-BCDE-原则，以保证被测试模块的交付质量。" class="headerlink" title="编写单元测试代码遵守 BCDE 原则，以保证被测试模块的交付质量。"></a><strong>编写单元测试代码遵守 BCDE 原则，以保证被测试模块的交付质量。</strong></h4><ul>
-<li><p><strong>B：</strong>Border，边界值测试，包括循环边界、特殊取值、特殊时间点、数据顺序等。</p>
-</li>
-<li><p><strong>C：</strong>Correct，正确的输入，并得到预期的结果。</p>
-</li>
-<li><p><strong>D：</strong>Design，与设计文档相结合，来编写单元测试。</p>
-</li>
-<li><p><strong>E：</strong>Error，强制错误信息输入（如：非法数据、异常流程、业务允许外等），并得到预期的结果。</p>
-</li>
-</ul>
-</div><div class="qr-code"></div><img class="qrcode-img" src="/img/weixin.jpg"><div class="qrcode-desc">微信打赏</div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/05/03/Java%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/"><i class="fa fa-chevron-left"></i><span>Java常用配置文件总结</span></a></div><div class="next-post pull-right"><a href="/2022/05/03/%E5%AD%97%E8%8A%82%E6%9A%91%E5%81%87%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/"><i class="fa fa-chevron-right"></i><span>字节暑假实习面试记录~</span></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
-  clientID: 'e8425150ab27825e14f4',
-  clientSecret: 'daddce21d281f0cf0b51fe176976ec5362c4daf5',
-  repo: 'blog-comment',
-  owner: 'zty-f',
-  admin: 'zty-f',
-  id: md5(window.location.pathname)
-})
-gitalk.render('gitalk-container')</script></article></section></article><footer id="footer-outer"><div id="footer-inner"><p class="footer-text">Copyright &copy; 2022-2022 zty-f</p></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i></body><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/utils.js" defer></script><script src="/js/transition.js" defer></script><script src="/js/fancybox.js" defer></script><script src="/js/menu.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/scroll.js" defer></script></html>
+#post h1 {
+  font-size: 2em;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-border;
+}
+#post h2 {
+  font-size: 1.5em;
+}
+#post h3 {
+  font-size: 1.3em;
+}
+#post h4 {
+  font-size: 1.2em;
+}
+#post h5 {
+  font-size: 1em;
+}
+#post h6 {
+  font-size: 1em;
+  color: $color-grey-dark !important;
+}
+#post hr {
+  border: 1px solid $color-border;
+}
+#post strong {
+  font-weight: bold;
+}
+#post em,
+#post cite {
+  font-style: italic;
+}
+#post sup,
+#post sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+#post sup {
+  top: -0.5em;
+}
+#post sub {
+  bottom: -0.2em;
+}
+#post small {
+  font-size: 0.85em;
+}
+#post acronym,
+#post abbr {
+  border-bottom: 1px dotted;
+}
+#post ul,
+#post ol,
+#post dl {
+  margin-top: 0.4rem;
+  padding: 0 0 0 0.8rem;
+  list-style: none;
+}
+#post ul ul,
+#post ol ul,
+#post ul ol,
+#post ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#post ul {
+  list-style: disc;
+}
+#post ol {
+  list-style: decimal;
+}
+#post dt {
+  font-weight: bold;
+}
+#post {
+  margin: auto;
+}
+#post h1,
+#post h2,
+#post h3,
+#post h4,
+#post h5,
+#post h6 {
+  font-weight: bold;
+  color: $color-black-dark;
+  line-height: $line-height-title;
+  margin: $line-height-title 0;
+  cursor: pointer;
+}
+#post a {
+  color: $color-blue;
+}
+#post a:hover {
+  color: $color-blue-dark;
+}
+#post table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 10px 0;
+}
+#post table th {
+  font-weight: bold;
+  border: 2px solid $color-border;
+  text-align: left;
+  padding: 0 10px;
+}
+#post table td {
+  border: 2px solid $color-border;
+  padding: 0 10px;
+}
+#post img,
+#post video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 5px auto;
+  border-radius: 5px;
+}
+#post iframe {
+  border: none;
+}
+#post blockquote {
+  margin: 5px 0;
+  border-left: 0.25em solid $color-grey;
+  color: #6a737d;
+  padding: 0 1em;
+}
+#post .pullquote {
+  text-align: left;
+  width: 45%;
+  margin: 0;
+}
+#post .pullquote.left {
+  margin-left: 0.5em;
+  margin-right: 1em;
+}
+#post .pullquote.right {
+  margin-right: 0.5em;
+  margin-left: 1em;
+}
+#post .caption {
+  color: $color-grey;
+  display: block;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  position: relative;
+  text-align: center;
+}
+#post .video-container {
+  position: relative;
+  padding-top: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+#post .video-container iframe,
+#post .video-container object,
+#post .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+}
+.qrcode-img {
+  width: 10rem;
+}
+.qrcode-desc {
+  text-align: center;
+  font-weight: bold;
+}
+.post-tags {
+  display: inline-block;
+  margin: 0.4rem;
+  padding: 0 0.5rem;
+  border: 1px solid $color-black-light;
+  border-radius: 0.3rem;
+  background-color: $color-white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: $color-black !important;
+}
+.post-tags:hover {
+  background: $color-black-dark;
+  color: $color-white !important;
+}

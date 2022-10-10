@@ -1,14 +1,77 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="关于我"><meta name="keywords" content=""><meta name="author" content="ZTY"><meta name="copyright" content="ZTY"><title>关于我 | zty-f</title><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><header id="page-header"><nav id="navbar"><span class="nav-left"><div class="tou-img"><img src="/img/avatar.jpg"></div><a id="site-name" href="/">zty-f</a></span><i class="fa fa-bars toggle-menu nav-right" aria-hidden="true"></i><span class="nav-right menus"><a class="site-page" href="/about">关于我</a></span></nav></header><article id="content-outer"><section id="content-inner"><article id="about"><h1 class="about-title">关于我</h1><hr><div id="site-social-icons"><a class="social-icon" href="zruler@163.com" target="_blank"><i class="fa-envelope-o fa"></i></a><a class="social-icon" href="https://github.com/zty-f" target="_blank"><i class="fa-github fa"></i></a><a class="social-icon" href="https://leetcode-cn.com/u/zty-fmj/" target="_blank"><i class="fa-weibo fa"></i></a></div><div class="article-container" id="post-content"><h3 id="一个普普通通的coder"><a href="#一个普普通通的coder" class="headerlink" title="一个普普通通的coder~"></a>一个普普通通的coder~</h3><blockquote>
-<h4 id="其他项目地址："><a href="#其他项目地址：" class="headerlink" title="其他项目地址："></a>其他项目地址：</h4></blockquote>
-<ul>
-<li><p>[抖音迷你版] <a target="_blank" rel="noopener" href="https://github.com/zty-f/Mini-Tiktok">https://github.com/zty-f/Mini-Tiktok</a></p>
-</li>
-<li><p>[知识库系统] <a target="_blank" rel="noopener" href="http://wiki.zty-f.fun/">http://wiki.zty-f.fun/</a></p>
-</li>
-<li><p>[商品秒杀系统] <a target="_blank" rel="noopener" href="http://seckill.zty-f.fun/">http://seckill.zty-f.fun/</a></p>
-</li>
-<li><p>[超市订单管理系统] <a target="_blank" rel="noopener" href="http://smbms.zty-f.fun/">http://smbms.zty-f.fun/</a></p>
-</li>
-</ul>
-<p><img src="https://s3.bmp.ovh/imgs/2022/05/04/eddcd04da1893f2d.png" alt="随图"></p>
-</div></article><nav id="pagination"><div class="pagination"></div></nav></section></article><footer id="footer-outer"><div id="footer-inner"><p class="footer-text">Copyright &copy; 2022-2022 zty-f</p></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i></body><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/utils.js" defer></script><script src="/js/transition.js" defer></script><script src="/js/fancybox.js" defer></script><script src="/js/menu.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/scroll.js" defer></script></html>
+#content-outer {
+  width: 100%;
+  padding-top: 80px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+#content-outer height calc(100vh- 100px) ul,
+#content-outer height calc(100vh- 100px) ol,
+#content-outer height calc(100vh- 100px) dl {
+  margin-top: 0.4rem;
+  padding: 0 0 0 0.8rem;
+}
+#about,
+#archive {
+  margin: auto;
+  padding: 0 10px 1rem 10px;
+  color: $color-black-dark;
+}
+#about {
+  min-height: 20rem;
+}
+#about .about-title {
+  font-size: 2rem;
+}
+#about .article-container p:nth-of-type(1) {
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+#about .article-container p:nth-of-type(1) img {
+  width: 20vw;
+}
+#archive .article-title {
+  font-size: 2rem;
+}
+#archive .article-sort-item {
+  position: relative;
+}
+#archive .article-sort-item.year {
+  margin-left: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $theme-color;
+}
+#archive .article-sort-item.year:hover:before {
+  border-color: $color-black-dark;
+}
+#archive .article-sort-item.year:before {
+  border: none;
+}
+#archive .article-sort-item__time {
+  position: absolute;
+  color: $color-black-light;
+}
+#archive .article-sort-item__title {
+  display: block;
+  margin-left: 5rem;
+  cursor: pointer;
+  color: $color-black-light;
+}
+#archive .article-sort a:hover,
+#archive .article-sort a:before {
+  color: $color-black-dark;
+  transition: all 0.2s ease-in-out;
+}
+#site-social-icons {
+  margin: 0 auto;
+  width: 15rem;
+  text-align: center;
+}
+#site-social-icons .social-icon {
+  margin: 0 0.5rem;
+  color: $color-light-black;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
