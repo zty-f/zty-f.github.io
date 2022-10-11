@@ -485,15 +485,8 @@ table {
   background-color: #242424;
   padding: 1rem;
   color: #eee;
-  text-align: center;
-  display: block;
 }
 #footer-outer .footer-text {
-  text-align: center;
-  display: block;
-}
-#footer-outer .footer-a {
-  display: block;
   text-align: center;
 }
 #navbar {
