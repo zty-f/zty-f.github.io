@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/zty-f/zty-f.github.io/img/fluid.png">
-  <link rel="icon" href="/zty-f/zty-f.github.io/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="SpringSecurity学习笔记(B站三更草堂)。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringSecurity学习笔记">
-<meta property="og:url" content="https://github.com/zty-f/zty-f.github.io/2022/12/01/SpringSecurity%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:url" content="https://zty-f.github.io/2022/12/01/SpringSecurity%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="zty-f">
 <meta property="og:description" content="SpringSecurity学习笔记(B站三更草堂)。">
 <meta property="og:locale" content="zh_CN">
@@ -61,12 +61,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/zty-f/zty-f.github.io/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/zty-f/zty-f.github.io/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/zty-f/zty-f.github.io/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -79,15 +79,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/zty-f/zty-f.github.io/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/zty-f/zty-f.github.io/local-search.xml"};
+    var CONFIG = {"hostname":"zty-f.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/zty-f/zty-f.github.io/js/utils.js" ></script>
-  <script  src="/zty-f/zty-f.github.io/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -104,7 +104,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/zty-f/zty-f.github.io/">
+    <a class="navbar-brand" href="/">
       <strong>思前想后</strong>
     </a>
 
@@ -123,7 +123,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/zty-f/zty-f.github.io/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -145,7 +145,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/zty-f/zty-f.github.io/archives/">
+                  <a class="dropdown-item" href="/archives/">
                     <i class="iconfont icon-archive-fill"></i>
                     归档
                   </a>
@@ -153,7 +153,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/zty-f/zty-f.github.io/categories/">
+                  <a class="dropdown-item" href="/categories/">
                     <i class="iconfont icon-yingyong"></i>
                     分类
                   </a>
@@ -161,7 +161,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/zty-f/zty-f.github.io/tags/">
+                  <a class="dropdown-item" href="/tags/">
                     <i class="iconfont icon-tags-fill"></i>
                     标签
                   </a>
@@ -175,7 +175,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/zty-f/zty-f.github.io/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -187,7 +187,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/zty-f/zty-f.github.io/links/">
+              <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -199,7 +199,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/zty-f">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/zty-f">
                 <i class="iconfont icon-GitHub"></i>
                 
               </a>
@@ -228,7 +228,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/zty-f/zty-f.github.io/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -353,19 +353,19 @@
 
 <p> 引入依赖后我们在尝试去访问之前的接口就会自动跳转到一个 SpringSecurity 的默认登陆页面，默认用户名是 user, 密码会输出在控制台。</p>
 <p> 必须登陆之后才能对接口进行访问。</p>
-<h2 id="2-认证"><a href="#2-认证" class="headerlink" title="2. 认证"></a>2. 认证</h2><h3 id="2-1-登陆校验流程"><a href="#2-1-登陆校验流程" class="headerlink" title="2.1 登陆校验流程"></a>2.1 登陆校验流程</h3><p><img src="https://s3.bmp.ovh/imgs/2022/12/01/0009c8d8f3b411d5.png" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload></p>
+<h2 id="2-认证"><a href="#2-认证" class="headerlink" title="2. 认证"></a>2. 认证</h2><h3 id="2-1-登陆校验流程"><a href="#2-1-登陆校验流程" class="headerlink" title="2.1 登陆校验流程"></a>2.1 登陆校验流程</h3><p><img src="https://s3.bmp.ovh/imgs/2022/12/01/0009c8d8f3b411d5.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="2-2-原理初探"><a href="#2-2-原理初探" class="headerlink" title="2.2 原理初探"></a>2.2 原理初探</h3><p> 想要知道如何实现自己的登陆流程就必须要先知道入门案例中 SpringSecurity 的流程。</p>
 <p>2.2.1 SpringSecurity 完整流程</p>
 <p> SpringSecurity 的原理其实就是一个过滤器链，内部包含了提供各种功能的过滤器。这里我们可以看看入门案例中的过滤器。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/12/01/36708ab26d2ce7bf.png" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/12/01/36708ab26d2ce7bf.png" srcset="/img/loading.gif" lazyload></p>
 <p> 图中只展示了核心过滤器，其它的非核心过滤器并没有在图中展示。</p>
 <p><strong>UsernamePasswordAuthenticationFilter</strong>: 负责处理我们在登陆页面填写了用户名密码后的登陆请求。入门案例的认证工作主要有它负责。</p>
 <p><strong>ExceptionTranslationFilter：</strong> 处理过滤器链中抛出的任何 AccessDeniedException 和 AuthenticationException 。</p>
 <p><strong>FilterSecurityInterceptor：</strong> 负责权限校验的过滤器。</p>
 <p> 我们可以通过 Debug 查看当前系统中 SpringSecurity 过滤器链中有哪些过滤器及它们的顺序。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/12/01/bbd05a0b451ed608.png" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/12/01/bbd05a0b451ed608.png" srcset="/img/loading.gif" lazyload></p>
 <p>2.2.2 认证流程详解</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/12/01/e29327ad2b30cab6.png" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/12/01/e29327ad2b30cab6.png" srcset="/img/loading.gif" lazyload></p>
 <p>概念速查:</p>
 <p>Authentication 接口: 它的实现类，表示当前访问系统的用户，封装了用户相关信息。</p>
 <p>AuthenticationManager 接口：定义了认证 Authentication 的方法</p>
@@ -476,7 +476,7 @@
 
 
 <p>注意：如果要测试，需要往用户表中写入用户数据，并且如果你想让用户的密码是明文存储，需要在密码前加 {noop}。例如</p>
-<p><img src="https://img-blog.csdnimg.cn/a4557f33e1c54795aa0a6ca6fb302ce9.png" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/a4557f33e1c54795aa0a6ca6fb302ce9.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>这样登陆的时候就可以用 sg 作为用户名，1234 作为密码来登陆了。</p>
 <p>2.3.3.2 密码加密存储</p>
 <p> 实际项目中我们不会把密码明文存储在数据库中。</p>
@@ -560,7 +560,7 @@
 <p>3.2.3 从数据库查询权限信息</p>
 <p>3.2.3.1 RBAC 权限模型</p>
 <p> RBAC 权限模型（Role-Based Access Control）即：基于角色的权限控制。这是目前最常被开发者使用也是相对易用、通用权限模型。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/12/01/c949edce0625e8eb.png" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/12/01/c949edce0625e8eb.png" srcset="/img/loading.gif" lazyload></p>
 <p>3.2.3.2 准备工作</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE DATABASE /*!32312 IF NOT EXISTS*/`sg_security` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;<br> <br>USE `sg_security`;<br> <br>/*Table structure for table `sys_menu` */<br> <br>DROP TABLE IF EXISTS `sys_menu`;<br> <br>CREATE TABLE `sys_menu` (<br>  `id` bigint(20) NOT NULL AUTO_INCREMENT,<br>  `menu_name` varchar(64) NOT NULL DEFAULT &#x27;NULL&#x27; COMMENT &#x27;菜单名&#x27;,<br>  `path` varchar(200) DEFAULT NULL COMMENT &#x27;路由地址&#x27;,<br>  `component` varchar(255) DEFAULT NULL COMMENT &#x27;组件路径&#x27;,<br>  `visible` char(1) DEFAULT &#x27;0&#x27; COMMENT &#x27;菜单状态（0显示 1隐藏）&#x27;,<br>  `status` char(1) DEFAULT &#x27;0&#x27; COMMENT &#x27;菜单状态（0正常 1停用）&#x27;,<br>  `perms` varchar(100) DEFAULT NULL COMMENT &#x27;权限标识&#x27;,<br>  `icon` varchar(100) DEFAULT &#x27;#&#x27; COMMENT &#x27;菜单图标&#x27;,<br>  `create_by` bigint(20) DEFAULT NULL,<br>  `create_time` datetime DEFAULT NULL,<br>  `update_by` bigint(20) DEFAULT NULL,<br>  `update_time` datetime DEFAULT NULL,<br>  `del_flag` int(11) DEFAULT &#x27;0&#x27; COMMENT &#x27;是否删除（0未删除 1已删除）&#x27;,<br>  `remark` varchar(500) DEFAULT NULL COMMENT &#x27;备注&#x27;,<br>  PRIMARY KEY (`id`)<br>) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT=&#x27;菜单表&#x27;;<br> <br>/*Table structure for table `sys_role` */<br> <br>DROP TABLE IF EXISTS `sys_role`;<br> <br>CREATE TABLE `sys_role` (<br>  `id` bigint(20) NOT NULL AUTO_INCREMENT,<br>  `name` varchar(128) DEFAULT NULL,<br>  `role_key` varchar(100) DEFAULT NULL COMMENT &#x27;角色权限字符串&#x27;,<br>  `status` char(1) DEFAULT &#x27;0&#x27; COMMENT &#x27;角色状态（0正常 1停用）&#x27;,<br>  `del_flag` int(1) DEFAULT &#x27;0&#x27; COMMENT &#x27;del_flag&#x27;,<br>  `create_by` bigint(200) DEFAULT NULL,<br>  `create_time` datetime DEFAULT NULL,<br>  `update_by` bigint(200) DEFAULT NULL,<br>  `update_time` datetime DEFAULT NULL,<br>  `remark` varchar(500) DEFAULT NULL COMMENT &#x27;备注&#x27;,<br>  PRIMARY KEY (`id`)<br>) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT=&#x27;角色表&#x27;;<br> <br>/*Table structure for table `sys_role_menu` */<br> <br>DROP TABLE IF EXISTS `sys_role_menu`;<br> <br>CREATE TABLE `sys_role_menu` (<br>  `role_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT &#x27;角色ID&#x27;,<br>  `menu_id` bigint(200) NOT NULL DEFAULT &#x27;0&#x27; COMMENT &#x27;菜单id&#x27;,<br>  PRIMARY KEY (`role_id`,`menu_id`)<br>) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;<br> <br>/*Table structure for table `sys_user` */<br> <br>DROP TABLE IF EXISTS `sys_user`;<br> <br>CREATE TABLE `sys_user` (<br>  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT &#x27;主键&#x27;,<br>  `user_name` varchar(64) NOT NULL DEFAULT &#x27;NULL&#x27; COMMENT &#x27;用户名&#x27;,<br>  `nick_name` varchar(64) NOT NULL DEFAULT &#x27;NULL&#x27; COMMENT &#x27;昵称&#x27;,<br>  `password` varchar(64) NOT NULL DEFAULT &#x27;NULL&#x27; COMMENT &#x27;密码&#x27;,<br>  `status` char(1) DEFAULT &#x27;0&#x27; COMMENT &#x27;账号状态（0正常 1停用）&#x27;,<br>  `email` varchar(64) DEFAULT NULL COMMENT &#x27;邮箱&#x27;,<br>  `phonenumber` varchar(32) DEFAULT NULL COMMENT &#x27;手机号&#x27;,<br>  `sex` char(1) DEFAULT NULL COMMENT &#x27;用户性别（0男，1女，2未知）&#x27;,<br>  `avatar` varchar(128) DEFAULT NULL COMMENT &#x27;头像&#x27;,<br>  `user_type` char(1) NOT NULL DEFAULT &#x27;1&#x27; COMMENT &#x27;用户类型（0管理员，1普通用户）&#x27;,<br>  `create_by` bigint(20) DEFAULT NULL COMMENT &#x27;创建人的用户id&#x27;,<br>  `create_time` datetime DEFAULT NULL COMMENT &#x27;创建时间&#x27;,<br>  `update_by` bigint(20) DEFAULT NULL COMMENT &#x27;更新人&#x27;,<br>  `update_time` datetime DEFAULT NULL COMMENT &#x27;更新时间&#x27;,<br>  `del_flag` int(11) DEFAULT &#x27;0&#x27; COMMENT &#x27;删除标志（0代表未删除，1代表已删除）&#x27;,<br>  PRIMARY KEY (`id`)<br>) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT=&#x27;用户表&#x27;;<br> <br>/*Table structure for table `sys_user_role` */<br> <br>DROP TABLE IF EXISTS `sys_user_role`;<br> <br>CREATE TABLE `sys_user_role` (<br>  `user_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT &#x27;用户id&#x27;,<br>  `role_id` bigint(200) NOT NULL DEFAULT &#x27;0&#x27; COMMENT &#x27;角色id&#x27;,<br>  PRIMARY KEY (`user_id`,`role_id`)<br>) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;<br> <br></code></pre></td></tr></table></figure>
 
@@ -705,11 +705,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/zty-f/zty-f.github.io/tags/Java/">#Java</a>
+        <a href="/tags/Java/">#Java</a>
       
-        <a href="/zty-f/zty-f.github.io/tags/%E5%9F%BA%E7%A1%80/">#基础</a>
+        <a href="/tags/%E5%9F%BA%E7%A1%80/">#基础</a>
       
-        <a href="/zty-f/zty-f.github.io/tags/SpringSecurity/">#SpringSecurity</a>
+        <a href="/tags/SpringSecurity/">#SpringSecurity</a>
       
     </div>
   
@@ -722,7 +722,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>SpringSecurity学习笔记</div>
-      <div>https://github.com/zty-f/zty-f.github.io/2022/12/01/SpringSecurity学习/</div>
+      <div>https://zty-f.github.io/2022/12/01/SpringSecurity学习/</div>
     </div>
     <div class="license-meta">
       
@@ -771,7 +771,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/zty-f/zty-f.github.io/2022/12/02/MarkDown%E6%95%99%E7%A8%8B/" title="MarkDown编写基础教程">
+                      <a href="/2022/12/02/MarkDown%E6%95%99%E7%A8%8B/" title="MarkDown编写基础教程">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">MarkDown编写基础教程</span>
                         <span class="visible-mobile">上一篇</span>
@@ -781,7 +781,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/zty-f/zty-f.github.io/2022/11/25/%E7%A7%8B%E6%8B%9B%E7%AE%80%E8%AE%B0/" title="秋招简记">
+                      <a href="/2022/11/25/%E7%A7%8B%E6%8B%9B%E7%AE%80%E8%AE%B0/" title="秋招简记">
                         <span class="hidden-mobile">秋招简记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -977,8 +977,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/zty-f/zty-f.github.io/js/events.js" ></script>
-<script  src="/zty-f/zty-f.github.io/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1000,7 +1000,7 @@
 
 
   
-    <script  src="/zty-f/zty-f.github.io/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -1099,7 +1099,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/zty-f/zty-f.github.io/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1109,7 +1109,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/zty-f/zty-f.github.io/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
