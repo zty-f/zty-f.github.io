@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/myblog/img/fluid.png">
-  <link rel="icon" href="/myblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="不同的业务场景下，选用索引的类型抉择~">
 <meta property="og:type" content="article">
 <meta property="og:title" content="普通OR唯一索引">
-<meta property="og:url" content="https://zty-f.gitee.io/myblog/2024/03/30/%E6%99%AE%E9%80%9AOR%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/index.html">
+<meta property="og:url" content="https://zty-f.github.io/2024/03/30/%E6%99%AE%E9%80%9AOR%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/index.html">
 <meta property="og:site_name" content="zty-f">
 <meta property="og:description" content="不同的业务场景下，选用索引的类型抉择~">
 <meta property="og:locale" content="zh_CN">
@@ -60,12 +60,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/myblog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/myblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/myblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -78,15 +78,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zty-f.gitee.io","root":"/myblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/myblog/local-search.xml"};
+    var CONFIG = {"hostname":"zty-f.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/myblog/js/utils.js" ></script>
-  <script  src="/myblog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -103,7 +103,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/myblog/">
+    <a class="navbar-brand" href="/">
       <strong>思前想后</strong>
     </a>
 
@@ -122,7 +122,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -144,7 +144,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/myblog/archives/">
+                  <a class="dropdown-item" href="/archives/">
                     <i class="iconfont icon-archive-fill"></i>
                     归档
                   </a>
@@ -152,7 +152,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/myblog/categories/">
+                  <a class="dropdown-item" href="/categories/">
                     <i class="iconfont icon-yingyong"></i>
                     分类
                   </a>
@@ -160,7 +160,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/myblog/tags/">
+                  <a class="dropdown-item" href="/tags/">
                     <i class="iconfont icon-tags-fill"></i>
                     标签
                   </a>
@@ -174,7 +174,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -186,7 +186,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/links/">
+              <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -227,7 +227,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/myblog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -323,7 +323,7 @@
             
               <div class="markdown-body">
                 
-                <h3 id="我们在不同的业务场景下，应该选择普通索引，还是唯一索引？"><a href="#我们在不同的业务场景下，应该选择普通索引，还是唯一索引？" class="headerlink" title="我们在不同的业务场景下，应该选择普通索引，还是唯一索引？"></a>我们在不同的业务场景下，应该选择普通索引，还是唯一索引？</h3><p>普通索引（Non-Unique Index）：</p>
+                <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/myblog/assets/css/APlayer.min.css"><script src="/myblog/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="我们在不同的业务场景下，应该选择普通索引，还是唯一索引？"><a href="#我们在不同的业务场景下，应该选择普通索引，还是唯一索引？" class="headerlink" title="我们在不同的业务场景下，应该选择普通索引，还是唯一索引？"></a>我们在不同的业务场景下，应该选择普通索引，还是唯一索引？</h3><p>普通索引（Non-Unique Index）：</p>
 <ul>
 <li>适用于需要快速查找数据的列，但允许存在重复值的情况。例如，在经常进行查询的列上创建普通索引可以提高查询性能，如经常用于WHERE子句中的条件列</li>
 </ul>
@@ -337,7 +337,7 @@
 <p>所以，大家一定会考虑在id_card字段上建索引。</p>
 <p>由于身份证号字段比较大，所以不建议把身份证号当做主键，那么现在有两个选择，要么给id_card字段创建唯一索引，要么创建一个普通索引。如果业务代码已经保证了不会写入重复的身份证号，那么这两个选择逻辑上都是正确的,从性能的角度考虑，选择唯一索引还是普通索引呢？选择的依据是什么呢？ </p>
 <p>接下来，我们就从这两种索引对查询语句和更新语句的性能影响来进行分析。</p>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/zS6BwpfMweND3iZT.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/myblog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/zS6BwpfMweND3iZT.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h3 id="二-查询过程"><a href="#二-查询过程" class="headerlink" title="二.查询过程"></a>二.查询过程</h3><p>假设，执行查询的语句是 select id from T where k&#x3D;5。这个查询语句在索引树上查找的过程，先是通过B+树从树根开始，按层搜索到叶子节点，也就是图中右下角的这个数据页，然后可以认为数据页内部通过二分法来定位记录。</p>
 <ul>
 <li><p>对于普通索引来说，查找到满足条件的第一个记录(5,500)后，需要查找下一个记录，直到碰到第一个不满足k&#x3D;5条件的记录。</p>
@@ -367,9 +367,9 @@
 </ol>
 </li>
 </ol>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/aPrZWVTWB5jGoN55.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/myblog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/aPrZWVTWB5jGoN55.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>b. 查询最大Buffer Pool值</p>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/v2DxZmWawCnuD3YB.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/myblog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/v2DxZmWawCnuD3YB.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p><strong>如果要在这张表中插入一个新记录(4,400)的话，InnoDB的处理流程是怎样的。</strong></p>
 <p>1.第一种情况是，<strong>这个记录要更新的目标页在内存中</strong>。这时，InnoDB的处理流程如下：</p>
 <ul>
@@ -395,7 +395,7 @@
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">mysql&gt; insert into <span class="hljs-built_in">t</span>(id,k) <span class="hljs-built_in">values</span>(id1,k1),(id2,k2);<br></code></pre></td></tr></table></figure>
 
 <p>这里，我们假设当前k索引树的状态，查找到位置后，k1所在的数据页在内存(InnoDB buffer pool)中，k2所在的数据页不在内存中。下图所示是带change buffer的更新状态图。 </p>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/DdrF2RPSg8O9uDzk.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/myblog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/DdrF2RPSg8O9uDzk.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>分析这条更新语句，你会发现它涉及了四个部分：内存、redo log（ib_log_fileX）、 数据表空间（t.ibd）、系统表空间（ibdata1）。</p>
 <p>这条更新语句做了如下的操作（按照图中的数字顺序）：</p>
 <ol>
@@ -408,7 +408,7 @@
 <p><strong>那在这之后的读请求，要怎么处理呢？</strong></p>
 <p>比如，我们现在要执行 select * from t where k in (k1, k2)。这里，我画了这两个读请求的流程图。</p>
 <p>如果读语句发生在更新语句后不久，内存中的数据都还在，那么此时的这两个读操作就与系统表空间（ibdata1）和 redo log（ib_log_fileX）无关了。</p>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/QvaoBebD03tmXx1M.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/myblog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/QvaoBebD03tmXx1M.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjUwMDAsImZpbGVHVUlEIjoiV3IzRFZRQk1qRFV3ZE1rSiIsImlhdCI6MTcwOTYyNDcwMCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._OxAmVuecWPrz5vgEyJ8FfE3aIZhLGhK4zAAYuZ8o2c" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>从上图中可以看到：</p>
 <ol>
 <li>读Page 1的时候，直接从内存返回。</li>
@@ -431,34 +431,13 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/myblog/categories/%E5%B7%A5%E4%BD%9C/" class="category-chain-item">工作</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/myblog/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
       
-        <a href="/myblog/tags/MySQL/">#MySQL</a>
+        <a href="/tags/MySQL/">#MySQL</a>
       
     </div>
   
@@ -471,7 +450,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>普通OR唯一索引</div>
-      <div>https://zty-f.gitee.io/myblog/2024/03/30/普通OR唯一索引/</div>
+      <div>https://zty-f.github.io/2024/03/30/普通OR唯一索引/</div>
     </div>
     <div class="license-meta">
       
@@ -520,7 +499,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/myblog/8888/08/08/%E5%AE%A3%E4%BC%A0/" title="互帮互助,各大互联网公司/国企/银行投递渠道/简历修改">
+                      <a href="/8888/08/08/%E5%AE%A3%E4%BC%A0/" title="互帮互助,各大互联网公司/国企/银行投递渠道/简历修改">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">互帮互助,各大互联网公司/国企/银行投递渠道/简历修改</span>
                         <span class="visible-mobile">上一篇</span>
@@ -530,7 +509,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/myblog/2024/03/25/KAFKA%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E8%A6%81%E7%82%B9/" title="KAFKA基本原理要点">
+                      <a href="/2024/03/25/KAFKA%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E8%A6%81%E7%82%B9/" title="KAFKA基本原理要点">
                         <span class="hidden-mobile">KAFKA基本原理要点</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -726,8 +705,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/myblog/js/events.js" ></script>
-<script  src="/myblog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -749,7 +728,7 @@
 
 
   
-    <script  src="/myblog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -848,7 +827,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/myblog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -858,7 +837,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/myblog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
