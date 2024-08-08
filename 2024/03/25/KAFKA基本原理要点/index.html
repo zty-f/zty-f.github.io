@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/zty-f/zty-f.github.io/img/fluid.png">
+  <link rel="icon" href="/zty-f/zty-f.github.io/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="工作使用kafka学习使用随记~">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KAFKA基本原理要点">
-<meta property="og:url" content="https://zty-f.github.io/2024/03/25/KAFKA%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E8%A6%81%E7%82%B9/index.html">
+<meta property="og:url" content="https://github.com/zty-f/zty-f.github.io/2024/03/25/KAFKA%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E8%A6%81%E7%82%B9/index.html">
 <meta property="og:site_name" content="zty-f">
 <meta property="og:description" content="工作使用kafka学习使用随记~">
 <meta property="og:locale" content="zh_CN">
@@ -61,12 +61,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/zty-f/zty-f.github.io/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/zty-f/zty-f.github.io/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/zty-f/zty-f.github.io/css/highlight-dark.css" />
   
 
 
@@ -79,15 +79,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zty-f.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"github.com","root":"/zty-f/zty-f.github.io/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/zty-f/zty-f.github.io/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/zty-f/zty-f.github.io/js/utils.js" ></script>
+  <script  src="/zty-f/zty-f.github.io/js/color-schema.js" ></script>
   
 
 
@@ -104,7 +104,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/zty-f/zty-f.github.io/">
       <strong>思前想后</strong>
     </a>
 
@@ -123,7 +123,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/zty-f/zty-f.github.io/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -145,7 +145,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/archives/">
+                  <a class="dropdown-item" href="/zty-f/zty-f.github.io/archives/">
                     <i class="iconfont icon-archive-fill"></i>
                     归档
                   </a>
@@ -153,7 +153,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/categories/">
+                  <a class="dropdown-item" href="/zty-f/zty-f.github.io/categories/">
                     <i class="iconfont icon-yingyong"></i>
                     分类
                   </a>
@@ -161,7 +161,7 @@
                   
                   
                   
-                  <a class="dropdown-item" href="/tags/">
+                  <a class="dropdown-item" href="/zty-f/zty-f.github.io/tags/">
                     <i class="iconfont icon-tags-fill"></i>
                     标签
                   </a>
@@ -175,7 +175,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/zty-f/zty-f.github.io/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -187,7 +187,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/links/">
+              <a class="nav-link" href="/zty-f/zty-f.github.io/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -199,7 +199,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/zty-f">
+              <a class="nav-link" href="https://github.com/zty-f">
                 <i class="iconfont icon-GitHub"></i>
                 
               </a>
@@ -228,7 +228,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/zty-f/zty-f.github.io/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -334,7 +334,7 @@
 <li>消息以追加的方式写入分区，然后以先入先出的顺序读取。</li>
 <li>一个主题包含多个分区，无法在整个topic上保证消息的顺序性，但可以保证消息在单个分区上的顺序性</li>
 <li>KAKFA可以通过分区来实现数据的伸缩性和冗余性</li>
-<li>多个分区可以分布在不同的服务器上，因此可以提供比单服务器更强大的性能<img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/tYQ3AT9LKLDebhZP.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>多个分区可以分布在不同的服务器上，因此可以提供比单服务器更强大的性能<img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/tYQ3AT9LKLDebhZP.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></li>
 </ol>
 </li>
 <li><p>KAFKA的客户端主要分为：生产者和消费者；</p>
@@ -369,20 +369,20 @@
 <li><p>消费者群组</p>
 <ol>
 <li>由多个消费者组成，群组保证每个分区只能被一个消费者使用。</li>
-<li><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/QSrhNqa1pPXK2wYS.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/QSrhNqa1pPXK2wYS.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></li>
 <li>消费者与分区之间的映射通常被称为消费者对分区的所有权关系。</li>
 </ol>
 </li>
-<li><p>broker 和集群<br><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/J67PCiDH8rW9Cwwo.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></p>
+<li><p>broker 和集群<br><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/J67PCiDH8rW9Cwwo.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></p>
 <ol>
 <li>一个独立的 Kafka 服务器被称为 broker。</li>
 <li>作用1：broker 接收来自生产者的消息，为消息设置偏移量，并提交消息到磁盘保存。</li>
 <li>作用2：broker 为消费者提供服务，对读取分区的请求作出响应，返回已经提交到磁盘上的消息</li>
 <li>broker 是集群的组成部分。每个集群都有一个 broker 同时充当了集群控制器的角色（自动从集群的活跃成员中选举出来）<a target="_blank" rel="noopener" href="https://raft.github.io/">https://raft.github.io/</a></li>
-<li><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/CZcD3LCck1DUoL5B.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/CZcD3LCck1DUoL5B.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></li>
 <li>一个 Kafka集群需要多少个 broker 取决于以下几个因素。</li>
 <li>首先，需要多少磁盘空间来保留数据，以及单个 broker 有多少空间可用。如果整个集群需要保留 10TB 的数据，每个broker 可以存储 2TB，那么至少需要 5 个 broker。</li>
-<li>一个分区可以分配给多个 broker，这个时候会发生分区复制。这种复制机制为分区提供了消息冗余，如果有一个 broker 失效，其他 broker 可以接管领导权。<img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/e6caveYD96cgcHh9.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>一个分区可以分配给多个 broker，这个时候会发生分区复制。这种复制机制为分区提供了消息冗余，如果有一个 broker 失效，其他 broker 可以接管领导权。<img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/e6caveYD96cgcHh9.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></li>
 <li>保留消息：Kafka 的一个重要特性。Kafka broker 默认的消息保留策略是这样的：要么保留一段时间（比如 7 天），要么保留到消息达到一定大小的字节数（比如 1GB）。当消息数量达到这些上限时，旧消息就会过期并被删除。<a target="_blank" rel="noopener" href="https://redis.io/topics/lru-cache">https://redis.io/topics/lru-cache</a></li>
 </ol>
 </li>
@@ -397,7 +397,7 @@
 </li>
 <li><p>生产者写数据</p>
 <ol>
-<li>向KAFKA发送消息的主要步骤<br><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/fvWEejvgWs2PU0Q3.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>向KAFKA发送消息的主要步骤<br><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/fvWEejvgWs2PU0Q3.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></li>
 <li>ProducerRecord 对象需要包含目标主题和要发送的内容。我们还可以指定键或分区。</li>
 <li>在发送 ProducerRecord 对象时，生产者要先把键和值对象序列化成字节数组，这样它们才能够在网络上传输。</li>
 <li>数据被传给分区器。如果之前在 ProducerRecord 对象里指定了分区，那么分区器 就不会再做任何事情，直接把指定的分区返回。如果没有指定分区，那么分区器会根据 ProducerRecord 对象的键来选择一个分区。</li>
@@ -418,10 +418,10 @@
 </li>
 </ol>
 <p>1.消费者组</p>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/08siTUy8BJktuKvE.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/7n57r2jz9Lmwhafp.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/49dF7U7cKsa5mH0B.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/wg1hi4h2K5tKCMAM.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/08siTUy8BJktuKvE.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/7n57r2jz9Lmwhafp.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/49dF7U7cKsa5mH0B.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://yach-doc-shimo.zhiyinlou.com/uploader/f/wg1hi4h2K5tKCMAM.png?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MDk2MjYzODQsImZpbGVHVUlEIjoiMGwzTlZiV29uNkNsREUzUiIsImlhdCI6MTcwOTYyNjA4NCwiaXNzIjoidXBsb2FkZXJfYWNjZXNzX3Jlc291cmNlIiwidXNlcklkIjozNTExNDI5fQ._NbzGkvi2YSKxtYb-bC4bmcJe0_fFp66QL-QaP07I0g" srcset="/zty-f/zty-f.github.io/img/loading.gif" lazyload alt="img"></p>
 <ol start="2">
 <li><p>再均衡</p>
 <p>2.1当一个消费者被<strong>关闭或发生崩溃时</strong>，它就离开群组，原本由它读取的分区将由群组里的其他消费者来读取。在主题发生变化时，比如管理员添加了新的分区，会发生分区重分配。</p>
@@ -444,11 +444,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+        <a href="/zty-f/zty-f.github.io/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
       
-        <a href="/tags/kafka/">#kafka</a>
+        <a href="/zty-f/zty-f.github.io/tags/kafka/">#kafka</a>
       
-        <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">#中间件</a>
+        <a href="/zty-f/zty-f.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">#中间件</a>
       
     </div>
   
@@ -461,7 +461,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>KAFKA基本原理要点</div>
-      <div>https://zty-f.github.io/2024/03/25/KAFKA基本原理要点/</div>
+      <div>https://github.com/zty-f/zty-f.github.io/2024/03/25/KAFKA基本原理要点/</div>
     </div>
     <div class="license-meta">
       
@@ -510,7 +510,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/30/%E6%99%AE%E9%80%9AOR%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/" title="普通OR唯一索引">
+                      <a href="/zty-f/zty-f.github.io/2024/03/30/%E6%99%AE%E9%80%9AOR%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95/" title="普通OR唯一索引">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">普通OR唯一索引</span>
                         <span class="visible-mobile">上一篇</span>
@@ -520,7 +520,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/05/work_record/" title="WorkNormalRecord">
+                      <a href="/zty-f/zty-f.github.io/2024/03/05/work_record/" title="WorkNormalRecord">
                         <span class="hidden-mobile">WorkNormalRecord</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -716,8 +716,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/zty-f/zty-f.github.io/js/events.js" ></script>
+<script  src="/zty-f/zty-f.github.io/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -739,7 +739,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/zty-f/zty-f.github.io/js/img-lazyload.js" ></script>
   
 
 
@@ -838,7 +838,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/zty-f/zty-f.github.io/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -848,7 +848,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/zty-f/zty-f.github.io/js/boot.js" ></script>
 
 
   
