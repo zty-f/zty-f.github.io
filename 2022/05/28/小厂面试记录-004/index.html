@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZTY">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="小厂实习面试记录以及问题回顾~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小厂实习面试记录-004">
+<meta property="og:url" content="https://zty-f.github.io/2022/05/28/%E5%B0%8F%E5%8E%82%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95-004/index.html">
+<meta property="og:site_name" content="zruler">
+<meta property="og:description" content="小厂实习面试记录以及问题回顾~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/11/29/c6f3826ef1c73128.png">
+<meta property="article:published_time" content="2022-05-28T02:29:35.000Z">
+<meta property="article:modified_time" content="2025-11-06T06:36:34.123Z">
+<meta property="article:author" content="ZTY">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="实习">
+<meta property="article:tag" content="大学">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/11/29/c6f3826ef1c73128.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>小厂实习面试记录-004 - zruler</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3799348_11m20qbqwhmo.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zty-f.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>思前想后</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                魔盒
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-yingyong"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/zty-f">
+                <i class="iconfont icon-GitHub"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="小厂实习面试记录-004"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        ZTY
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-28 10:29" pubdate>
+          2022年5月28日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          55 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">小厂实习面试记录-004</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="1-什么是类加载？类加载的过程？"><a href="#1-什么是类加载？类加载的过程？" class="headerlink" title="1.什么是类加载？类加载的过程？"></a>1.什么是类加载？类加载的过程？</h3><p>类的加载指的是将类的<code>class</code>文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个此类的对象，通过这个对象可以访问到方法区对应的类信息。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/40c277e2f4e8bdfb.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>加载</strong></p>
+<ol>
+<li>通过类的全限定名获取定义此类的二进制字节流</li>
+<li>将字节流所代表的静态存储结构转换为方法区的运行时数据结构</li>
+<li>在内存中生成一个代表该类的<code>Class</code>对象，作为方法区类信息的访问入口</li>
+</ol>
+<p><strong>验证</strong></p>
+<p>确保Class文件的字节流中包含的信息符合虚拟机规范，保证在运行后不会危害虚拟机自身的安全。主要包括四种验证：<strong>文件格式验证，元数据验证，字节码验证，符号引用验证</strong>。</p>
+<p><strong>准备</strong></p>
+<p>为类变量分配内存并设置类变量初始值的阶段。</p>
+<p><strong>解析</strong></p>
+<p>虚拟机将常量池内的符号引用替换为直接引用的过程。符号引用用于描述目标，直接引用直接指向目标的地址。</p>
+<p><strong>初始化</strong></p>
+<p>开始执行类中定义的<code>Java</code>代码，初始化阶段是调用类构造器的过程。</p>
+<h3 id="2-什么是双亲委派模型？"><a href="#2-什么是双亲委派模型？" class="headerlink" title="2.什么是双亲委派模型？"></a>2.什么是双亲委派模型？</h3><p>一个类加载器收到一个类的加载请求时，它首先不会自己尝试去加载它，而是把这个请求<strong>委派</strong>给父类加载器去完成，这样层层委派，因此所有的加载请求最终都会传送到顶层的启动类加载器中，只有当父类加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去加载。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/49da36b2f9691b57.png" srcset="/img/loading.gif" lazyload></p>
+<p>双亲委派模型的具体实现代码在 <code>java.lang.ClassLoader</code>中，此类的 <code>loadClass()</code> 方法运行过程如下：先检查类是否已经加载过，如果没有则让父类加载器去加载。当父类加载器加载失败时抛出 <code>ClassNotFoundException</code>，此时尝试自己去加载。源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClassLoader</span> &#123;<br>    <span class="hljs-comment">// The parent class loader for delegation</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ClassLoader parent;<br><br>    <span class="hljs-keyword">public</span> Class&lt;?&gt; loadClass(String name) <span class="hljs-keyword">throws</span> ClassNotFoundException &#123;<br>        <span class="hljs-keyword">return</span> loadClass(name, <span class="hljs-literal">false</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">protected</span> Class&lt;?&gt; loadClass(String name, <span class="hljs-type">boolean</span> resolve) <span class="hljs-keyword">throws</span> ClassNotFoundException &#123;<br>        <span class="hljs-keyword">synchronized</span> (getClassLoadingLock(name)) &#123;<br>            <span class="hljs-comment">// First, check if the class has already been loaded</span><br>            Class&lt;?&gt; c = findLoadedClass(name);<br>            <span class="hljs-keyword">if</span> (c == <span class="hljs-literal">null</span>) &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    <span class="hljs-keyword">if</span> (parent != <span class="hljs-literal">null</span>) &#123;<br>                        c = parent.loadClass(name, <span class="hljs-literal">false</span>);<br>                    &#125; <span class="hljs-keyword">else</span> &#123;<br>                        c = findBootstrapClassOrNull(name);<br>                    &#125;<br>                &#125; <span class="hljs-keyword">catch</span> (ClassNotFoundException e) &#123;<br>                    <span class="hljs-comment">// ClassNotFoundException thrown if class not found</span><br>                    <span class="hljs-comment">// from the non-null parent class loader</span><br>                &#125;<br><br>                <span class="hljs-keyword">if</span> (c == <span class="hljs-literal">null</span>) &#123;<br>                    <span class="hljs-comment">// If still not found, then invoke findClass in order</span><br>                    <span class="hljs-comment">// to find the class.</span><br>                    c = findClass(name);<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (resolve) &#123;<br>                resolveClass(c);<br>            &#125;<br>            <span class="hljs-keyword">return</span> c;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="hljs-keyword">throws</span> ClassNotFoundException &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassNotFoundException</span>(name);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-为什么需要双亲委派模型？"><a href="#3-为什么需要双亲委派模型？" class="headerlink" title="3.为什么需要双亲委派模型？"></a>3.为什么需要双亲委派模型？</h3><p>双亲委派模型的好处：可以防止内存中出现多份同样的字节码。如果没有双亲委派模型而是由各个类加载器自行加载的话，如果用户编写了一个<code>java.lang.Object</code>的同名类并放在<code>ClassPath</code>中，多个类加载器都去加载这个类到内存中，系统中将会出现多个不同的<code>Object</code>类，那么类之间的比较结果及类的唯一性将无法保证。</p>
+<h3 id="4-什么是类加载器，类加载器有哪些"><a href="#4-什么是类加载器，类加载器有哪些" class="headerlink" title="4.什么是类加载器，类加载器有哪些?"></a>4.什么是类加载器，类加载器有哪些?</h3><ul>
+<li><p>实现通过类的全限定名获取该类的二进制字节流的代码块叫做类加载器。</p>
+<p>主要有一下四种类加载器:</p>
+<ul>
+<li><strong>启动类加载器</strong>：用来加载 Java 核心类库，无法被 Java 程序直接引用。</li>
+<li><strong>扩展类加载器</strong>：它用来加载 Java 的扩展库。Java 虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 Java 类。</li>
+<li><strong>系统类加载器</strong>：它根据应用的类路径来加载 Java 类。可通过<code>ClassLoader.getSystemClassLoader()</code>获取它。</li>
+<li><strong>自定义类加载器</strong>：通过继承<code>java.lang.ClassLoader</code>类的方式实现。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-Java中变量，代码块，构造器之间执行顺序是怎么样的？"><a href="#5-Java中变量，代码块，构造器之间执行顺序是怎么样的？" class="headerlink" title="5.Java中变量，代码块，构造器之间执行顺序是怎么样的？"></a>5.Java中变量，代码块，构造器之间执行顺序是怎么样的？</h3><p>Java程序中类中个元素的初始化顺序 初始化的原则是：</p>
+<ul>
+<li>先初始化<strong>静态</strong>部分，再初始化<strong>动态</strong>部分，</li>
+<li>先初始化<strong>父类</strong>部分，后初始化<strong>子类</strong>部分，</li>
+<li>先初始化<strong>变量</strong>，再初始化<strong>代码块</strong>和<strong>构造器</strong>。</li>
+</ul>
+<h3 id="6-怎么自定义一个类加载器？"><a href="#6-怎么自定义一个类加载器？" class="headerlink" title="6.怎么自定义一个类加载器？"></a>6.怎么自定义一个类加载器？</h3><p>加载一个类时，一般是调用类加载器的loadClass()方法来加载一个类，loadClass()方法的工作流程如下：</p>
+<p>1.先调用findLoadedClass(className)来获取这个类，判断类是否已加载。</p>
+<p>2.如果未加载，如果父类加载器不为空，调用父类加载器的loadClass()来加载这个类，父类加载器为空，就调用父类加载器加载这个类。</p>
+<p>3.父类加载器加载失败，那么调用该类加载器findClass(className)方法来加载这个类。</p>
+<ul>
+<li><p>所以我们一般自定义类加载器都是<strong>继承ClassLoader，重写findClass()方法</strong>，来实现类加载，这样不会违背双亲委派类加载机制。</p>
+</li>
+<li><p>也可以通过<strong>重写loadClass()方法</strong>进行类加载，但是这样会违背双亲委派类加载机制。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DelegationClassLoader</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ClassLoader</span> &#123;<br>  <span class="hljs-keyword">private</span> String classpath;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">DelegationClassLoader</span><span class="hljs-params">(String classpath, ClassLoader parent)</span> &#123;<br>    <span class="hljs-built_in">super</span>(parent);<br>    <span class="hljs-built_in">this</span>.classpath = classpath;<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">protected</span> Class&lt;？&gt; findClass(String name) <span class="hljs-keyword">throws</span> ClassNotFoundException &#123;<br>    <span class="hljs-type">InputStream</span> <span class="hljs-variable">is</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">try</span> &#123;<br>      <span class="hljs-type">String</span> <span class="hljs-variable">classFilePath</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.classpath + name.replace(<span class="hljs-string">&quot;.&quot;</span>, <span class="hljs-string">&quot;/&quot;</span>) + <span class="hljs-string">&quot;.class&quot;</span>;<br>      is = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(classFilePath);<br>      <span class="hljs-type">byte</span>[] buf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[is.available()];<br>      is.read(buf);<br>      <span class="hljs-keyword">return</span> defineClass(name, buf, <span class="hljs-number">0</span>, buf.length);<br>    &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassNotFoundException</span>(name);<br>    &#125; <span class="hljs-keyword">finally</span> &#123;<br>      <span class="hljs-keyword">if</span> (is != <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>          is.close();<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>          <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IOError</span>(e);<br>        &#125;<br>      &#125;<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span><br>      <span class="hljs-keyword">throws</span> ClassNotFoundException, IllegalAccessException, InstantiationException,<br>      MalformedURLException &#123;<br>    sun.applet.<span class="hljs-type">Main</span> <span class="hljs-variable">main1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">sun</span>.applet.Main();<br><br>    <span class="hljs-type">DelegationClassLoader</span> <span class="hljs-variable">cl</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DelegationClassLoader</span>(<span class="hljs-string">&quot;java-study/target/classes/&quot;</span>,<br>        getSystemClassLoader());<br>    <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;sun.applet.Main&quot;</span>;<br>    Class&lt;？&gt; clz = cl.loadClass(name);<br>    <span class="hljs-type">Object</span> <span class="hljs-variable">main2</span> <span class="hljs-operator">=</span> clz.newInstance();<br><br>    System.out.println(<span class="hljs-string">&quot;main1 class: &quot;</span> + main1.getClass());<br>    System.out.println(<span class="hljs-string">&quot;main2 class: &quot;</span> + main2.getClass());<br>    System.out.println(<span class="hljs-string">&quot;main1 classloader: &quot;</span> + main1.getClass().getClassLoader());<br>    System.out.println(<span class="hljs-string">&quot;main2 classloader: &quot;</span> + main2.getClass().getClassLoader());<br>    <span class="hljs-type">ClassLoader</span> <span class="hljs-variable">itrCl</span> <span class="hljs-operator">=</span> cl;<br>    <span class="hljs-keyword">while</span> (itrCl != <span class="hljs-literal">null</span>) &#123;<br>      System.out.println(itrCl);<br>      itrCl = itrCl.getParent();<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-Java线程模型详解"><a href="#7-Java线程模型详解" class="headerlink" title="7.Java线程模型详解"></a>7.Java线程模型详解</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>线程是操作系统的最小调度单位，包含于进程。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%B9%B6%E5%8F%91&spm=1001.2101.3001.7020">并发</a>多个线程，每条线程可以并行执行不同的任务。</p>
+<h3 id="与进程的不同"><a href="#与进程的不同" class="headerlink" title="与进程的不同"></a>与进程的不同</h3><ol>
+<li>进程是操作系统资源分配的最小单位，线程是操作系统执行的最小单位；</li>
+<li>进程包含线程，一个进程可以包含多个线程，同一个进程中的不同线程共享同一资源（此处会引发另一个问题，线程不可见问题）；</li>
+<li>进程是指一段程序的执行过程，线程指的是进程中一个单一顺序的控制流（任务）；</li>
+</ol>
+<h3 id="线程分类"><a href="#线程分类" class="headerlink" title="线程分类"></a>线程分类</h3><p>线程主要分为两种</p>
+<ul>
+<li>内核线程，简称 KLT(Kernel Level Thread)</li>
+<li>用户线程，简称 ULT(User Level Thread)</li>
+</ul>
+<h3 id="内核线程"><a href="#内核线程" class="headerlink" title="内核线程"></a>内核线程</h3><p>系统内核管理线程，内核保存线程的状态和上下文，线程阻塞不会引起进程阻塞。在多处理器上，多线程在多处理器上并行运行。线程的创建、调度和管理等生命周期是由内核直接管理完成，效率比 ULT 要低，比进程要高。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/032ebf303995872f.png" srcset="/img/loading.gif" lazyload></p>
+<p>内核空间会维护 [<strong>进程表</strong>] 和[<strong>线程表</strong>]。进程表中维护并管理进程 [运行的程序代码] 集合。线程维护并管理各个进程中的线程集合。线程阻塞，其所在的进程不会阻塞。内核线程和轻量级进程 (Light Weight Process,LWP, 是使用内核线程的一种高级接口) 是一对一模型，这个文章后面会有介绍。</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li>优点：可以将复杂的线程生命周期的管理任务交给操作系统，编程和实现简单；线程维护在操作系统内核，线程阻塞不会阻塞进程；如果机器是多核处理器，内核线程可以充分利用多核处理器进行并行运行线程。</li>
+<li>缺点：当线程进行调度、创建等，会涉及到用户态和内核态之间的转化以及线程上下文的切换，资源消耗大、效率较低。</li>
+</ul>
+<h3 id="用户线程"><a href="#用户线程" class="headerlink" title="用户线程"></a>用户线程</h3><p>用户程序实现，不依赖操作系统内核，应用提供创建、调度和管理线程的函数来控制用户线程。不需要用户态 &#x2F; 核心态切换，速度高、效率高。内核对 ULT 无感知，线程阻塞则进程（包含它的所有线程）阻塞。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/f9ac535894bc7731.png" srcset="/img/loading.gif" lazyload></p>
+<p>内核空间会维护 [进程表]进程表中记录进程 [运行的程序代码] 集合。线程阻塞，其所在的进程也会阻塞。操作系统内核无法感知用户线程，对于线程的创建、调度、撤销等无感知。</p>
+<h4 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li>优点：由于操作系统内核无法感知用户线程，对于线程的创建、调度、撤销等无感知。所以当线程进行调度、创建等，不会涉及到用户态和内核态之间的转化以及线程上下文的切换，资源消耗小、效率较高。</li>
+<li>缺点：需要维护复杂的线程生命周期，编程和实现复杂；线程维护在进程中，内核无感知，线程阻塞会阻塞整个进程（包含整个进程的其他线程）；用户线程不能充分利用多核处理器进行并行运行线程，只能在单个核中运行。</li>
+</ul>
+<h2 id="线程模型"><a href="#线程模型" class="headerlink" title="线程模型"></a>线程模型</h2><p>线程模型主要分为三种</p>
+<ul>
+<li>一对一模型</li>
+<li>多对一模型</li>
+<li>多对多模型</li>
+</ul>
+<h3 id="一对一模型"><a href="#一对一模型" class="headerlink" title="一对一模型"></a>一对一模型</h3><p>一对一模型 简易</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/0a1d8476adc02847.png" srcset="/img/loading.gif" lazyload></p>
+<p>用户空间的一个线程 (应用程序的线程概念) 对应内核的一个线程，1:1。用户空间的线程通过 LWP(属于用户空间) 对内核线程进行创建、销毁等操作。由于每个线程的创建、调度、销毁都需要内核的支持，每次线程的创建、切换都会设计用户状态 &#x2F; 内核状态的切换，性能开销比较大，并且单个进程能够创建的 LWP 的数量是有限。能够充分里用多核的优势。</p>
+<p>一对一模型</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/1ca92c5d58e79b76.png" srcset="/img/loading.gif" lazyload></p>
+<p>用户进程可以创建多个 (有限个)LWP 对内核线程进行管理 (包含创建、销毁等生命周期的方法)，本质上还是操作系统进行的管理。KLT 是实际的计算运行的线程，在内核空间，由操作系统内核进行管理维护 (创建、调度、销毁等)。<strong>严格意义上，LWP 是属于操作系统层面的</strong></p>
+<p>一对一模型 详细</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/152ba0318ecbbadb.png" srcset="/img/loading.gif" lazyload></p>
+<p>JVM 进程中通过 new Thread(Runnable&#x2F;Callable) 创建 Java 层面的线程。Java 线程通过库调度器调用 LWP 的接口创建、销毁内核线程等。内核线程是由操作系统内核进行管理维护。</p>
+<p><strong>注：About LWP</strong></p>
+<ol>
+<li><strong>其实 LWP(轻量级进程) 是操作系统提供的操作内核线程的入口 (接口)，属于中间层。</strong></li>
+<li><strong>在 Linux 操作系统中，往往都是通过 fork 函数创建一个子进程来代表内核中的线程，在 fork 完一个子进程后，还需要将父进程中大部分的上下文信息复制到子进程中，消耗大量 cpu 时间用来初始化内存空间，产生大量冗余数据。为了避免上述情况，轻量级进程 (Light Weight Process, LWP) 便出现了，其使用 clone 系统调用创建子进程，过程中只将部分父进程数据进行复制，没有被复制的资源可以通过指针进行数据共享，这样一来 LWP 的运行单元更小、运行速度更快。</strong></li>
+<li><strong>LWP 与内核线程一一映射，每个 LWP 都由一个内核线程支持</strong></li>
+<li><strong>LWP 可以被普通进程创建，有父子进程的关系。</strong></li>
+</ol>
+<h3 id="多对一模型"><a href="#多对一模型" class="headerlink" title="多对一模型"></a>多对一模型</h3><p>多对一模型 简易</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/20de4dcda95197d1.png" srcset="/img/loading.gif" lazyload></p>
+<p>一个内核线程可以对应多个用户线程，即跟用户线程相匹配。用户线程的创建、调度、销毁不需要内核的支持，所以也就不涉及上下文切换的资源损耗，效率通常较高。但是内核无法感知到用户线程（只能感知到用户空间的进程），所以当一个进程中的一个线程阻塞，将会导致整个进程都阻塞。由于内核感知的是应用进程，所以进程中的多线程只能是运行在单个运算核上，无法充分利用计算性能并行计算，当然如果机器是单核就另当别论了；</p>
+<p>多对一模型</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/e9f62403ab6f0a6e.png" srcset="/img/loading.gif" lazyload></p>
+<p>此时内核直接管理进程，所有的资源类操作都是通过进程进行代为转发与内核进行通信，所谓的一直对外？</p>
+<h3 id="多对多模型"><a href="#多对多模型" class="headerlink" title="多对多模型"></a>多对多模型</h3><p>多对多模型 简易</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/cb1e3ac3746a4110.png" srcset="/img/loading.gif" lazyload></p>
+<p>这个模型其实就是一个混合的线程模型。LWP 和内核是 1:1 对应关系 (LWP 需要内核的支持才能工作，fork 等函数)。用户线程和 LWP 是 n:1(n&gt;0) 对应关系。由于用户进程和 LWP(可以理解为内核线程) 是 n:m 的关系，所以即解决了 1:1 模型中性能开销及线程数量的问题，也解决了 N:1 模型中阻塞问题，同时也能充分利用 CPU 的多核优势。</p>
+<p>多对多模型</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/28/db331dba990f6e10.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>此模型是大部分协程实现的基础。(Go语言)</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%9D%A2%E8%AF%95/" class="category-chain-item">面试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%B0%E5%BD%95/">#记录</a>
+      
+        <a href="/tags/%E5%AE%9E%E4%B9%A0/">#实习</a>
+      
+        <a href="/tags/%E5%A4%A7%E5%AD%A6/">#大学</a>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>小厂实习面试记录-004</div>
+      <div>https://zty-f.github.io/2022/05/28/小厂面试记录-004/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZTY</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月28日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/20/%E5%AE%9E%E4%B9%A0%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95%E6%80%BB%E7%BB%93/" title="实习过程记录总结 ｜ 实习笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">实习过程记录总结 ｜ 实习笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/25/%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9A%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E5%BC%80%E5%8F%91%E5%90%97%EF%BC%9F%20%EF%BD%9C%20%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B006/" title="你真的会团队合作开发吗？ ｜ 青训营笔记06">
+                        <span class="hidden-mobile">你真的会团队合作开发吗？ ｜ 青训营笔记06</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"wLiqWYFHh2NEnXVcULmB4KWQ-gzGzoHsz","appKey":"GSfJMcM0GcCzp1HDNXJfd9Bt","path":"window.location.pathname","placeholder":"欢迎大家积极评论~  支持Markdown格式~","avatar":"wavatar","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://wliqwyfh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"> <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> <meting-js server="netease"  type="playlist"  id="7708362143" fixed="true"  mini="true" order="list" loop="all" preload="auto" list-folded="true" autoplay="true" theme="red"> </meting-js>
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/zty-f" target="_blank" rel="nofollow noopener"><span>Copyright &copy;</span></a> <a href="http://www.zty-f.fun/" target="_blank" rel="nofollow noopener"><span>zty-f</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      蜀ICP备2022002077号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

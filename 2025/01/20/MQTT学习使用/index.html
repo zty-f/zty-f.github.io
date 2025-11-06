@@ -1,0 +1,1030 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZTY">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="MQTT入门学习使用记录~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MQTT学习使用">
+<meta property="og:url" content="https://zty-f.github.io/2025/01/20/MQTT%E5%AD%A6%E4%B9%A0%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="zruler">
+<meta property="og:description" content="MQTT入门学习使用记录~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2025/02/19/60754b7fe72f32a7.png">
+<meta property="article:published_time" content="2025-01-20T04:00:06.000Z">
+<meta property="article:modified_time" content="2025-11-06T06:36:34.122Z">
+<meta property="article:author" content="ZTY">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="物联网">
+<meta property="article:tag" content="长链接">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2025/02/19/60754b7fe72f32a7.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>MQTT学习使用 - zruler</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3799348_11m20qbqwhmo.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zty-f.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>思前想后</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                魔盒
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-yingyong"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/zty-f">
+                <i class="iconfont icon-GitHub"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MQTT学习使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        ZTY
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-20 12:00" pubdate>
+          2025年1月20日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          61 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">MQTT学习使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1、长连接"><a href="#1、长连接" class="headerlink" title="1、长连接"></a>1、长连接</h1><h2 id="1-1、为什么用MQTT"><a href="#1-1、为什么用MQTT" class="headerlink" title="1.1、为什么用MQTT"></a>1.1、为什么用MQTT</h2><h3 id="1-1-1、ws方案弊端"><a href="#1-1-1、ws方案弊端" class="headerlink" title="1.1.1、ws方案弊端"></a>1.1.1、ws方案弊端</h3><p><img src="https://s3.bmp.ovh/imgs/2025/02/19/efd3748689415905.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>wss长连接客户端与服务pod硬耦合，使得服务必须脱离于k8s体系，稳定性难以保障。</li>
+<li>服务本地内存 存有用户链接信息，pk上下文信息，导致服务为有状态服务。不能正常无损发版更新。</li>
+<li>客户端之间的信息互通，链路长，依赖的组件和数据结构多，通信质量难以保证。</li>
+<li>wss链接的管理比较粗糙，消息通信机制原始，强依赖tcp可靠性，没有额外保障，丢消息概率大。</li>
+<li>由于wss链接是每个user专属一条。并发情况下pod需要维持大量长连接，但是这些长连接，通信频率低、吞吐量低，造成k8s node资源的极大浪费。</li>
+</ol>
+<h3 id="1-1-2、mqtt方案优势"><a href="#1-1-2、mqtt方案优势" class="headerlink" title="1.1.2、mqtt方案优势"></a>1.1.2、mqtt方案优势</h3><p><img src="https://s3.bmp.ovh/imgs/2025/02/19/01ac896afaadc856.png" srcset="/img/loading.gif" lazyload></p>
+<ol>
+<li>发布订阅架构，业务仅仅需要关注由topic定义的路由规则，而不需要关注底层链接的管理。</li>
+<li>有成熟的长连接保活、探活机制，把客户端的断连、上线，封装成完善的系统事件，供业务使用。</li>
+<li>有完善的消息保障机制，来保障消息的可靠性传输，详情见下文阐述。</li>
+<li>将客户端链接与服务端pod解耦，使得服务端可以像其他无状态服务一样，重启、发版、HPA。</li>
+<li>通过一定的信道设计和消息处理机制设计，能实现高效的通信，单条链接至少1w条&#x2F;s的吞吐量，且可对每条消息维度进行负载均衡。</li>
+</ol>
+<h2 id="1-2、MQTT长连接方案"><a href="#1-2、MQTT长连接方案" class="headerlink" title="1.2、MQTT长连接方案"></a>1.2、MQTT长连接方案</h2><h3 id="1-2-1、mqtt信道设计"><a href="#1-2-1、mqtt信道设计" class="headerlink" title="1.2.1、mqtt信道设计"></a>1.2.1、mqtt信道设计</h3><p><img src="https://s3.bmp.ovh/imgs/2025/02/19/d0a7cb22259066e4.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>客户端-&gt;服务端</strong> </p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-variable">$share</span><span class="hljs-regexp">/group_oral/</span>oral<span class="hljs-regexp">/english/</span>pk<span class="hljs-regexp">/server/</span>+<br></code></pre></td></tr></table></figure>
+
+<p>服务器端的共享订阅+qos 1的可靠性传输+0会话保存机制。可做到如下可靠性保障：</p>
+<ol>
+<li>从客户端到服务端的消息发送成功后至少到达一次。保障消息不丢失。</li>
+<li>从客户端到服务端的每条消息都会进行负载均衡。保障服务器的负载均衡。</li>
+<li>服务端某一链接异常断连后，客户端消息可以迅速投递的同组下一个链接中。</li>
+</ol>
+<p><strong>服务端-&gt;客户端</strong></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;oral/english/pk/client/&quot;</span>+pkID<br></code></pre></td></tr></table></figure>
+
+<p>客户端pkid订阅+qos 1的可靠性传输+离线会话保持机制，可做到如下可靠性保障：</p>
+<ol>
+<li>非极端case从服务端到客户端的消息至少到达一次。极端case：弱网离线状态下，重连不超过会话保持时间保障消息不丢。</li>
+<li>服务端到pk的用户客户端的消息保持发送的顺序。不会因为极端网络环境导致消息失序。</li>
+</ol>
+<h3 id="1-2-2、服务端消息处理设计"><a href="#1-2-2、服务端消息处理设计" class="headerlink" title="1.2.2、服务端消息处理设计"></a>1.2.2、服务端消息处理设计</h3><p>在上述阐述中，我们借助mqtt服务器实现了，消息的可靠性传输的信道。但是信道的吞吐量和延时仍需特殊设计。单纯顺序性的消费保障不了吞吐量与低延时。</p>
+<p><strong>服务端快速ack+多协程并发处理响应</strong></p>
+<ol>
+<li>如信道设计图，服务器的链接虽然变少了，但是稍有不慎就会造成读写的线头阻塞，导致总体服务质量下降。</li>
+<li>牺牲处理消息的顺序性，保障大并发的入流量，客户端低等待延时。</li>
+</ol>
+<h2 id="1-3、服务端长连接保障"><a href="#1-3、服务端长连接保障" class="headerlink" title="1.3、服务端长连接保障"></a>1.3、服务端长连接保障</h2><h3 id="1-3-1、服务平滑退出"><a href="#1-3-1、服务平滑退出" class="headerlink" title="1.3.1、服务平滑退出"></a>1.3.1、服务平滑退出</h3><p>http服务pod的平滑退出，由成熟的负载均衡组件(ingress或SLB)来做上线和摘除。而大部分tcp长连接服务，是需要自己HOOK退出事件来做到平滑退出。</p>
+<p>本次口算服务mqtt的长连接，是监听了进程退出信号，来自主摘除topic订阅，同时配合k8s关闭前timesleep，来保障无损退出。</p>
+<h3 id="1-3-2、长连接异常断开"><a href="#1-3-2、长连接异常断开" class="headerlink" title="1.3.2、长连接异常断开"></a>1.3.2、长连接异常断开</h3><p>见信道设计中服务端的介绍，我们通共享订阅+0会话可以做到，异常断连后迅速负载至同组内其他链接。保障断连消息不丢。</p>
+<p>同时设置自动重连机制，来保障mqtt客户端异常断连后各个pod之间发生长时间的负载不均情况。</p>
+<h3 id="1-3-3、长连接延时"><a href="#1-3-3、长连接延时" class="headerlink" title="1.3.3、长连接延时"></a>1.3.3、长连接延时</h3><p>对于mqtt方案的长连接的延时，有做过相应的测试。测试条件：公网本机模拟服务端和客户端   1000 、1w条消息发送等待到达并计算延时，三次实验。</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">消息体 fmt.Sprintf(`&#123;<span class="hljs-string">&quot;user_id&quot;</span>:<span class="hljs-string">&quot;%d&quot;</span>,<span class="hljs-string">&quot;content&quot;</span>:<span class="hljs-string">&quot;hello&quot;</span>&#125;`, i)<br></code></pre></td></tr></table></figure>
+
+<p><strong>1000 发送接收延时：</strong></p>
+<table>
+<thead>
+<tr>
+<th>第一次</th>
+<th>第二次</th>
+<th>第三次</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>p50: 29.385msp90: 39.642msp99: 50.374ms</td>
+<td>p50: 24.436msp90: 34.08msp99: 59.66ms</td>
+<td>p50: 29.162msp90: 38.805msp99: 46.829ms</td>
+</tr>
+</tbody></table>
+<p><strong>1w 发送接收延时:</strong></p>
+<table>
+<thead>
+<tr>
+<th>第一次</th>
+<th>第二次</th>
+<th>第三次</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>p50: 26.729msp90: 35.759msp99: 44.011ms</td>
+<td>p50: 27.974msp90: 37.357msp99: 45.933ms</td>
+<td>p50: 27.225msp90: 35.739msp99: 43.872ms</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-4、长连接吞吐量"><a href="#1-3-4、长连接吞吐量" class="headerlink" title="1.3.4、长连接吞吐量"></a>1.3.4、长连接吞吐量</h3><p>对于mqtt方案的长连接的延时，有做过相应的测试。测试条件：公网本机模拟服务端和客户端 1w、10w条消息发送三次并确认到达，仅计算发送耗时。</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">消息体 fmt.Sprintf(`&#123;<span class="hljs-string">&quot;user_id&quot;</span>:<span class="hljs-string">&quot;%d&quot;</span>,<span class="hljs-string">&quot;content&quot;</span>:<span class="hljs-string">&quot;hello&quot;</span>&#125;`, i)<br></code></pre></td></tr></table></figure>
+
+<p>1w：  发送总耗时 456.590209ms  586.06925ms  635.62ms</p>
+<p>10w：发送总耗时 4.681789666s    4.062220334s  5.029271834s</p>
+<p>总结公司wifi下外网发送吞吐量约2w条&#x2F;s</p>
+<h1 id="2、-mqtt概述"><a href="#2、-mqtt概述" class="headerlink" title="2、 mqtt概述"></a>2、 mqtt概述</h1><p>MQTT (Message Queue Telemetry Transport) 是一个轻量级传输协议，它被设计用于轻量级的发布&#x2F;订阅式消息传输，MQTT协议针对低带宽网络，低计算能力的设备，做了特殊的优化。是一种简单、稳定、开放、轻量级易于实现的消息协议，在物联网的应用下的信息采集，工业控制，智能家居等方面具有广泛的适用性。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/e2c269052bbcba71.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>MQTT更加简单：MQTT是一种消息队列协议，使用发布&#x2F;订阅消息模式，提供一对多的消息发布，解除应用程序耦合，相对于其他协议，开发更简单；</li>
+<li>MQTT网络更加稳定：工作在TCP协议上；由TCP协议提供稳定的网络连接；</li>
+<li>轻量级：小型传输，开销很小，协议交换最小化，以降低网络流量；适合低带宽，数据量较小的应用。</li>
+</ul>
+<h2 id="MQTT支持三种消息发布服务质量-QoS"><a href="#MQTT支持三种消息发布服务质量-QoS" class="headerlink" title="MQTT支持三种消息发布服务质量(QoS)"></a><strong>MQTT支持三种消息发布服务质量(QoS)</strong></h2><ul>
+<li>“至多一次”(QoS&#x3D;&#x3D;0)：消息发布完全依赖底层 TCP&#x2F;IP 网络。会发生消息丢失或重复。这一级别可用于如下情况，环境传感器数据，丢失一次读记录无所谓，因为不久后还会有第二次发送。</li>
+<li>“至少一次”(QoS&#x3D;&#x3D;1)：确保消息到达，但消息重复可能会发生。</li>
+<li>“只有一次”(QoS&#x3D;&#x3D;2)：确保消息到达一次。这一级别可用于如下情况，在计费系统中，消息重复或丢失会导致不正确的结果。</li>
+</ul>
+<h2 id="MQTT协议三种身份"><a href="#MQTT协议三种身份" class="headerlink" title="MQTT协议三种身份"></a><strong>MQTT协议三种身份</strong></h2><p>发布者、代理、订阅者，发布者和订阅者都为客户端，代理为服务器，同时消息的发布者也可以是订阅者（为了节约内存和流量发布者和订阅者一般都会定义在一起）。</p>
+<p>MQTT传输的消息分为主题（Topic，可理解为消息的类型，订阅者订阅后，就会收到该主题的消息内容（payload））和负载（payload，可以理解为消息的内容）两部分。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/7a88918ff37099b5.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="mqtt与websocket的区别"><a href="#mqtt与websocket的区别" class="headerlink" title="mqtt与websocket的区别"></a>mqtt与websocket的区别</h2><p><strong>相同点：</strong></p>
+<ul>
+<li>MQTT 和 WebSocket 都是应用层协议</li>
+<li>目前底层都是使用 TCP 协议确保可靠传输数据</li>
+<li>都规定了自己的报文（消息）结构</li>
+<li>都支持双向通信</li>
+<li>都使用二进制编码（有别于 HTTP 这一类基于文本编码的协议）</li>
+</ul>
+<p><strong>不同点：</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>websocket</th>
+<th>mqtt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通信模型不同</td>
+<td>webSocket 是一种简单的报文协议，着重解决浏览器和服务端不能进行双向通信的问题。WebSocket 仅仅定义了会话的发起方式和报文格式及类型。如何使用报文通信全由应用程序（各浏览器）控制。</td>
+<td>MQTT 则是一种比较复杂的消息协议。MQTT 不仅规定了具体的协议编码，还规定了客户端和服务器的通信模型。具体来说就是MQTT是一种面向主题（topic）的消息广播协议。客户端可以创建、加入和订阅任意主题，并向主题发布消息或者接收广播消息。除此之外，MQTT 还规定了消息的投放级别（QoS），支持至少一次、至多一次和精确投递三种级别，在协议层规定了是否会产生重复投递。</td>
+</tr>
+<tr>
+<td>报文结构不同</td>
+<td>WebSocket 报文相对简单</td>
+<td>mqtt相对复杂</td>
+</tr>
+<tr>
+<td>消息收发方式不同</td>
+<td>WebSocket 收发消息不需要对方确认。因为底层的 TCP 协议会完成可靠传输</td>
+<td>MQTT 收发消息需要根据投递级别进行确认</td>
+</tr>
+</tbody></table>
+<h2 id="2-1-mqtt底层原理"><a href="#2-1-mqtt底层原理" class="headerlink" title="2.1 mqtt底层原理"></a>2.1 mqtt底层原理</h2><p><strong>mqtt协议底层方法</strong></p>
+<p>CONNECT：客户端连接到服务器</p>
+<p>CONNACK：连接确认</p>
+<p>PUBLISH：发布消息</p>
+<p>PUBACK：发布确认</p>
+<p>PUBREC：发布的消息已接收</p>
+<p>PUBREL：发布的消息已释放</p>
+<p>PUBCOMP：发布完成</p>
+<p>SUBSCRIBE：订阅请求</p>
+<p>SUBACK：订阅确认</p>
+<p>UNSUBSCRIBE：取消订阅</p>
+<p>UNSUBACK：取消订阅确认</p>
+<p>PINGREQ：客户端发送心跳</p>
+<p>PINGRESP：服务端心跳响应</p>
+<p>DISCONNECT：断开连接</p>
+<p>AUTH：认证</p>
+<p><strong>mqtt协议数据格式</strong></p>
+<p>在MQTT协议中，一个MQTT数据包由：固定头（Fixed header）、可变头（Variable header）、消息体 （payload）三部分构成。MQTT数据包结构如下：</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/7b43ffff71c2ef70.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>固定头</strong></p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/faa4d4f16e3a352d.png" srcset="/img/loading.gif" lazyload></p>
+<p>固定头存在于所有MQTT数据包中， 固定头包含两部分内容，首字节(字节1)和剩余消息报文长度(从第二个字 节开始，长度为1-4字节)，剩余长度是当前包中剩余内容长度的字节数，包括变量头和有效负载中的数据）</p>
+<p><strong>数据包类型</strong></p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/a9849016946d37d7.png" srcset="/img/loading.gif" lazyload></p>
+<p>标识位</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/7fe395ec3ea106ed.png" srcset="/img/loading.gif" lazyload></p>
+<p>首字节的低4位(bit3~bit0)用来表示某些报文类型的控制字段，实际上只有少数报文类型有控制位。</p>
+<p>其中Bit[3]为DUP字段，如果该值为1，表明这个数据包是一条重复的消息；否则该数据包就是第一次发布的消息。</p>
+<p>如果Bit 1和Bit 2都为0，表示QoS 0：至多一次；如果Bit 1为1，表示QoS 1：至少一次；如果Bit 2为1，表示QoS 2：只有一次；如果同时将Bit 1和Bit 2都设置成1，那么客户端或服务器认为这是一条非法的消息，会关闭当前连接。</p>
+<p><strong>可变头</strong></p>
+<p>可变头的意思是可变化的消息头部。有些报文类型包含可变头部有些报文则不包含。可变头部在固定头部和消 息内容之间，其内容根据报文类型不同而不同。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/c9376cec3f87e8f6.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-1-1-不同投递级别的实现"><a href="#2-1-1-不同投递级别的实现" class="headerlink" title="2.1.1 不同投递级别的实现"></a>2.1.1 不同投递级别的实现</h3><p><strong>qos&#x3D;0</strong></p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/d009b7fc14908fd9.png" srcset="/img/loading.gif" lazyload></p>
+<p>第一步：Publisher 将消息PUBLISH到Broker中去，发出去后自己将消息删除。</p>
+<p>第二步：Broker接收到消息之后直接发往Subscriber，他们三者之间是不存在确认关系的，没有确认机制，消息收不收的到无所谓。完成一次服务的通信。</p>
+<p><strong>qos&#x3D;1</strong></p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/3125b9b193800cbb.png" srcset="/img/loading.gif" lazyload></p>
+<p>第一步：Publisher 将消息 Store（存储）一份在自己这里，然后PUBLISH到Broker中去。</p>
+<p>第二步：Broker存储一份消息之后就将信息PUBLISH到Subscriber中，然后给Publisher一个PUBACK的确认，确认已经发布到Subscrliber中，Publisher才将自己的信息删除。</p>
+<p>第三步：Subscrliber收到信息之后，会给Broker发送一个PUBACK确认，确认信息已收到，Broker拿到确认之后删除自身的信息。完成一次服务的通信。</p>
+<p><strong>qos&#x3D;2</strong></p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/ea180cdc514b82de.png" srcset="/img/loading.gif" lazyload></p>
+<p>第一步：Publisher先存储一份消息，再将消息PUBLISH到Broker中。</p>
+<p>第二步：Broker得到消息之后先存一份消息，然后PUBREC告诉Publisher我已经收到消息，Publisher接收到请求之后给Broker回一个PUBREL可以发送信息到Subscrliber了，然后Broker就把信息PUBLISH到Subscrliber上，接着就给Publisher回一个PUBCOMP表示消息已发送完成，Publisher接收到这个请求之后就将自身存储的信息删除。</p>
+<p>第三步：Subscrliber接收到信息之后先Store存储信息，存储完成之后向Broker发送一个PUBREC表示消息已经收到，Broker接收到请求之后回应一个PUBREL表示消息可以释放，也就是说Subscrliber可以用此消息去处理业务请求了，Subscrliber将消息Notify（通知）上层应用进行业务处理，业务处理完成Subscrliber会给Broker回复一个PUBCOMP表示业务处理已经完成，Broker就可以把信息删除，接着Subscrliber也把自身信息删除，完成一次服务的通信。</p>
+<h3 id="2-1-2-mqtt常用的消息类型"><a href="#2-1-2-mqtt常用的消息类型" class="headerlink" title="2.1.2 mqtt常用的消息类型"></a>2.1.2 mqtt常用的消息类型</h3><p><strong>topic说明：</strong></p>
+<p>MQTT 主题名称是用于消息路由的 UTF-8 编码字符串。为了提供更大的灵活性，MQTT 支持分层主题命名空间。主题通常按层级分级，并使用斜杠 &#x2F; 在级别之间进行分隔。在使用时候不需要提前创建topic。</p>
+<p><strong>保留消息：</strong></p>
+<p>发布者发布消息时，如果 Retained 标记被设置为 true，则该消息即是 MQTT 中的保留消息（Retained Message）。MQTT 服务器会为每个主题存储最新一条保留消息，以方便消息发布后才上线的客户端在订阅主题时仍可以接收到该消息。（如果设置为false,新建立连接的客户端无法收到最近的一条消息）</p>
+<p><strong>通配符订阅：</strong></p>
+<p>单层通配符：+ 是一个通配符字符，仅匹配一个主题层级 </p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-string">&quot;+&quot;</span> 有效<br><span class="hljs-string">&quot;sensor/+&quot;</span> 有效<br><span class="hljs-string">&quot;sensor/+/temperature&quot;</span> 有效<br><span class="hljs-string">&quot;sensor+&quot;</span> 无效 <span class="hljs-comment">(没有占据整个层级)</span><br></code></pre></td></tr></table></figure>
+
+<p>多层通配符：# 匹配主题中的任意层级。多层通配符表示它的父级和任意数量的子层级。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-string">&quot;#&quot;</span> 有效，匹配所有主题<br><span class="hljs-string">&quot;sensor/#&quot;</span> 有效<br><span class="hljs-string">&quot;sensor/bedroom#&quot;</span> 无效 <span class="hljs-comment">(没有占据整个层级)</span><br><span class="hljs-string">&quot;sensor/#/temperature&quot;</span> 无效 <span class="hljs-comment">(不是主题最后一个字符)</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>延迟消息</strong></p>
+<p>（emqx 拥有的扩展功能）延迟发布是 EMQX 支持的 MQTT 扩展功能。当客户端使用特殊主题前缀$delayed&#x2F;{DelayInteval} 发布消息时，将触发延迟发布功能，可以实现按照用户配置的时间间隔延迟发布消息。 （仅支持秒级）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-variable">$delayed</span><span class="hljs-regexp">/&#123;DelayInterval&#125;/</span>&#123;TopicName&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-2-emqx"><a href="#2-2-emqx" class="headerlink" title="2.2 emqx"></a>2.2 emqx</h2><p>mqtt本身是一种网络协议，有多种实现此协议的中间件如（emqx、mosquitto）本次主要讲emqx。</p>
+<h3 id="2-2-1-负载均衡"><a href="#2-2-1-负载均衡" class="headerlink" title="2.2.1 负载均衡"></a><strong>2.2.1 负载均衡</strong></h3><p>当在 EMQX 中部署 LB (负载均衡器) 后，LB 会负责处理 TCP 连接，并将收到的 MQTT 连接与消息分发到不同的 EMQX 集群节点。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/88a49d67cdb5c29c.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-2-2-EMQX-分布式集群设计"><a href="#2-2-2-EMQX-分布式集群设计" class="headerlink" title="2.2.2 EMQX 分布式集群设计"></a>2.2.2 EMQX 分布式集群设计</h3><p>EMQX 分布式集群的基本功能是转发和发布消息到订阅者</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/1f89ed0bf0718357.png" srcset="/img/loading.gif" lazyload></p>
+<p>emqx需要维护订阅表、路由表、主题树</p>
+<p><strong>订阅表</strong>：</p>
+<p>用于存储 主题-&gt;订阅者 之间的映射关系，从而确保能将传入消息正确路由到对应的客户端。该数据只存在于订阅者所在的 EMQX 节点上，类似的结构如下：</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-symbol">node1</span>:<br>    topic<span class="hljs-number">1</span> -&gt; clie<span class="hljs-symbol">nt1</span>, clie<span class="hljs-symbol">nt2</span><br>    topic<span class="hljs-number">2</span> -&gt; clie<span class="hljs-symbol">nt3</span><br><span class="hljs-symbol">node2</span>:<br>    topic<span class="hljs-number">1</span> -&gt; clie<span class="hljs-symbol">nt4</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>路由表：</strong></p>
+<p>路由表记录了主题-&gt;节点之间的映射，它存储每个节点上客户端订阅的主题列表，并用于将消息路由到对应的节点。该数据会在同一集群中的所有节点复制一份。</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xl"><span class="hljs-function"><span class="hljs-title">topic1</span> -&gt;</span> node1, node2<br><span class="hljs-function"><span class="hljs-title">topic2</span> -&gt;</span> node3<br><span class="hljs-function"><span class="hljs-title">topic3</span> -&gt;</span> node2, node4<br></code></pre></td></tr></table></figure>
+
+<p><strong>主题树：</strong></p>
+<p>主题树是一种分层数据结构，它存储有关主题层次结构的信息，并用于消息与订阅客户端的匹配。主题树会在同一集群中的所有节点复制一份。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/8a2eb99c5a374c17.png" srcset="/img/loading.gif" lazyload></p>
+<table>
+<thead>
+<tr>
+<th>Client</th>
+<th>Node</th>
+<th>Subscribed topic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>client1</td>
+<td>node1</td>
+<td>t&#x2F;+&#x2F;x, t&#x2F;+&#x2F;y</td>
+</tr>
+<tr>
+<td>client2</td>
+<td>node2</td>
+<td>t&#x2F;#</td>
+</tr>
+<tr>
+<td>client3</td>
+<td>node3</td>
+<td>t&#x2F;+&#x2F;x, t&#x2F;a</td>
+</tr>
+</tbody></table>
+<p>当一个 MQTT 客户端发布消息时，它所在的节点会查找路由表，并根据消息主题将消息转发到对应的节点（可能是多个节点）。</p>
+<p>然后，接收到消息的节点会查找本地订阅表，并将消息发送至对应的订阅者。</p>
+<p>例如，当<code>客户端 1</code> 发布一条消息到主题 <code>t/a</code> 时，消息在节点之间的路由和分发如下:</p>
+<ol>
+<li><code>客户端 1</code> 向<code>节点 1</code> 发布一条主题为 <code>t/a</code> 的消息；</li>
+<li><code>节点 1</code> 查询主题树，了解到 <code>t/a</code> 与现有主题 <code>t/a</code> 和 <code>t/#</code> 相匹配。</li>
+<li><code>节点 1</code> 查询路由表，并得知：<ol>
+<li><code>节点 2</code> 上有客户端订阅了 <code>t/#</code> 主题；</li>
+<li><code>节点 3</code> 上有客户端订阅了 <code>t/a</code> 主题；因此<code>节点 1</code> 会将消息同时转发给<code>节点 2</code> 和<code>节点 3</code>。</li>
+</ol>
+</li>
+<li><code>节点 2</code> 收到转发的 <code>t/a</code> 消息后，通过查询本地订阅表，将消息分发给订阅了 <code>t/#</code> 的客户端。</li>
+<li><code>节点 3</code> 收到转发的 <code>t/a</code> 消息后，通过查询本地订阅表，将消息分发给订阅了 <code>t/a</code> 的客户端。</li>
+<li>消息发布完成。</li>
+</ol>
+<h3 id="2-2-3-emqx5-0"><a href="#2-2-3-emqx5-0" class="headerlink" title="2.2.3 emqx5.0"></a>2.2.3 emqx5.0</h3><p>MQX 节点之间的连接模式从 Mnesia 的全网状拓扑结构转向 Mria 的网状+星型状拓扑结构，集群中节点可以按角色分为核心节点（Core）或复制者节点（Replicant）。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/2f5fb930a90f57c8.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>核心节点</strong></p>
+<p>核心节点作为数据库的数据层，节点间以全网状连接，每个节点都包含一个最新的数据副本，这保证了容错性：只要有一个节点存活，数据就不会丢失。核心节点一般是静态和持久的，不建议进行自动伸缩（即经常添加、删除或替换节点）。</p>
+<p><strong>复制节点</strong></p>
+<p>复制节点会连接到核心节点，并被动地复制来自 核心节点的数据更新。复制节点不允许执行任何的写操作，而是将其转交给核心节点代为执行。同时，由于复制节点有一个完整的本地数据副本，因此数据读取速度非常快，这样有助于降低 EMQX 路由的时延。</p>
+<p><strong>问题解决</strong></p>
+<p>以上已经解决了前两个问题，第三个问题。在emqx中提供了建立连接、订阅，取消订阅、超时重连，探活等一系列功能。通过相应的配置（keepalive、pingtimeout、cleansession）等参数即可实现。（后端可以在服务启动时建立连接、前端则根据具体场景选择合适的时机建立连接并订阅）。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2025/02/19/5adb54496689ff2d.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+      
+        <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/">#物联网</a>
+      
+        <a href="/tags/%E9%95%BF%E9%93%BE%E6%8E%A5/">#长链接</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MQTT学习使用</div>
+      <div>https://zty-f.github.io/2025/01/20/MQTT学习使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZTY</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月20日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/02/20/work_record/" title="WorkNormalRecord">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WorkNormalRecord</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="分布式数据一致性解决方案">
+                        <span class="hidden-mobile">分布式数据一致性解决方案</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"wLiqWYFHh2NEnXVcULmB4KWQ-gzGzoHsz","appKey":"GSfJMcM0GcCzp1HDNXJfd9Bt","path":"window.location.pathname","placeholder":"欢迎大家积极评论~  支持Markdown格式~","avatar":"wavatar","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://wliqwyfh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"> <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> <meting-js server="netease"  type="playlist"  id="7708362143" fixed="true"  mini="true" order="list" loop="all" preload="auto" list-folded="true" autoplay="true" theme="red"> </meting-js>
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/zty-f" target="_blank" rel="nofollow noopener"><span>Copyright &copy;</span></a> <a href="http://www.zty-f.fun/" target="_blank" rel="nofollow noopener"><span>zty-f</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      蜀ICP备2022002077号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

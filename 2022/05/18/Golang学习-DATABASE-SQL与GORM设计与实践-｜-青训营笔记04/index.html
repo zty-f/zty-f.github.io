@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZTY">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这是我参与「第三届青训营 -后端场」笔记创作活动的第4篇笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang学习&amp;DATABASE&#x2F;SQL与GORM设计与实践 ｜ 青训营笔记04">
+<meta property="og:url" content="https://zty-f.github.io/2022/05/18/Golang%E5%AD%A6%E4%B9%A0-DATABASE-SQL%E4%B8%8EGORM%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E8%B7%B5-%EF%BD%9C-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B004/index.html">
+<meta property="og:site_name" content="zruler">
+<meta property="og:description" content="这是我参与「第三届青训营 -后端场」笔记创作活动的第4篇笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/05/08/f23f4d4f7aa46d74.png">
+<meta property="article:published_time" content="2022-05-18T10:21:25.000Z">
+<meta property="article:modified_time" content="2025-11-06T06:36:34.121Z">
+<meta property="article:author" content="ZTY">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="青训营">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/05/08/f23f4d4f7aa46d74.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Golang学习&amp;DATABASE/SQL与GORM设计与实践 ｜ 青训营笔记04 - zruler</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3799348_11m20qbqwhmo.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zty-f.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>思前想后</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                魔盒
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-yingyong"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/zty-f">
+                <i class="iconfont icon-GitHub"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Golang学习&amp;DATABASE/SQL与GORM设计与实践 ｜ 青训营笔记04"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        ZTY
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-18 18:21" pubdate>
+          2022年5月18日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          35 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Golang学习&amp;DATABASE/SQL与GORM设计与实践 ｜ 青训营笔记04</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="DATABASE-x2F-SQL与GORM-设计与实践"><a href="#DATABASE-x2F-SQL与GORM-设计与实践" class="headerlink" title="DATABASE&#x2F;SQL与GORM 设计与实践"></a>DATABASE&#x2F;SQL与GORM 设计与实践</h2><h3 id="1-理解-database-x2F-sql"><a href="#1-理解-database-x2F-sql" class="headerlink" title="1.理解 database&#x2F;sql"></a>1.理解 database&#x2F;sql</h3><ul>
+<li><h5 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h5></li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stata">import (<br>	<span class="hljs-string">&quot;database/sql&quot;</span><br>	<span class="hljs-string">&quot;time&quot;</span><br><br>	_ <span class="hljs-string">&quot;github.com/go-sql-driver/mysql&quot;</span><br>)<br><br><span class="hljs-comment">// ...</span><br><br><span class="hljs-keyword">db</span>, <span class="hljs-keyword">err</span> := sql.<span class="hljs-keyword">Open</span>(<span class="hljs-string">&quot;mysql&quot;</span>, <span class="hljs-string">&quot;user:password@/dbname&quot;</span>)<br><span class="hljs-keyword">if</span> <span class="hljs-keyword">err</span> != nil &#123;<br>	panic(<span class="hljs-keyword">err</span>)<br>&#125;<br><span class="hljs-comment">// See &quot;Important settings&quot; section.</span><br><span class="hljs-keyword">db</span>.SetConnMaxLifetime(time.Minute * 3)<br><span class="hljs-keyword">db</span>.SetMaxOpenConns(10)<br><span class="hljs-keyword">db</span>.SetMaxIdleConns(10)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="DB连接的几种类型"><a href="#DB连接的几种类型" class="headerlink" title="DB连接的几种类型"></a>DB连接的几种类型</h5><ul>
+<li>直接连接&#x2F;Conn</li>
+<li>预编译&#x2F;Stmt</li>
+<li>事务&#x2F;TX</li>
+</ul>
+</li>
+<li><h5 id="处理返回数据的几种方式"><a href="#处理返回数据的几种方式" class="headerlink" title="处理返回数据的几种方式"></a>处理返回数据的几种方式</h5><ul>
+<li>Exec&#x2F; ExecContext -&gt; Result</li>
+<li>Query &#x2F; QueryContext -&gt; Rows (Columns)</li>
+<li>QueryRow &#x2F; QueryRowContext -&gt; Row (Rows简化)</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-GORM基础使用"><a href="#2-GORM基础使用" class="headerlink" title="2.GORM基础使用"></a>2.GORM基础使用</h3><h3 id="GORM：设计简洁、功能强大、自由扩展的全功能ORM-（对象关系映射）"><a href="#GORM：设计简洁、功能强大、自由扩展的全功能ORM-（对象关系映射）" class="headerlink" title="GORM：设计简洁、功能强大、自由扩展的全功能ORM （对象关系映射）"></a>GORM：设计简洁、功能强大、自由扩展的全功能ORM （对象关系映射）</h3><ul>
+<li><p>设计原则:API精简、测试优先、最小惊讶、灵活扩展、无依赖  <strong>可信赖</strong></p>
+</li>
+<li><p>功能完善:</p>
+<ul>
+<li>关联:一对一、一对多、单表自关联、多态;Preload、Joins 预加载、级联删除;关联模式;自定义关联表</li>
+<li>事务:事务代码块、嵌套事务、Save Point</li>
+<li>多数据库、读写分离、命名参数、Map、子查询、分组条件、代码共享、SQL表达式(查询、创建、更新)、自动选字段、查询优化器</li>
+<li>字段权限、软删除、批量数据处理、Propared Stmt、自定义类型、命名策略、虚拟字段、自动track 时间、SQLBuilder、Logger</li>
+<li>代码生成、复合主键、Constraint、Prometheus、Auto Migration、真·跨数据库兼容</li>
+<li>多模式灵活自由扩展</li>
+<li>Dovelopor Friondly</li>
+</ul>
+<h4 id="简单创建连接"><a href="#简单创建连接" class="headerlink" title="- 简单创建连接"></a>- 简单创建连接</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> (<br>  <span class="hljs-string">&quot;gorm.io/driver/mysql&quot;</span><br>  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span><br>)<br><br>func <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>  <span class="hljs-comment">// 参考 https://github.com/go-sql-driver/mysql#dsn-data-source-name 获取详情</span><br>  dsn := <span class="hljs-string">&quot;user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span><br>  db, err := gorm.Open(mysql.Open(dsn), &amp;gorm.Config&#123;&#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="高级配置"><a href="#高级配置" class="headerlink" title="- 高级配置"></a>- 高级配置</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go">db, err := gorm.Open(mysql.New(mysql.Config&#123;<br>  DSN: <span class="hljs-string">&quot;gorm:gorm@tcp(127.0.0.1:3306)/gorm?charset=utf8&amp;parseTime=True&amp;loc=Local&quot;</span>, <span class="hljs-comment">// DSN data source name</span><br>  DefaultStringSize: <span class="hljs-number">256</span>, <span class="hljs-comment">// string 类型字段的默认长度</span><br>  DisableDatetimePrecision: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 禁用 datetime 精度，MySQL 5.6 之前的数据库不支持</span><br>  DontSupportRenameIndex: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 重命名索引时采用删除并新建的方式，MySQL 5.7 之前的数据库和 MariaDB 不支持重命名索引</span><br>  DontSupportRenameColumn: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 用 `change` 重命名列，MySQL 8 之前的数据库和 MariaDB 不支持重命名列</span><br>  SkipInitializeWithVersion: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 根据当前 MySQL 版本自动配置</span><br>&#125;), &amp;gorm.Config&#123;&#125;)<br></code></pre></td></tr></table></figure>
+
+<h4 id="CRUD"><a href="#CRUD" class="headerlink" title="- CRUD"></a>- CRUD</h4><p><img src="https://s3.bmp.ovh/imgs/2022/05/16/3acf18e7eafa51d7.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+<h4 id="模型定义"><a href="#模型定义" class="headerlink" title="- 模型定义"></a>- 模型定义</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> &#123;<br>  ID           <span class="hljs-type">uint</span><br>  Name         <span class="hljs-type">string</span><br>  Email        *<span class="hljs-type">string</span><br>  Age          <span class="hljs-type">uint8</span><br>  Birthday     *time.Time<br>  MemberNumber sql.NullString<br>  ActivedAt    sql.NullTime<br>  CreatedAt    time.Time<br>  UpdatedAt    time.Time<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="约定大于配置"><a href="#约定大于配置" class="headerlink" title="- 约定大于配置"></a>- 约定大于配置</h4><ul>
+<li><p>GORM 倾向于约定，而不是配置。默认情况下，GORM 使用 ID 作为主键，使用结构体名的 蛇形复数 作为表名，字段名的 蛇形 作为列名，并使用 CreatedAt、UpdatedAt 字段追踪创建、更新时间。</p>
+</li>
+<li><p>遵循 GORM 已有的约定，可以减少您的配置和代码量。如果约定不符合您的需求，GORM 允许您自定义配置它们。</p>
+</li>
+</ul>
+<h4 id="使用-ID-作为主键"><a href="#使用-ID-作为主键" class="headerlink" title="使用 ID 作为主键"></a>使用 <code>ID</code> 作为主键</h4><p>默认情况下，GORM 会使用 <code>ID</code> 作为表的主键。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> &#123;<br>  ID   <span class="hljs-type">string</span> <span class="hljs-comment">// 默认情况下，名为 `ID` 的字段会作为表的主键</span><br>  Name <span class="hljs-type">string</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>你可以通过标签 <code>primaryKey</code> 将其它字段设为主键</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 将 `UUID` 设为主键</span><br><span class="hljs-keyword">type</span> Animal <span class="hljs-keyword">struct</span> &#123;<br>  ID     <span class="hljs-type">int64</span><br>  UUID   <span class="hljs-type">string</span> <span class="hljs-string">`gorm:&quot;primaryKey&quot;`</span><br>  Name   <span class="hljs-type">string</span><br>  Age    <span class="hljs-type">int64</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="复数表名"><a href="#复数表名" class="headerlink" title="复数表名"></a>复数表名</h4><p>GORM 使用结构体名的 <code>蛇形命名</code> 作为表名。对于结构体 <code>User</code>，根据约定，其表名为 <code>users</code></p>
+<h4 id="TableName"><a href="#TableName" class="headerlink" title="TableName"></a>TableName</h4><p>您可以实现 <code>Tabler</code> 接口来更改默认表名，例如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Tabler <span class="hljs-keyword">interface</span> &#123;<br>    TableName() <span class="hljs-type">string</span><br>&#125;<br><br><span class="hljs-comment">// TableName 会将 User 的表名重写为 `profiles`</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(User)</span></span> TableName() <span class="hljs-type">string</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;profiles&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="简单总结："><a href="#简单总结：" class="headerlink" title="简单总结："></a>简单总结：</h4><ul>
+<li><p>GORM是一种对象关系映射ORM框架，数据表对应结构体，数据行对应结构体实例，数据库字段对应结构体字段。</p>
+</li>
+<li><p>在gorm中，表名默认就是结构体名称的复数，也可以通过方法或者db.Table(“表名”)自定义表名；</p>
+</li>
+<li><p>列名由两个单词组成，在数据库中默认转小写后用下划线链接；</p>
+</li>
+<li><p>如果结构体有ID字段则默认ID字段为主键。</p>
+</li>
+<li><p>另外，GORM内置了一个gorm.Model结构体。gorm.Model是一个包含了ID, CreatedAt, UpdatedAt, DeletedAt四个字段的Golang结构体，可以将其嵌入到自己的结构体中。（如果模型内置了gorm.model有DeletedAt字段，则调用Delete删除该记录时，将会设置DeletedAt字段为当前时间，而不是直接将记录从数据库中删除，即软删除）</p>
+</li>
+<li><p>gorm中支持的结构体tag：</p>
+</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go">Type    指定列数据类型<br>Size    指定列大小, 默认值<span class="hljs-number">255</span><br>PRIMARY_KEY    将列指定为主键<br>UNIQUE    将列指定为唯一<br>NOT NULL    将列指定为非 NULL<br>Column    指定列名<br><span class="hljs-keyword">default</span>  设置默认值<br></code></pre></td></tr></table></figure>
+
+<h5 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go">查询<br><br>db.Select(<span class="hljs-string">&quot;name, age&quot;</span>).Order(<span class="hljs-string">&quot;age desc&quot;</span>).Limit(<span class="hljs-number">3</span>).Find(&amp;user, <span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>)<br>db.Select(<span class="hljs-string">&quot;name, age&quot;</span>).Order(<span class="hljs-string">&quot;age desc&quot;</span>).Limit(<span class="hljs-number">3</span>).Where(<span class="hljs-string">&quot;name = ?&quot;</span>,<span class="hljs-string">&quot;jinzhu&quot;</span>).Find(&amp;users)<br>修改<br><span class="hljs-comment">// 根据给定的条件更新单个属性</span><br>db.Model(&amp;user).Where(<span class="hljs-string">&quot;active = ?&quot;</span>, <span class="hljs-literal">true</span>).Update(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>)<br><span class="hljs-comment">// 使用 map 更新多个属性，只会更新其中有变化的属性</span><br>db.Model(&amp;user).Updates(<span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-keyword">interface</span>&#123;&#125;&#123;<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&quot;active&quot;</span>: <span class="hljs-literal">false</span>&#125;)<br><span class="hljs-comment">// 使用 struct 更新多个属性，只会更新其中有变化且为非零值的字段</span><br>db.Model(&amp;user).Updates(User&#123;Name: <span class="hljs-string">&quot;hello&quot;</span>, Age: <span class="hljs-number">18</span>&#125;)<br><br>如果你想更新或忽略某些字段，你可以使用 Select，Omit<br><br>删除<br>db.Where(<span class="hljs-string">&quot;email LIKE ?&quot;</span>, <span class="hljs-string">&quot;%jinzhu%&quot;</span>).Delete(Email&#123;&#125;)<br>db.Delete(Email&#123;&#125;, <span class="hljs-string">&quot;email LIKE ?&quot;</span>, <span class="hljs-string">&quot;%jinzhu%&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p>在 GORM 中使用多个立即执行方法时，后一个立即执行方法会复用前一个立即执行方法的条件 (不包括内联条件，find中写的条件) 。立即执行方法是指那些会立即生成SQL语句并发送到数据库的方法,一般是CRUD方法，如：Create, First, Find, Take, Save, UpdateXXX, Delete, Scan, Row, Rows…</p>
+</li>
+<li><p>db.debug  可以返回查询的sql语句。</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Golang/" class="category-chain-item">Golang</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Go/">#Go</a>
+      
+        <a href="/tags/%E9%9D%92%E8%AE%AD%E8%90%A5/">#青训营</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Golang学习&amp;DATABASE/SQL与GORM设计与实践 ｜ 青训营笔记04</div>
+      <div>https://zty-f.github.io/2022/05/18/Golang学习-DATABASE-SQL与GORM设计与实践-｜-青训营笔记04/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZTY</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月18日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/20/%E8%85%BE%E8%AE%AF%E4%BA%91%E6%99%BA%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E4%B8%80%E9%9D%A2/" title="腾讯云智后台开发实习一面">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">腾讯云智后台开发实习一面</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/17/%E4%B8%AD%E5%9B%BD%E8%BD%AF%E4%BB%B6(%E6%88%90%E9%83%BD%E5%88%86%E5%85%AC%E5%8F%B8)%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" title="中国软件与技术服务股份有限公司（成都）实习面试记录">
+                        <span class="hidden-mobile">中国软件与技术服务股份有限公司（成都）实习面试记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"wLiqWYFHh2NEnXVcULmB4KWQ-gzGzoHsz","appKey":"GSfJMcM0GcCzp1HDNXJfd9Bt","path":"window.location.pathname","placeholder":"欢迎大家积极评论~  支持Markdown格式~","avatar":"wavatar","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://wliqwyfh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"> <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> <meting-js server="netease"  type="playlist"  id="7708362143" fixed="true"  mini="true" order="list" loop="all" preload="auto" list-folded="true" autoplay="true" theme="red"> </meting-js>
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/zty-f" target="_blank" rel="nofollow noopener"><span>Copyright &copy;</span></a> <a href="http://www.zty-f.fun/" target="_blank" rel="nofollow noopener"><span>zty-f</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      蜀ICP备2022002077号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

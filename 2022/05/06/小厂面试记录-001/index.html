@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZTY">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="小厂实习面试记录以及问题回顾~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小厂实习面试记录-001">
+<meta property="og:url" content="https://zty-f.github.io/2022/05/06/%E5%B0%8F%E5%8E%82%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95-001/index.html">
+<meta property="og:site_name" content="zruler">
+<meta property="og:description" content="小厂实习面试记录以及问题回顾~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/11/29/12e088fa2399c4a7.jpg">
+<meta property="article:published_time" content="2022-05-06T13:08:23.000Z">
+<meta property="article:modified_time" content="2025-11-06T06:36:34.123Z">
+<meta property="article:author" content="ZTY">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="实习">
+<meta property="article:tag" content="大学">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/11/29/12e088fa2399c4a7.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>小厂实习面试记录-001 - zruler</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3799348_11m20qbqwhmo.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zty-f.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>思前想后</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                魔盒
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-yingyong"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/zty-f">
+                <i class="iconfont icon-GitHub"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="小厂实习面试记录-001"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        ZTY
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-06 21:08" pubdate>
+          2022年5月6日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">小厂实习面试记录-001</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="1-springmvc运行流程"><a href="#1-springmvc运行流程" class="headerlink" title="1.springmvc运行流程"></a>1.springmvc运行流程</h3><p>Spring MVC的处理过程：</p>
+<ol>
+<li>DispatcherServlet 接收用户的请求。</li>
+<li>找到用于处理request的 handler 和 Interceptors，构造成 HandlerExecutionChain 执行链。</li>
+<li>找到 handler 相对应的 HandlerAdapter。</li>
+<li>执行所有注册拦截器的preHandler方法。</li>
+<li>调用 HandlerAdapter 的 handle() 方法处理请求，返回 ModelAndView。</li>
+<li>倒序执行所有注册拦截器的postHandler方法。</li>
+<li>请求视图解析和视图渲染。</li>
+</ol>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/06/8996a22271cb53df.png" srcset="/img/loading.gif" lazyload></p>
+<p>处理流程中各个组件的功能：</p>
+<ul>
+<li>前端控制器（DispatcherServlet）：接收用户请求，给用户返回结果。</li>
+<li>处理器映射器（HandlerMapping）：根据请求的url路径，通过注解或者xml配置，寻找匹配的Handler。</li>
+<li>处理器适配器（HandlerAdapter）：Handler 的适配器，调用 handler 的方法处理请求。</li>
+<li>处理器（Handler）：执行相关的请求处理逻辑，并返回相应的数据和视图信息，将其封装到ModelAndView对象中。</li>
+<li>视图解析器（ViewResolver）：将逻辑视图名解析成真正的视图View。</li>
+<li>视图（View）：接口类，实现类可支持不同的View类型（JSP、FreeMarker、Excel等）。</li>
+</ul>
+<h3 id="2-Redis内存优化"><a href="#2-Redis内存优化" class="headerlink" title="2.Redis内存优化"></a>2.Redis内存优化</h3><h5 id="1-压缩值"><a href="#1-压缩值" class="headerlink" title="1.压缩值"></a>1.压缩值</h5><h5 id="2-使用较小的键"><a href="#2-使用较小的键" class="headerlink" title="2.使用较小的键"></a>2.使用较小的键</h5><h5 id="3-切换到32位"><a href="#3-切换到32位" class="headerlink" title="3.切换到32位"></a>3.切换到32位</h5><h5 id="4-升级Redis版本"><a href="#4-升级Redis版本" class="headerlink" title="4.升级Redis版本"></a>4.升级Redis版本</h5><h5 id="5-使用更好的序列化器"><a href="#5-使用更好的序列化器" class="headerlink" title="5.使用更好的序列化器"></a>5.使用更好的序列化器</h5><h5 id="6-将较小的字符串组合为哈希"><a href="#6-将较小的字符串组合为哈希" class="headerlink" title="6.将较小的字符串组合为哈希"></a>6.将较小的字符串组合为哈希</h5><h5 id="7-从Set切换为Intset"><a href="#7-从Set切换为Intset" class="headerlink" title="7.从Set切换为Intset"></a>7.从Set切换为Intset</h5><h5 id="8-切换到bloom-filter或hyperloglog"><a href="#8-切换到bloom-filter或hyperloglog" class="headerlink" title="8.切换到bloom filter或hyperloglog"></a>8.切换到bloom filter或hyperloglog</h5><h5 id="9-大哈希分片成小哈希"><a href="#9-大哈希分片成小哈希" class="headerlink" title="9.大哈希分片成小哈希"></a>9.大哈希分片成小哈希</h5><h5 id="10-将哈希的Hashtable转换为Ziplist"><a href="#10-将哈希的Hashtable转换为Ziplist" class="headerlink" title="10.将哈希的Hashtable转换为Ziplist"></a>10.将哈希的Hashtable转换为Ziplist</h5><h5 id="11-转换为List而不是Hash"><a href="#11-转换为List而不是Hash" class="headerlink" title="11.转换为List而不是Hash"></a>11.转换为List而不是Hash</h5><h5 id="12-压缩字段名"><a href="#12-压缩字段名" class="headerlink" title="12.压缩字段名"></a>12.压缩字段名</h5><h5 id="13-避免动态Lua脚本"><a href="#13-避免动态Lua脚本" class="headerlink" title="13.避免动态Lua脚本"></a>13.避免动态Lua脚本</h5><h5 id="14-启用List压缩"><a href="#14-启用List压缩" class="headerlink" title="14.启用List压缩"></a>14.启用List压缩</h5><h5 id="15-更快地回收过期的键内存"><a href="#15-更快地回收过期的键内存" class="headerlink" title="15.更快地回收过期的键内存"></a>15.更快地回收过期的键内存</h5><h3 id="3-springboot核心配置文件"><a href="#3-springboot核心配置文件" class="headerlink" title="3.springboot核心配置文件"></a>3.springboot核心配置文件</h3><h5 id="⼀、springboot主要配置⽂件种类"><a href="#⼀、springboot主要配置⽂件种类" class="headerlink" title="⼀、springboot主要配置⽂件种类"></a>⼀、springboot主要配置⽂件种类</h5><p>1.bootstrap （.yml或.properties）<br>2.application（.yml或.properties）</p>
+<h5 id="⼆、bootstrap与application的区别"><a href="#⼆、bootstrap与application的区别" class="headerlink" title="⼆、bootstrap与application的区别"></a>⼆、bootstrap与application的区别</h5><p>Spring Cloud项⽬是基于Spring Boot项⽬的，我们创建的Spring Cloud项⽬其实包含了两个Spring容器，⼀个是Spring Cloud的，⼀个是Spring Boot的，Spring Cloud作为⽗容器。这两个容器都是分开进⾏实例化的，最后关联起来。⼀开始是Spring Boot项⽬启动，然后在环境准备阶段会进⼊到BootstrapApplicationListener这个监听器当中，通过这个监听器会创建⼀个属于Spring Cloud的SpringApplication对象（与Spring Boot创建异曲同⼯，只不过有⼀些⾃⼰特别的配置⽽已），执⾏SpringApplication对象的run⽅法就会创建⼀个Spring Cloud的容器对象。</p>
+<h5 id="三、bootstrap与application的应⽤场景"><a href="#三、bootstrap与application的应⽤场景" class="headerlink" title="三、bootstrap与application的应⽤场景"></a>三、bootstrap与application的应⽤场景</h5><p>1.application主要⽤于spring项⽬的⾃动化配置。<br>2.bootstrap主要有以下⼏个应⽤场景：</p>
+<ul>
+<li><p>使⽤ Spring Cloud Config 配置中⼼时，这时需要在 bootstrap 配置⽂件中添加连接到配置中⼼的配置属性来加载外部配置中⼼的配置<br>信息；</p>
+</li>
+<li><p>⼀些固定的不能被覆盖的属性；</p>
+</li>
+<li><p>⼀些加密&#x2F;解密的场景；</p>
+</li>
+</ul>
+<h3 id="4-https"><a href="#4-https" class="headerlink" title="4.https"></a>4.https</h3><h4 id="什么是数字证书？"><a href="#什么是数字证书？" class="headerlink" title="什么是数字证书？"></a>什么是数字证书？</h4><p>服务端可以向证书颁发机构CA申请证书，以避免中间人攻击（防止证书被篡改）。证书包含三部分内容：<strong>证书内容、证书签名算法和签名</strong>，签名是为了验证身份。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/07/2d90f83c87a5f7a8.png" srcset="/img/loading.gif" lazyload></p>
+<p>服务端把证书传输给浏览器，浏览器从证书里取公钥。证书可以证明该公钥对应本网站。</p>
+<p><strong>数字签名的制作过程</strong>：</p>
+<ol>
+<li>CA使用证书签名算法对证书内容进行<strong>hash运算</strong>。</li>
+<li>对hash后的值<strong>用CA的私钥加密</strong>，得到数字签名。</li>
+</ol>
+<p><strong>浏览器验证过程</strong>：</p>
+<ol>
+<li>获取证书，得到证书内容、证书签名算法和数字签名。</li>
+<li>用CA机构的公钥<strong>对数字签名解密</strong>（由于是浏览器信任的机构，所以浏览器会保存它的公钥）。</li>
+<li>用证书里的签名算法<strong>对证书内容进行hash运算</strong>。</li>
+<li>比较解密后的数字签名和对证书内容做hash运算后得到的哈希值，相等则表明证书可信。</li>
+</ol>
+<h4 id="HTTPS原理"><a href="#HTTPS原理" class="headerlink" title="HTTPS原理"></a>HTTPS原理</h4><p>首先是TCP三次握手，然后客户端发起一个HTTPS连接建立请求，客户端先发一个<code>Client Hello</code>的包，然后服务端响应<code>Server Hello</code>，接着再给客户端发送它的证书，然后双方经过密钥交换，最后使用交换的密钥加解密数据。</p>
+<ol>
+<li><p><strong>协商加密算法</strong> 。在<code>Client Hello</code>里面客户端会告知服务端自己当前的一些信息，包括客户端要使用的TLS版本，支持的加密算法，要访问的域名，给服务端生成的一个随机数（Nonce）等。需要提前告知服务器想要访问的域名以便服务器发送相应的域名的证书过来。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/07/fcb2805f61722619.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>服务端响应<code>Server Hello</code>，告诉客户端服务端<strong>选中的加密算法</strong>。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/07/95f0278eaeb5d70d.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>接着服务端给客户端发来了2个证书。第二个证书是第一个证书的签发机构（CA）的证书。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/07/48638c71c57432b5.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>客户端使用证书的认证机构CA公开发布的RSA公钥<strong>对该证书进行验证</strong>，下图表明证书认证成功。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/07/e8fd94475ee90472.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>验证通过之后，浏览器和服务器通过<strong>密钥交换算法</strong>产生共享的<strong>对称密钥</strong>。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/07/f9f9e2614b0d60df.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/07/78c0ce347ad9d681.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>开始传输数据，使用同一个对称密钥来加解密。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/07/8a92d1601f24a520.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ol>
+<h3 id="5-301-302状态码代表什么"><a href="#5-301-302状态码代表什么" class="headerlink" title="5.301  302状态码代表什么"></a>5.301  302状态码代表什么</h3><p><img src="https://s3.bmp.ovh/imgs/2022/05/06/92b8a21555b04bc8.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/04/8df4a0cabe29ec2c.jpg" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%9D%A2%E8%AF%95/" class="category-chain-item">面试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%B0%E5%BD%95/">#记录</a>
+      
+        <a href="/tags/%E5%AE%9E%E4%B9%A0/">#实习</a>
+      
+        <a href="/tags/%E5%A4%A7%E5%AD%A6/">#大学</a>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>小厂实习面试记录-001</div>
+      <div>https://zty-f.github.io/2022/05/06/小厂面试记录-001/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZTY</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/08/%E5%B0%8F%E5%8E%82%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95-002/" title="小厂实习面试记录-002">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">小厂实习面试记录-002</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/03/Java%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/" title="Java常用配置文件总结">
+                        <span class="hidden-mobile">Java常用配置文件总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"wLiqWYFHh2NEnXVcULmB4KWQ-gzGzoHsz","appKey":"GSfJMcM0GcCzp1HDNXJfd9Bt","path":"window.location.pathname","placeholder":"欢迎大家积极评论~  支持Markdown格式~","avatar":"wavatar","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://wliqwyfh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"> <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> <meting-js server="netease"  type="playlist"  id="7708362143" fixed="true"  mini="true" order="list" loop="all" preload="auto" list-folded="true" autoplay="true" theme="red"> </meting-js>
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/zty-f" target="_blank" rel="nofollow noopener"><span>Copyright &copy;</span></a> <a href="http://www.zty-f.fun/" target="_blank" rel="nofollow noopener"><span>zty-f</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      蜀ICP备2022002077号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

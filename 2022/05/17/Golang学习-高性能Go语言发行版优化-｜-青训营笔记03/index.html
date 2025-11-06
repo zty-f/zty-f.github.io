@@ -1,0 +1,1023 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZTY">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="这是我参与「第三届青训营 -后端场」笔记创作活动的第3篇笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang学习&amp;高性能Go语言发行版优化 ｜ 青训营笔记03">
+<meta property="og:url" content="https://zty-f.github.io/2022/05/17/Golang%E5%AD%A6%E4%B9%A0-%E9%AB%98%E6%80%A7%E8%83%BDGo%E8%AF%AD%E8%A8%80%E5%8F%91%E8%A1%8C%E7%89%88%E4%BC%98%E5%8C%96-%EF%BD%9C-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B003/index.html">
+<meta property="og:site_name" content="zruler">
+<meta property="og:description" content="这是我参与「第三届青训营 -后端场」笔记创作活动的第3篇笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/05/08/f23f4d4f7aa46d74.png">
+<meta property="article:published_time" content="2022-05-17T07:20:00.000Z">
+<meta property="article:modified_time" content="2025-11-06T06:36:34.121Z">
+<meta property="article:author" content="ZTY">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="青训营">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/05/08/f23f4d4f7aa46d74.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Golang学习&amp;高性能Go语言发行版优化 ｜ 青训营笔记03 - zruler</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3799348_11m20qbqwhmo.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zty-f.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>思前想后</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                魔盒
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-yingyong"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/zty-f">
+                <i class="iconfont icon-GitHub"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Golang学习&amp;高性能Go语言发行版优化 ｜ 青训营笔记03"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        ZTY
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-17 15:20" pubdate>
+          2022年5月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Golang学习&amp;高性能Go语言发行版优化 ｜ 青训营笔记03</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="高性能Go语言发行版优化"><a href="#高性能Go语言发行版优化" class="headerlink" title="高性能Go语言发行版优化"></a>高性能Go语言发行版优化</h2><ul>
+<li><h3 id="性能优化是什么"><a href="#性能优化是什么" class="headerlink" title="性能优化是什么?"></a>性能优化是什么?</h3><ul>
+<li>提升软件系统处理能力，减少不必要的消耗，充分发掘计算机算力。</li>
+</ul>
+</li>
+<li><h3 id="为什么要做性能优化"><a href="#为什么要做性能优化" class="headerlink" title="为什么要做性能优化?"></a>为什么要做性能优化?</h3><ul>
+<li>用户体验:带来用户体验的提升——让刷抖音更丝滑，让双十一购物等大流量场景不再卡顿。</li>
+<li>资源高效利用:降低成本，提高效率——很小的优化乘以海量机器会是显著的性能提升和成本。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-自动内存管理-类似于JVM内存管理和垃圾回收"><a href="#1-自动内存管理-类似于JVM内存管理和垃圾回收" class="headerlink" title="1.自动内存管理(类似于JVM内存管理和垃圾回收)"></a>1.自动内存管理(类似于JVM内存管理和垃圾回收)</h3><ul>
+<li><h5 id="动态内存"><a href="#动态内存" class="headerlink" title="动态内存"></a>动态内存</h5><ul>
+<li>程序在运行时根据需求动态分配的内存: malloc()</li>
+</ul>
+</li>
+<li><h5 id="自动内存管理-垃圾回收-由程序语言的运行时系统管理动态内存"><a href="#自动内存管理-垃圾回收-由程序语言的运行时系统管理动态内存" class="headerlink" title="自动内存管理(垃圾回收):由程序语言的运行时系统管理动态内存"></a>自动内存管理(垃圾回收):由程序语言的运行时系统管理动态内存</h5><ul>
+<li>避免手动内存管理,专注于实现业务逻辑</li>
+<li>保证内存使用的<strong>正确性</strong>和<strong>安全性</strong>: double-free problem, use-after-free problem</li>
+</ul>
+</li>
+<li><h5 id="三个任务"><a href="#三个任务" class="headerlink" title="三个任务"></a>三个任务</h5><ul>
+<li>为新对象分配空间</li>
+<li>找到存活对象</li>
+<li>回收死亡对象的内存空间</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-1、自动内存管理-相关概念"><a href="#1-1、自动内存管理-相关概念" class="headerlink" title="1.1、自动内存管理-相关概念"></a>1.1、自动内存管理-相关概念</h4><ul>
+<li><p>Mutator:业务线程，分配新对象，修改对象指向关系</p>
+</li>
+<li><p>Collector: GC线程，找到存活对象，回收死亡对象的内存空间.</p>
+</li>
+<li><p>Serial GC:只有一个collector</p>
+</li>
+<li><p>Parallel GC:支持多个collectors同时回收的GC算法</p>
+</li>
+<li><p>Concurrent GC: mutator(s)和collector(s)可以同时执行</p>
+</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/16/0788997982d1cabd.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="1-2、追踪垃圾回收"><a href="#1-2、追踪垃圾回收" class="headerlink" title="1.2、追踪垃圾回收"></a>1.2、追踪垃圾回收</h4><ul>
+<li><p>对象被回收的条件:指针指向关系不可达的对象</p>
+</li>
+<li><p>标记根对象</p>
+<ul>
+<li>静态变量、全局变量、常量、线程栈等</li>
+</ul>
+</li>
+<li><p>标记:找到可达对象</p>
+<ul>
+<li>求指针指向关系的传递闭包:从根对象出发，找到所有可达对象</li>
+</ul>
+</li>
+<li><p>清理:所有不可达对象</p>
+<ul>
+<li>将存活对象复制到另外的内存空间(Copying Gc)</li>
+<li>将死亡对象的内存标记为阿分配“(Mark-sweep GC)</li>
+<li>移动并整理存活对象(Mark-compact GC)</li>
+</ul>
+</li>
+<li><p>根据对象的生命周期，使用不同的标记和清理策略（分代回收算法！）</p>
+</li>
+</ul>
+<h5 id="1-Copying-GC-将对象复制到另外的内存空间"><a href="#1-Copying-GC-将对象复制到另外的内存空间" class="headerlink" title="1. Copying GC:将对象复制到另外的内存空间"></a>1. Copying GC:将对象复制到另外的内存空间</h5><h5 id="2-Mark-sweep-GC-使用free-list管理空闲内存"><a href="#2-Mark-sweep-GC-使用free-list管理空闲内存" class="headerlink" title="2. Mark-sweep GC:使用free list管理空闲内存"></a>2. Mark-sweep GC:使用free list管理空闲内存</h5><h5 id="3-Compact-GC-原地整理对象"><a href="#3-Compact-GC-原地整理对象" class="headerlink" title="3. Compact GC:原地整理对象"></a>3. Compact GC:原地整理对象</h5><h4 id="1-3、分代GC（Generational-GC）"><a href="#1-3、分代GC（Generational-GC）" class="headerlink" title="1.3、分代GC（Generational GC）"></a>1.3、分代GC（Generational GC）</h4><ul>
+<li><h6 id="年轻代-Young-generation"><a href="#年轻代-Young-generation" class="headerlink" title="年轻代(Young generation)"></a>年轻代(Young generation)</h6><ul>
+<li>常规的对象分配</li>
+<li>由于存活对象很少，可以采用copying collection.</li>
+<li>GC吞吐率很高</li>
+</ul>
+</li>
+<li><h6 id="老年代-Old-generation"><a href="#老年代-Old-generation" class="headerlink" title="老年代(Old generation)"></a>老年代(Old generation)</h6><ul>
+<li>对象趋向于一直活着，反复复制开销较大</li>
+<li>可以采用mark-sweep collection</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-4、引用计数"><a href="#1-4、引用计数" class="headerlink" title="1.4、引用计数"></a>1.4、引用计数</h4><ul>
+<li><p>每个对象都有一个与之关联的引用数目</p>
+</li>
+<li><p>对象存活的条件: 当且仅当引用数大于0</p>
+</li>
+<li><p>优点</p>
+<ul>
+<li>内存管理的操作被平摊到程序执行过程中</li>
+<li>内存管理不需要了解 runtime 的实现细节:C+智能指针(smart pointer)</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>维护引用计数的开销较大:通过原子操作保证对引用计数操作的原子性和可见性</li>
+<li>无法回收环形数据结构—— weak reference</li>
+<li>内存开销:每个对象都引入的额外内存空间存储引用数目</li>
+<li>回收内存时依然可能引发暂停</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Go内存管理记优化"><a href="#2-Go内存管理记优化" class="headerlink" title="2.Go内存管理记优化"></a>2.Go内存管理记优化</h3><h4 id="2-1-Go内存分配——分块"><a href="#2-1-Go内存分配——分块" class="headerlink" title="2.1. Go内存分配——分块"></a>2.1. Go内存分配——分块</h4><ul>
+<li>目标:为对象在heap 上分配内存</li>
+<li>提前将内存分块<ul>
+<li>调用系统调用mma向OS申请一大块内存，例如4 MB；</li>
+<li>先将内存划分成大块，例如8KB，称作mspan；</li>
+<li>再将大块继续划分成特定大小的小块，用于对象分配；</li>
+<li>noscan mspan:分配不包含指针的对象——GC不需要扫描；</li>
+<li>scan mspan:分配包含指针的对象——GC需要扫描。</li>
+</ul>
+</li>
+<li>对象分配:根据对象的大小，选择最合适的块返回</li>
+</ul>
+<h4 id="2-1-Go内存分配——缓存"><a href="#2-1-Go内存分配——缓存" class="headerlink" title="2.1. Go内存分配——缓存"></a>2.1. Go内存分配——缓存</h4><p>g——&gt;m——&gt;p——&gt;内存（Go gmp内存模型）</p>
+<ul>
+<li>TCMalloc: thread caching</li>
+<li>每个p包含一个mcache用于快速分配，用于为绑定于p上的g分配对象</li>
+<li>mcache管理一组mspan</li>
+<li>当mcache中的ms pan分配完毕，向neentral申请带有未分配块的mspan</li>
+<li>当mspan中没有分配的对象，mspan会被缓存在neentral中，而不是立刻释放并归还给Os</li>
+</ul>
+<h4 id="2-2-优化方案：Balanced-GC"><a href="#2-2-优化方案：Balanced-GC" class="headerlink" title="2.2.优化方案：Balanced GC"></a>2.2.优化方案：Balanced GC</h4><ul>
+<li><p>每个g都绑定一大块内存（1 KB)，称作 goroutine allocation buffer (GAB)</p>
+</li>
+<li><p>GAB用于noscan类型的小对象分配:&lt;128 B</p>
+</li>
+<li><p>使用三个指针维护GAB: base, end, top</p>
+</li>
+<li><p>Bump pointer(指针碰撞)风格对象分配</p>
+<ul>
+<li>无须和其他分配请求互斥</li>
+<li>分配动作简单高效</li>
+</ul>
+</li>
+<li><p>GAB对于Go内存管理来说是一个对象</p>
+</li>
+<li><p>本质:将多个小对象的分配合并成一次达对象的分配</p>
+</li>
+<li><p>问题:GAB的对象分配方式会导致内存被延迟释放</p>
+</li>
+<li><p>方案:移动GAB中存活的对象</p>
+<ul>
+<li>当GAB总大小超过一定阈值时，将GAB中存活的对象复制到另外分配的GAB中</li>
+<li>原先的GAB可以释放，避免内存泄漏</li>
+<li>本质:用copying GC的算法管理小对象————<strong>根据对象的生命周期，使用不同的标记和清理策略</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-编译器和静态分析"><a href="#3-编译器和静态分析" class="headerlink" title="3.编译器和静态分析"></a>3.编译器和静态分析</h3><ul>
+<li><p>静态分析:<strong>不执行程序代码</strong>，推导程序的行为，分析程序的性质。</p>
+</li>
+<li><p>控制流(Control flow):程序执行的流程</p>
+</li>
+<li><p>数据流(Data flow):数据在控制流上的传递</p>
+</li>
+<li><p>通过分析控制流和数据流,我们可以知道更多<strong>关于程序的性质</strong>(properties)</p>
+</li>
+<li><p>根据这些性质优化代码</p>
+</li>
+<li><p>过程内分析(Intra-procedural analysis)</p>
+<ul>
+<li><strong>仅在函数内部进行分析</strong></li>
+</ul>
+</li>
+<li><p>过程间分析(Inter-procedural analysis)</p>
+<ul>
+<li><strong>考虑过程调用时参数传递和返回值的数据流和控制流</strong></li>
+</ul>
+</li>
+<li><p>为什么过程间分析是个问题?</p>
+<ul>
+<li>需要通过<strong>数据流分析</strong>得知i的具体类型，才能知道i.foo()调用的是哪个foo（）</li>
+<li>根据i的具体类型，<strong>产生了新的控制流</strong>，A.foo()，分析继续</li>
+<li>过程间分析需要<strong>同时</strong>分析控制流和数据流——<strong>联合求解，比较复杂</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-编译器优化"><a href="#4-编译器优化" class="headerlink" title="4.编译器优化"></a>4.编译器优化</h3><ul>
+<li><p>为什么做编译器优化</p>
+<ul>
+<li>用户无感知，重新编译即可获得性能收益</li>
+<li>通用性优化</li>
+</ul>
+</li>
+<li><p>现状</p>
+<ul>
+<li>采用的优化少</li>
+<li>编译时间较短，没有进行较复杂的代码分析和优化</li>
+</ul>
+</li>
+<li><p>编译优化的思路</p>
+<ul>
+<li>场景:面向后端长期执行任务</li>
+<li>Tradeoff:用编译时间换取更高效的机器码</li>
+</ul>
+</li>
+<li><p>优化方案</p>
+<ul>
+<li>函数内联</li>
+<li>逃逸分析</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-1函数内联-Inlining"><a href="#4-1函数内联-Inlining" class="headerlink" title="4.1函数内联(Inlining)"></a>4.1函数内联(Inlining)</h4><ul>
+<li>内联:将被调用函数的函数体(callee)的副本替换到调用位置(caller)上，同时重写代码以反映参数的绑定</li>
+<li>优点<ul>
+<li>消除函数调用开销，例如传递参数、保存寄存器等</li>
+<li>将过程间分析转化为过程内分析，帮助其他优化，例如逃逸分析</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>函数体变大，instruction cache (icache)不友好</li>
+<li>编译生成的Go镜像变大</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2逃逸分析"><a href="#4-2逃逸分析" class="headerlink" title="4.2逃逸分析"></a>4.2逃逸分析</h4><ul>
+<li><p>逃逸分析:分析代码中指针的动态作用域:指针在何处可以被访问</p>
+</li>
+<li><p>大致思路</p>
+<ul>
+<li>从对象分配处出发,沿着控制流,观察对象的数据流</li>
+<li>若发现指针p在当前作用域s:<ul>
+<li>作为参数传递给其他函数</li>
+<li>传递给全局变量</li>
+<li>传递给其他的goroutine</li>
+<li>传递给已逃逸的指针指向的对象</li>
+</ul>
+</li>
+<li>则指针p指向的对象逃逸出s，反之则没有逃逸出s</li>
+</ul>
+</li>
+<li><p>Beast mode:函数内联拓展了函数边界，更多对象不逃逸</p>
+</li>
+<li><p>优化:未逃逸的对象可以在栈上分配</p>
+<ul>
+<li>对象在栈上分配和回收很快:移动sp</li>
+<li>减少在heap 上的分配，降低GC负担</li>
+</ul>
+</li>
+</ul>
+<h3 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h3><ul>
+<li>本节课程:高性能Go语言发行版优化与落地实践</li>
+<li>性能优化<ul>
+<li>自动内存管理</li>
+<li>Go内存管理</li>
+<li>编译器与静态分析</li>
+<li>编译器优化</li>
+</ul>
+</li>
+<li>实践<ul>
+<li>Balanced GC优化对象分配</li>
+<li>Beast mode提升代码性能</li>
+</ul>
+</li>
+<li>分析问题的方法与解决问题的思路，不仅适用于Go 语言，其他语言的优化也同样适用</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Golang/" class="category-chain-item">Golang</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Go/">#Go</a>
+      
+        <a href="/tags/%E9%9D%92%E8%AE%AD%E8%90%A5/">#青训营</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Golang学习&amp;高性能Go语言发行版优化 ｜ 青训营笔记03</div>
+      <div>https://zty-f.github.io/2022/05/17/Golang学习-高性能Go语言发行版优化-｜-青训营笔记03/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZTY</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月17日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月6日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/17/%E4%B8%AD%E5%9B%BD%E8%BD%AF%E4%BB%B6(%E6%88%90%E9%83%BD%E5%88%86%E5%85%AC%E5%8F%B8)%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" title="中国软件与技术服务股份有限公司（成都）实习面试记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">中国软件与技术服务股份有限公司（成都）实习面试记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/16/Golang%E5%AD%A6%E4%B9%A0-%E9%AB%98%E8%B4%A8%E9%87%8F%E7%BC%96%E7%A8%8B%E5%92%8C%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98-%EF%BD%9C-%E9%9D%92%E8%AE%AD%E8%90%A5%E7%AC%94%E8%AE%B002/" title="Golang学习&amp;高质量编程和性能调优 ｜ 青训营笔记02">
+                        <span class="hidden-mobile">Golang学习&amp;高质量编程和性能调优 ｜ 青训营笔记02</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"wLiqWYFHh2NEnXVcULmB4KWQ-gzGzoHsz","appKey":"GSfJMcM0GcCzp1HDNXJfd9Bt","path":"window.location.pathname","placeholder":"欢迎大家积极评论~  支持Markdown格式~","avatar":"wavatar","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://wliqwyfh.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"> <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> <meting-js server="netease"  type="playlist"  id="7708362143" fixed="true"  mini="true" order="list" loop="all" preload="auto" list-folded="true" autoplay="true" theme="red"> </meting-js>
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/zty-f" target="_blank" rel="nofollow noopener"><span>Copyright &copy;</span></a> <a href="http://www.zty-f.fun/" target="_blank" rel="nofollow noopener"><span>zty-f</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      蜀ICP备2022002077号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
